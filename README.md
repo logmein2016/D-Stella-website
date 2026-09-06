@@ -83,7 +83,7 @@ the client bundle.
 ```bash
 git init
 git add -A
-git commit -m "Initial Next.js port of the Ansuman Designs marketing site"
+git commit -m "Initial Next.js port of the D'Stella Designs marketing site"
 git branch -M main
 git remote add origin <your-repo-url>
 git push -u origin main

@@ -7,7 +7,7 @@
  * Deep Forest #1c2620, Plum #241522. */
 export const TONE_DARK = "#1a1817";
 
-export const SITE_NAME = "Ansuman Designs";
+export const SITE_NAME = "D'Stella Designs";
 export const SITE_TAGLINE = "Where a House becomes a Home — Bangalore";
 
 /** Placeholder — appears in every footer. Needs the client's real number. */

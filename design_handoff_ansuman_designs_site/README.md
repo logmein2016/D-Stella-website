@@ -1,8 +1,8 @@
-# Handoff: Ansuman Designs — Interior Design Marketing Site
+# Handoff: D'Stella Designs — Interior Design Marketing Site
 
 ## Overview
 
-A three-page mobile-first marketing site for **Ansuman Designs**, an interior design firm in Bangalore. It targets mid-segment 2–3 BHK apartment owners with budgets in the ₹7–12L range.
+A three-page mobile-first marketing site for **D'Stella Designs**, an interior design firm in Bangalore. It targets mid-segment 2–3 BHK apartment owners with budgets in the ₹7–12L range.
 
 The site's job is to establish design credibility, give a visitor a self-serve price range without gating it behind a form, and capture leads into a Supabase table with enough context that a sales call can be prepared before dialling.
 
@@ -422,7 +422,7 @@ Empty strings are normalised to `null` before insert.
 If credentials are absent or the request fails, the component does **not** show an error. It shows the success state plus a "Continue on WhatsApp" button linking to a `wa.me` deep link pre-filled with everything the visitor typed:
 
 ```
-Hi Ansuman Designs, I would like an estimate.
+Hi D'Stella Designs, I would like an estimate.
 
 Name: {name}
 Phone: {phone}
