@@ -2,7 +2,7 @@
 
 ## Overview
 
-A three-page mobile-first marketing site for **Ansuman Designs**, an interior design firm in Bhubaneswar, Odisha. It targets mid-segment 2–3 BHK apartment owners with budgets in the ₹7–12L range.
+A three-page mobile-first marketing site for **Ansuman Designs**, an interior design firm in Bangalore. It targets mid-segment 2–3 BHK apartment owners with budgets in the ₹7–12L range.
 
 The site's job is to establish design credibility, give a visitor a self-serve price range without gating it behind a form, and capture leads into a Supabase table with enough context that a sales call can be prepared before dialling.
 
@@ -107,7 +107,7 @@ Per-page nav links:
 - Portfolio → Home (outlined), Estimate (filled)
 - Estimator → Home (outlined), Portfolio (outlined)
 
-**Footer** — dark fill matching the nav, `var(--space-6) var(--space-4)` padding, vertical flex with `var(--space-3)` gap. Brand wordmark in `--color-neutral-100`, then two 13px lines at 75% opacity: the tagline "Where a House becomes a Home — Bhubaneswar, Odisha" and the WhatsApp number.
+**Footer** — dark fill matching the nav, `var(--space-6) var(--space-4)` padding, vertical flex with `var(--space-3)` gap. Brand wordmark in `--color-neutral-100`, then two 13px lines at 75% opacity: the tagline "Where a House becomes a Home — Bangalore" and the WhatsApp number.
 
 **Luxury tone** — the dark nav/footer color is a themeable value, defaulting to `#1a1817` (near-black "Onyx"), with three alternates offered: `#241a14` (Espresso), `#1c2620` (Deep Forest), `#241522` (Plum). In the prototypes this is a component prop; in production, expose it as a single CSS custom property (e.g. `--tone-dark`) set once on `:root` so it can be changed in one place. On the portfolio page this same value also draws the 64×3px rule under the H1 and the 2px top border on each project card's caption block.
 
@@ -125,7 +125,7 @@ Full-bleed photographic hero, `min-height: min(92vh, 760px)`, content bottom-ali
 - **Image layer** (z-index 0): three stacked images cross-fading. Each is absolutely positioned at `inset: 0`, `object-fit: cover`, with `opacity` toggling between 1 and 0 on a `transition: opacity 1.2s ease`. A timer advances the active index every **4500ms**, wrapping modulo 3. All three sit inside the `.grayscale` wrapper — **hero photography prints pure black and white**, per the design system.
 - **Scrim** (z-index 1): `linear-gradient(180deg, rgba(32,30,29,0.15) 0%, rgba(32,30,29,0.55) 75%, rgba(32,30,29,0.75) 100%)`, `pointer-events: none`. This is what makes the white text legible — keep it.
 - **Content** (z-index 2): `var(--space-6) var(--space-4) var(--space-8)` padding, `var(--space-3)` gap.
-  - Kicker: "Bhubaneswar · 2 & 3 BHK Interiors" — `#f3f2f2` at 85% opacity
+  - Kicker: "Bangalore · 2 & 3 BHK Interiors" — `#f3f2f2` at 85% opacity
   - H1: "Premium interiors for your home." — `#f3f2f2`, `clamp(32px,7vw,56px)`, `max-width: 14ch`
   - Body: "Most homes ready in 45–60 days. Designed and managed end to end by us." — `#f3f2f2` at 90%, `clamp(15px,3.5vw,18px)`, `max-width: 38ch`
   - CTA: "See your estimated price" → estimator. `--color-accent-300` fill, `--color-accent-900` text, 15px, `14px 22px` padding.
@@ -210,7 +210,7 @@ Closing: an outlined "View full portfolio →" button, left-aligned.
 - Kicker "Portfolio" in `--color-accent`, 12px, `letter-spacing: 0.12em`, uppercase, weight 700
 - H1 "Real homes, real budgets" — `clamp(32px,6vw,56px)`, weight 800, `letter-spacing: -0.01em`, `margin: 0 0 var(--space-3)`
 - A **64×3px** rule in the luxury-tone color, `margin-bottom: var(--space-4)`
-- Body: "Every project below is a 2 or 3 BHK apartment executed in Bhubaneswar, at mid-segment budgets." — 75% opacity, `max-width: 48ch`
+- Body: "Every project below is a 2 or 3 BHK apartment executed in Bangalore, at mid-segment budgets." — 75% opacity, `max-width: 48ch`
 
 **Filter:** same three-option segmented control, left-aligned, `var(--space-6)` below the intro.
 

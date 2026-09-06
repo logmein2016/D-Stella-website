@@ -8,7 +8,7 @@
 export const TONE_DARK = "#1a1817";
 
 export const SITE_NAME = "Ansuman Designs";
-export const SITE_TAGLINE = "Where a House becomes a Home — Bhubaneswar, Odisha";
+export const SITE_TAGLINE = "Where a House becomes a Home — Bangalore";
 
 /** Placeholder — appears in every footer. Needs the client's real number. */
 export const PHONE_DISPLAY = "+91 90000 00000";

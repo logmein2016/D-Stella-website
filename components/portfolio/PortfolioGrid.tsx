@@ -20,7 +20,7 @@ export default function PortfolioGrid() {
       <h1 className={styles.heading}>Real homes, real budgets</h1>
       <div className={styles.rule} />
       <p className={styles.intro}>
-        Every project below is a 2 or 3 BHK apartment executed in Bhubaneswar, at mid-segment budgets.
+        Every project below is a 2 or 3 BHK apartment executed in Bangalore, at mid-segment budgets.
       </p>
 
       <div className={styles.filterRow}>

@@ -7,7 +7,7 @@ import LeadForm from "@/components/lead-form/LeadForm";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Real 2 & 3 BHK apartment interiors completed in Bhubaneswar, with real budgets — filter by apartment size.",
+    "Real 2 & 3 BHK apartment interiors completed in Bangalore, with real budgets — filter by apartment size.",
 };
 
 export default function PortfolioPage() {

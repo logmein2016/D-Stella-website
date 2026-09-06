@@ -6,7 +6,7 @@ import EstimatorForm from "@/components/estimator/EstimatorForm";
 export const metadata: Metadata = {
   title: "Cost Estimator",
   description:
-    "Two quick selections and no forms — see your 2 or 3 BHK interior design price range for Bhubaneswar instantly.",
+    "Two quick selections and no forms — see your 2 or 3 BHK interior design price range for Bangalore instantly.",
 };
 
 export default function EstimatorPage() {

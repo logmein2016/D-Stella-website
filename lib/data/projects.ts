@@ -21,7 +21,7 @@ export const projects: Project[] = [
     bhk: "2",
     budget: "₹7.2L",
     featured: true,
-    photoAlt: "Patia Enclave, a 2 BHK apartment interior in Bhubaneswar",
+    photoAlt: "Patia Enclave, a 2 BHK apartment interior in Bangalore",
   },
   {
     id: "chandrasekharpur-residency",
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     bhk: "3",
     budget: "₹10.5L",
     featured: true,
-    photoAlt: "Chandrasekharpur Residency, a 3 BHK apartment interior in Bhubaneswar",
+    photoAlt: "Chandrasekharpur Residency, a 3 BHK apartment interior in Bangalore",
   },
   {
     id: "nayapalli-greens",
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     bhk: "2",
     budget: "₹8L",
     featured: true,
-    photoAlt: "Nayapalli Greens, a 2 BHK apartment interior in Bhubaneswar",
+    photoAlt: "Nayapalli Greens, a 2 BHK apartment interior in Bangalore",
   },
   {
     id: "kalinga-vihar",
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     bhk: "3",
     budget: "₹11.8L",
     featured: true,
-    photoAlt: "Kalinga Vihar, a 3 BHK apartment interior in Bhubaneswar",
+    photoAlt: "Kalinga Vihar, a 3 BHK apartment interior in Bangalore",
   },
   {
     id: "jaydev-vihar-residences",
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     bhk: "3",
     budget: "₹12.4L",
     featured: false,
-    photoAlt: "Jaydev Vihar Residences, a 3 BHK apartment interior in Bhubaneswar",
+    photoAlt: "Jaydev Vihar Residences, a 3 BHK apartment interior in Bangalore",
   },
   {
     id: "sailashree-vihar",
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     bhk: "2",
     budget: "₹6.9L",
     featured: false,
-    photoAlt: "Sailashree Vihar, a 2 BHK apartment interior in Bhubaneswar",
+    photoAlt: "Sailashree Vihar, a 2 BHK apartment interior in Bangalore",
   },
   {
     id: "niladri-vihar",
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     bhk: "2",
     budget: "₹8.3L",
     featured: false,
-    photoAlt: "Niladri Vihar, a 2 BHK apartment interior in Bhubaneswar",
+    photoAlt: "Niladri Vihar, a 2 BHK apartment interior in Bangalore",
   },
   {
     id: "pahal-heights",
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     bhk: "3",
     budget: "₹11.1L",
     featured: false,
-    photoAlt: "Pahal Heights, a 3 BHK apartment interior in Bhubaneswar",
+    photoAlt: "Pahal Heights, a 3 BHK apartment interior in Bangalore",
   },
 ];
 

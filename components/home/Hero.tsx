@@ -42,7 +42,7 @@ export default function Hero() {
       </div>
       <div className={styles.scrim} />
       <div className={styles.content}>
-        <h6 className={styles.kicker}>Bhubaneswar &middot; 2 &amp; 3 BHK Interiors</h6>
+        <h6 className={styles.kicker}>Bangalore &middot; 2 &amp; 3 BHK Interiors</h6>
         <h1 className={styles.heading}>Premium interiors for your home.</h1>
         <p className={styles.body}>
           Most homes ready in 45&ndash;60 days. Designed and managed end to end by us.

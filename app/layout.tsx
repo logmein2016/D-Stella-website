@@ -13,15 +13,15 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Interior Design in Bhubaneswar`,
+    default: `${SITE_NAME} — Interior Design in Bangalore`,
     template: `%s — ${SITE_NAME}`,
   },
   description:
-    "Premium 2 & 3 BHK interior design in Bhubaneswar, Odisha. Room-by-room design, in-house production and on-site execution — most homes ready in 45–60 days.",
+    "Premium 2 & 3 BHK interior design in Bangalore. Room-by-room design, in-house production and on-site execution — most homes ready in 45–60 days.",
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Interior Design in Bhubaneswar`,
+    title: `${SITE_NAME} — Interior Design in Bangalore`,
     description: SITE_TAGLINE,
     locale: "en_IN",
   },
@@ -32,15 +32,15 @@ const localBusinessJsonLd = {
   "@type": "HomeAndConstructionBusiness",
   name: SITE_NAME,
   description:
-    "Interior design firm serving 2 & 3 BHK apartment owners in Bhubaneswar, Odisha, with room-by-room design and end-to-end delivery.",
+    "Interior design firm serving 2 & 3 BHK apartment owners in Bangalore, with room-by-room design and end-to-end delivery.",
   areaServed: {
     "@type": "City",
-    name: "Bhubaneswar",
+    name: "Bangalore",
   },
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Bhubaneswar",
-    addressRegion: "Odisha",
+    addressLocality: "Whitefield",
+    addressRegion: "Banglore",
     addressCountry: "IN",
   },
   url: SITE_URL,
