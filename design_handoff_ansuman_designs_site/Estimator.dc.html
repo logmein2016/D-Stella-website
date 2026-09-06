@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/modernist-2dd8c1d3-8f84-4c28-af2a-129625b7c657/styles.css">
+  <script src="_ds/modernist-2dd8c1d3-8f84-4c28-af2a-129625b7c657/_ds_bundle.js"></script>
+  <style>
+    body{overflow-x:hidden}
+    a{color:var(--color-accent)}
+    a:hover{color:var(--color-accent-700)}
+  </style>
+</helmet>
+
+<div style="background:var(--color-bg);color:var(--color-text);min-height:100vh">
+
+  <nav class="nav" style="background:{{ toneDark }};flex-wrap:wrap;row-gap:var(--space-2);border-bottom:2px solid var(--color-accent)">
+    <span class="nav-brand" style="color:var(--color-neutral-100);font-size:clamp(15px,4vw,18px);white-space:nowrap">Ansuman Designs</span>
+    <a href="Landing.dc.html" class="btn btn-secondary" style="font-size:13px;padding:8px 12px;border-color:var(--color-neutral-100);color:var(--color-neutral-100)">Home</a>
+    <a href="Portfolio.dc.html" class="btn btn-secondary" style="font-size:13px;padding:8px 12px;border-color:var(--color-neutral-100);color:var(--color-neutral-100)">Portfolio</a>
+  </nav>
+
+  <section style="padding:var(--space-8) var(--space-4);max-width:920px;margin:0 auto">
+    <h6 style="color:var(--color-accent-700)">Cost estimator</h6>
+    <h1 style="margin-bottom:var(--space-2);font-size:clamp(30px,6vw,44px)">What will your home cost?</h1>
+    <p style="opacity:0.75;max-width:48ch;margin-bottom:var(--space-6)">Two quick selections. No forms, no email required.</p>
+
+    <div style="display:grid;gap:var(--space-6)">
+      <div class="field">
+        <label>Apartment size</label>
+        <div class="seg" style="width:100%;display:flex">
+          <label class="seg-opt" style="flex:1;justify-content:center;background:{{ bhk2SegBg }};color:{{ bhk2SegColor }}">
+            <input type="radio" name="bhk" value="2" checked="{{ bhkChecked2 }}" onChange="{{ onBhkChange }}"></input>
+            <span>2 BHK</span>
+          </label>
+          <label class="seg-opt" style="flex:1;justify-content:center;background:{{ bhk3SegBg }};color:{{ bhk3SegColor }}">
+            <input type="radio" name="bhk" value="3" checked="{{ bhkChecked3 }}" onChange="{{ onBhkChange }}"></input>
+            <span>3 BHK</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Finish level</label>
+        <div class="seg" style="width:100%;display:flex">
+          <sc-for list="{{ finishOptions }}" as="opt" hint-placeholder-count="3">
+            <label class="seg-opt" style="flex:1;justify-content:center;background:{{ opt.segBg }};color:{{ opt.segColor }}">
+              <input type="radio" name="finish" value="{{ opt.value }}" checked="{{ opt.checked }}" onChange="{{ opt.onChange }}"></input>
+              <span>{{ opt.label }}</span>
+            </label>
+          </sc-for>
+        </div>
+        <p class="text-muted" style="font-size:12px;margin:var(--space-2) 0 0">{{ finishDesc }}</p>
+      </div>
+
+      <sc-if value="{{ hasSelection }}" hint-placeholder-val="{{ false }}">
+        <div class="card elev-md" style="align-items:flex-start;padding:var(--space-6);gap:var(--space-1)">
+          <span class="card-kicker">Estimated range</span>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(30px,6vw,44px);color:var(--color-text)">{{ priceRangeText }}</div>
+          <p class="card-body" style="opacity:0.7;margin:0">Final quote depends on layout, carpentry choices and site conditions.</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ !hasSelection }}" hint-placeholder-val="{{ true }}">
+        <div class="card" style="align-items:flex-start;padding:var(--space-6);gap:var(--space-1);background:var(--color-surface)">
+          <span class="card-kicker">Estimated range</span>
+          <p class="card-body" style="opacity:0.7;margin:0">Pick your apartment size and finish level above to see your range.</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ showStage2 }}" hint-placeholder-val="{{ false }}">
+        <dc-import name="LeadForm" hint-size="100%,620px"
+          kicker="Get a precise quote"
+          heading="We'll size this to your exact home."
+          subheading="Share your details and a designer will call you with a costing for your apartment."
+          submit-label="Send me my precise quote"
+          context="{{ estimateContext }}"
+          bhk="{{ leadBhk }}"
+          finish="{{ leadFinish }}"
+          price-range="{{ priceRangeText }}"
+          source="estimator-page"></dc-import>
+      </sc-if>
+
+      <sc-if value="{{ !showStage2 }}" hint-placeholder-val="{{ true }}">
+        <button class="btn btn-secondary btn-block" onClick="{{ onWantQuote }}">Get a more precise number &rarr;</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0">
+
+  <footer style="padding:var(--space-6) var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);background:{{ toneDark }};color:var(--color-neutral-100)">
+    <span class="nav-brand" style="color:var(--color-neutral-100)">Ansuman Designs</span>
+    <p style="margin:0;font-size:13px;opacity:0.75">Where a House becomes a Home &mdash; Bhubaneswar, Odisha</p>
+    <p style="margin:0;font-size:13px;opacity:0.75">WhatsApp: +91 90000 00000</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;luxuryTone&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#1a1817&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#1a1817&quot;,&quot;#241a14&quot;,&quot;#1c2620&quot;,&quot;#241522&quot;],&quot;section&quot;:&quot;Style&quot;}}">
+class Component extends DCLogic {
+  state = { bhk: null, finish: null, showStage2: false, phone: '', submitted: false };
+
+  priceTable = {
+    '2': { value: [650000, 750000], premium: [750000, 900000], luxury: [900000, 1100000] },
+    '3': { value: [800000, 950000], premium: [950000, 1150000], luxury: [1150000, 1400000] },
+  };
+
+  finishMeta = {
+    value: { label: 'Value', desc: 'Laminate finishes, factory-made wardrobes, standard fittings. Durable and budget-first.' },
+    premium: { label: 'Premium', desc: 'Richer laminates and veneers, semi-modular kitchen, branded fittings. Balanced quality and look.' },
+    luxury: { label: 'Luxury', desc: 'Premium veneers and acrylic, fully modular kitchen, designer lighting and hardware.' },
+  };
+
+  fmtLakh(n) {
+    return '\u20b9' + (n / 100000).toFixed(1).replace(/\.0$/, '') + 'L';
+  }
+
+  renderVals() {
+    var s = this.state;
+    var hasSelection = !!(s.bhk && s.finish);
+    var priceRangeText = hasSelection ? (() => {
+      var range = this.priceTable[s.bhk][s.finish];
+      return this.fmtLakh(range[0]) + ' \u2013 ' + this.fmtLakh(range[1]);
+    })() : '';
+
+    var finishOptions = ['value', 'premium', 'luxury'].map((v) => ({
+      value: v,
+      label: this.finishMeta[v].label,
+      checked: s.finish === v,
+      onChange: () => this.setState({ finish: v }),
+      segBg: s.finish === v ? 'var(--color-accent-300)' : 'transparent',
+      segColor: s.finish === v ? 'var(--color-accent-900)' : 'var(--color-text)',
+    }));
+    var finishDesc = s.finish ? this.finishMeta[s.finish].desc : 'Choose a finish level to see what\u2019s included.';
+
+    return {
+      hasSelection: hasSelection,
+      bhkChecked2: s.bhk === '2',
+      bhkChecked3: s.bhk === '3',
+      bhk2SegBg: s.bhk === '2' ? 'var(--color-accent-300)' : 'transparent',
+      bhk2SegColor: s.bhk === '2' ? 'var(--color-accent-900)' : 'var(--color-text)',
+      bhk3SegBg: s.bhk === '3' ? 'var(--color-accent-300)' : 'transparent',
+      bhk3SegColor: s.bhk === '3' ? 'var(--color-accent-900)' : 'var(--color-text)',
+      onBhkChange: (e) => this.setState({ bhk: e.target.value }),
+      finishOptions: finishOptions,
+      finishDesc: finishDesc,
+      priceRangeText: priceRangeText,
+      showStage2: s.showStage2,
+      onWantQuote: () => this.setState({ showStage2: true }),
+      leadBhk: s.bhk || '',
+      leadFinish: s.finish || '',
+      estimateContext: hasSelection
+        ? s.bhk + ' BHK \u00b7 ' + this.finishMeta[s.finish].label + ' finish \u00b7 ' + priceRangeText
+        : '',
+      toneDark: this.props.luxuryTone || '#1a1817',
+    };
+  }
+}
+</script>
+</body>
+</html>

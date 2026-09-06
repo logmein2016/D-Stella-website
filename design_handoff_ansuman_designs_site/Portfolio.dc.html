@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/modernist-2dd8c1d3-8f84-4c28-af2a-129625b7c657/styles.css">
+  <script src="_ds/modernist-2dd8c1d3-8f84-4c28-af2a-129625b7c657/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body{overflow-x:hidden}
+    a{color:var(--color-accent)}
+    a:hover{color:var(--color-accent-700)}
+  </style>
+</helmet>
+
+<div style="background:var(--color-bg);color:var(--color-text);min-height:100vh">
+
+  <nav class="nav" style="background:{{ toneDark }};flex-wrap:wrap;row-gap:var(--space-2);border-bottom:2px solid var(--color-accent)">
+    <span class="nav-brand" style="color:var(--color-neutral-100);font-size:clamp(15px,4vw,18px);white-space:nowrap">Ansuman Designs</span>
+    <a href="Landing.dc.html" class="btn btn-secondary" style="font-size:13px;padding:8px 12px;border-color:var(--color-neutral-100);color:var(--color-neutral-100)">Home</a>
+    <a href="Estimator.dc.html" class="btn" style="font-size:13px;padding:8px 12px;background:var(--color-accent);color:var(--color-neutral-100)">Estimate</a>
+  </nav>
+
+  <section style="padding:var(--space-8) var(--space-4)">
+    <h6 style="color:var(--color-accent);letter-spacing:0.12em;text-transform:uppercase;font-weight:700">Portfolio</h6>
+    <h1 style="margin:0 0 var(--space-3);font-size:clamp(32px,6vw,56px);font-weight:800;letter-spacing:-0.01em">Real homes, real budgets</h1>
+    <div style="width:64px;height:3px;background:{{ toneDark }};margin-bottom:var(--space-4)"></div>
+    <p style="opacity:0.75;max-width:48ch;margin-bottom:var(--space-6)">Every project below is a 2 or 3 BHK apartment executed in Bhubaneswar, at mid-segment budgets.</p>
+
+    <div style="display:flex;justify-content:flex-start;margin-bottom:var(--space-6)">
+      <div class="seg">
+        <sc-for list="{{ workFilters }}" as="f" hint-placeholder-count="3">
+          <label class="seg-opt" style="background:{{ f.segBg }};color:{{ f.segColor }}">
+            <input type="radio" name="workfilter" value="{{ f.value }}" checked="{{ f.checked }}" onChange="{{ f.onChange }}"></input>
+            <span>{{ f.label }}</span>
+          </label>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-4)">
+      <sc-for list="{{ visibleProjects }}" as="proj" hint-placeholder-count="8">
+        <div class="card" style="padding:0;gap:0;overflow:hidden;border:1px solid var(--color-neutral-300);background:var(--color-neutral-100)">
+          <div style="width:100%;height:300px">
+            <image-slot id="{{ proj.id }}" shape="rect" placeholder="{{ proj.placeholder }}"></image-slot>
+          </div>
+          <div style="padding:var(--space-3);display:flex;flex-direction:column;gap:6px;border-top:2px solid {{ toneDark }}">
+            <span class="card-title" style="font-size:17px;font-weight:700">{{ proj.name }}</span>
+            <span style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-accent-700);font-weight:600">{{ proj.bhk }} &middot; {{ proj.budget }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0">
+
+  <section style="padding:var(--space-8) var(--space-4)">
+    <div style="max-width:760px">
+      <dc-import name="LeadForm" hint-size="100%,620px"
+        kicker="Enquire"
+        heading="Like what you see? Ask for your own price."
+        subheading="Tell us which apartment you're doing up and we'll come back with a costing built around it."
+        source="portfolio-page"></dc-import>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0">
+
+  <footer style="padding:var(--space-6) var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);background:{{ toneDark }};color:var(--color-neutral-100)">
+    <span class="nav-brand" style="color:var(--color-neutral-100)">Ansuman Designs</span>
+    <p style="margin:0;font-size:13px;opacity:0.75">Where a House becomes a Home &mdash; Bhubaneswar, Odisha</p>
+    <p style="margin:0;font-size:13px;opacity:0.75">WhatsApp: +91 90000 00000</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;luxuryTone&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#1a1817&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#1a1817&quot;,&quot;#241a14&quot;,&quot;#1c2620&quot;,&quot;#241522&quot;],&quot;section&quot;:&quot;Style&quot;}}">
+class Component extends DCLogic {
+  state = { workFilter: 'all' };
+
+  projects = [
+    { id: 'p-patia', name: 'Patia Enclave', bhkVal: '2', bhk: '2 BHK', budget: '\u20b97.2L', placeholder: 'Patia Enclave 2 BHK' },
+    { id: 'p-chandrasekharpur', name: 'Chandrasekharpur Residency', bhkVal: '3', bhk: '3 BHK', budget: '\u20b910.5L', placeholder: 'Chandrasekharpur Residency 3 BHK' },
+    { id: 'p-nayapalli', name: 'Nayapalli Greens', bhkVal: '2', bhk: '2 BHK', budget: '\u20b98L', placeholder: 'Nayapalli Greens 2 BHK' },
+    { id: 'p-kalinga-vihar', name: 'Kalinga Vihar', bhkVal: '3', bhk: '3 BHK', budget: '\u20b911.8L', placeholder: 'Kalinga Vihar 3 BHK' },
+    { id: 'p-jaydev-vihar', name: 'Jaydev Vihar Residences', bhkVal: '3', bhk: '3 BHK', budget: '\u20b912.4L', placeholder: 'Jaydev Vihar 3 BHK' },
+    { id: 'p-sailashree-vihar', name: 'Sailashree Vihar', bhkVal: '2', bhk: '2 BHK', budget: '\u20b96.9L', placeholder: 'Sailashree Vihar 2 BHK' },
+    { id: 'p-niladri-vihar', name: 'Niladri Vihar', bhkVal: '2', bhk: '2 BHK', budget: '\u20b98.3L', placeholder: 'Niladri Vihar 2 BHK' },
+    { id: 'p-pahal', name: 'Pahal Heights', bhkVal: '3', bhk: '3 BHK', budget: '\u20b911.1L', placeholder: 'Pahal Heights 3 BHK' },
+  ];
+
+  renderVals() {
+    var s = this.state;
+    var workFilters = [
+      { value: 'all', label: 'All' },
+      { value: '2', label: '2 BHK' },
+      { value: '3', label: '3 BHK' },
+    ].map((f) => Object.assign({}, f, {
+      checked: s.workFilter === f.value,
+      onChange: () => this.setState({ workFilter: f.value }),
+      segBg: s.workFilter === f.value ? 'var(--color-accent-300)' : 'transparent',
+      segColor: s.workFilter === f.value ? 'var(--color-accent-900)' : 'var(--color-text)',
+    }));
+
+    var visibleProjects = this.projects.filter((p) => s.workFilter === 'all' || p.bhkVal === s.workFilter);
+
+    return { workFilters: workFilters, visibleProjects: visibleProjects, toneDark: this.props.luxuryTone || '#1a1817' };
+  }
+}
+</script>
+</body>
+</html>

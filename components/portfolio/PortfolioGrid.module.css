@@ -1,0 +1,42 @@
+.section {
+  padding: var(--space-8) var(--space-4);
+}
+
+.kicker {
+  color: var(--color-accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.heading {
+  margin: 0 0 var(--space-3);
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.rule {
+  width: 64px;
+  height: 3px;
+  background: var(--tone-dark);
+  margin-bottom: var(--space-4);
+}
+
+.intro {
+  opacity: 0.75;
+  max-width: 48ch;
+  margin-bottom: var(--space-6);
+}
+
+.filterRow {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: var(--space-6);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-4);
+}

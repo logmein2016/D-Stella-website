@@ -1,0 +1,26 @@
+.nav {
+  background: var(--tone-dark);
+  flex-wrap: wrap;
+  row-gap: var(--space-2);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.brand {
+  color: var(--color-neutral-100);
+  font-size: clamp(15px, 4vw, 18px);
+  white-space: nowrap;
+}
+
+.link {
+  font-size: 13px;
+}
+
+.linkOutlined {
+  border-color: var(--color-neutral-100);
+  color: var(--color-neutral-100);
+}
+
+.linkFilled {
+  background: var(--color-accent);
+  color: var(--color-neutral-100);
+}

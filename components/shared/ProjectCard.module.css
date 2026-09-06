@@ -1,0 +1,51 @@
+.card {
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+}
+
+.portfolioCard {
+  border: 1px solid var(--color-neutral-300);
+  background: var(--color-neutral-100);
+}
+
+.imageWrap {
+  width: 100%;
+  height: 300px;
+}
+
+.captionHome {
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.captionPortfolio {
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 2px solid var(--tone-dark);
+}
+
+.nameHome {
+  font-size: 16px;
+}
+
+.namePortfolio {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.metaHome {
+  font-size: 12px;
+}
+
+.metaPortfolio {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  font-weight: 600;
+}

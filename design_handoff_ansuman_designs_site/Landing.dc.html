@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/modernist-2dd8c1d3-8f84-4c28-af2a-129625b7c657/styles.css">
+  <script src="_ds/modernist-2dd8c1d3-8f84-4c28-af2a-129625b7c657/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body{overflow-x:hidden}
+    a{color:var(--color-accent)}
+    a:hover{color:var(--color-accent-700)}
+    @media (max-width:640px){
+      .wf-row{flex-direction:column;align-items:flex-start}
+      .wf-item{flex-direction:column}
+      .wf-arrow{display:none}
+    }
+  </style>
+</helmet>
+
+<div style="background:var(--color-bg);color:var(--color-text);min-height:100vh">
+
+  <nav class="nav" style="background:{{ toneDark }};flex-wrap:wrap;row-gap:var(--space-2);border-bottom:2px solid var(--color-accent)">
+    <span class="nav-brand" style="color:var(--color-neutral-100);font-size:clamp(15px,4vw,18px);white-space:nowrap">Ansuman Designs</span>
+    <a href="Portfolio.dc.html" class="btn btn-secondary" style="font-size:13px;padding:8px 12px;border-color:var(--color-neutral-100);color:var(--color-neutral-100)">Portfolio</a>
+    <a href="Estimator.dc.html" class="btn" style="font-size:13px;padding:8px 12px;background:var(--color-accent);color:var(--color-neutral-100)">Estimate</a>
+  </nav>
+
+  <section style="position:relative;min-height:min(92vh,760px);display:flex;flex-direction:column;justify-content:flex-end">
+    <div class="grayscale" style="position:absolute;inset:0;width:100%;height:100%;z-index:0">
+      <sc-for list="{{ heroSlides }}" as="slide" hint-placeholder-count="3">
+        <image-slot id="{{ slide.id }}" shape="rect" placeholder="{{ slide.placeholder }}" src="{{ slide.src }}" credit="{{ slide.credit }}" credit-href="{{ slide.creditHref }}" style="position:absolute;inset:0;width:100%;height:100%;opacity:{{ slide.opacity }};transition:opacity 1.2s ease"></image-slot>
+      </sc-for>
+    </div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(32,30,29,0.15) 0%,rgba(32,30,29,0.55) 75%,rgba(32,30,29,0.75) 100%);pointer-events:none;z-index:1"></div>
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;padding:var(--space-6) var(--space-4) var(--space-8);gap:var(--space-3)">
+      <h6 style="color:#f3f2f2;opacity:0.85;margin:0">Bhubaneswar &middot; 2 &amp; 3 BHK Interiors</h6>
+      <h1 style="color:#f3f2f2;font-size:clamp(32px,7vw,56px);max-width:14ch;margin:0">Premium interiors for your home.</h1>
+      <p style="color:#f3f2f2;opacity:0.9;font-size:clamp(15px,3.5vw,18px);max-width:38ch;margin:0">Most homes ready in 45&ndash;60 days. Designed and managed end to end by us.</p>
+      <div style="margin-top:var(--space-3)">
+        <a href="Estimator.dc.html" class="btn" style="font-size:15px;padding:14px 22px;background:var(--color-accent-300);color:var(--color-accent-900)">See your estimated price</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0">
+
+  <section style="padding:var(--space-8) var(--space-4)">
+    <h6 style="color:var(--color-accent-700)">Room by room</h6>
+    <h2 style="margin-bottom:var(--space-6)">Every room, planned around how you live</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-4)">
+      <sc-for list="{{ rooms }}" as="room" hint-placeholder-count="6">
+        <div class="card elev-sm" style="padding:0;overflow:hidden;gap:0">
+          <div class="grayscale" style="width:100%;height:220px">
+            <image-slot id="{{ room.id }}" shape="rect" placeholder="{{ room.placeholder }}" src="{{ room.photoSrc }}" credit="{{ room.photoCredit }}" credit-href="{{ room.photoCreditHref }}"></image-slot>
+          </div>
+          <div style="padding:var(--space-3);display:flex;flex-direction:column;gap:var(--space-2)">
+            <span class="card-kicker">{{ room.kicker }}</span>
+            <span class="card-title">{{ room.name }}</span>
+            <p class="card-body">{{ room.desc }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0">
+
+  <section style="padding:var(--space-8) var(--space-4)">
+    <h6 style="color:var(--color-accent-700)">How it works</h6>
+    <h2 style="margin-bottom:var(--space-6)">From first call to move-in</h2>
+    <div class="wf-row" style="display:flex;align-items:flex-start;flex-wrap:wrap;gap:var(--space-4);justify-content:flex-start">
+      <sc-for list="{{ workflowSteps }}" as="step" hint-placeholder-count="3">
+        <div class="wf-item" style="display:flex;align-items:flex-start;gap:var(--space-4)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);width:180px;text-align:center">
+            <div style="width:112px;height:112px;border-radius:50%;background:var(--color-accent-100);border:1px solid var(--color-accent-200);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--color-accent-700)">
+              <sc-if value="{{ step.isDesign }}" hint-placeholder-val="{{ true }}">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+              </sc-if>
+              <sc-if value="{{ step.isProduction }}" hint-placeholder-val="{{ false }}">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M17 18h1"></path><path d="M12 18h1"></path><path d="M7 18h1"></path></svg>
+              </sc-if>
+              <sc-if value="{{ step.isExecution }}" hint-placeholder-val="{{ false }}">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>
+              </sc-if>
+              <span style="font-weight:700;font-size:15px;letter-spacing:0.02em">{{ step.title }}</span>
+            </div>
+            <p class="card-body" style="margin:0">{{ step.desc }}</p>
+          </div>
+          <sc-if value="{{ step.hasLine }}" hint-placeholder-val="{{ true }}">
+            <div class="wf-arrow" style="width:32px;height:112px;display:flex;align-items:center;justify-content:center;color:var(--color-accent-300);flex:none">
+              <svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h24"></path><path d="M19 2l6 6-6 6"></path></svg>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top:var(--space-6);background:var(--color-accent-100);border-radius:var(--radius-md);padding:var(--space-4) var(--space-6);display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--space-2) var(--space-3)">
+      <span style="font-size:clamp(22px,4vw,30px);font-weight:700;color:var(--color-accent-900)">45&ndash;90 days</span>
+      <span style="opacity:0.75;font-size:14px">from your first design call to handover*</span>
+    </div>
+    <p style="opacity:0.5;font-size:12px;margin-top:var(--space-2)">*Timeline depends on design complexity and material sourcing.</p>
+  </section>
+
+  <hr class="hr" style="margin:0">
+
+  <section style="padding:var(--space-8) var(--space-4)">
+    <div style="max-width:760px">
+      <dc-import name="LeadForm" hint-size="100%,640px"
+        kicker="Already have a look in mind?"
+        heading="Share your Pinterest link or reference photos."
+        subheading="We'll take it from there — manufacturing, fabrication and on-site construction, managed end to end."
+        submit-label="Send it over"
+        show-reference="{{ true }}"
+        source="home-pinterest-reference"></dc-import>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0">
+
+  <section style="padding:var(--space-8) var(--space-4)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-4)">
+      <div>
+        <h6 style="color:var(--color-accent-700)">Portfolio</h6>
+        <h2 style="margin:0">Recent work</h2>
+      </div>
+      <div class="seg">
+        <sc-for list="{{ workFilters }}" as="f" hint-placeholder-count="3">
+          <label class="seg-opt" style="background:{{ f.segBg }};color:{{ f.segColor }}">
+            <input type="radio" name="workfilter" value="{{ f.value }}" checked="{{ f.checked }}" onChange="{{ f.onChange }}"></input>
+            <span>{{ f.label }}</span>
+          </label>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-4)">
+      <sc-for list="{{ visibleProjects }}" as="proj" hint-placeholder-count="4">
+        <div class="card" style="padding:0;gap:0;overflow:hidden;position:relative">
+          <div class="grayscale" style="width:100%;height:300px">
+            <image-slot id="{{ proj.id }}" shape="rect" placeholder="{{ proj.placeholder }}"></image-slot>
+          </div>
+          <div style="padding:var(--space-3);display:flex;flex-direction:column;gap:4px">
+            <span class="card-title" style="font-size:16px">{{ proj.name }}</span>
+            <span class="text-muted" style="font-size:12px">{{ proj.bhk }} &middot; {{ proj.budget }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top:var(--space-6);text-align:left">
+      <a href="Portfolio.dc.html" class="btn btn-secondary">View full portfolio &rarr;</a>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0">
+
+  <footer style="padding:var(--space-6) var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);background:{{ toneDark }};color:var(--color-neutral-100)">
+    <span class="nav-brand" style="color:var(--color-neutral-100)">Ansuman Designs</span>
+    <p style="margin:0;font-size:13px;opacity:0.75">Where a House becomes a Home &mdash; Bhubaneswar, Odisha</p>
+    <p style="margin:0;font-size:13px;opacity:0.75">WhatsApp: +91 90000 00000</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;luxuryTone&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#1a1817&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#1a1817&quot;,&quot;#241a14&quot;,&quot;#1c2620&quot;,&quot;#241522&quot;],&quot;section&quot;:&quot;Style&quot;}}">
+class Component extends DCLogic {
+  state = { workFilter: 'all', activeHero: 0, designLink: '', designSubmitted: false };
+
+  heroPhotos = [
+    { id: 'hero-1', src: 'https://images.unsplash.com/photo-1759238136854-a43787126db7?fm=jpg&q=80&w=1600&auto=format&fit=crop', credit: 'Photo by Franco Debartolo on Unsplash', creditHref: 'https://unsplash.com/@francotheshooter', placeholder: 'Editorial living room' },
+    { id: 'hero-2', src: 'https://images.unsplash.com/photo-1768609239321-1cfe14893e80?fm=jpg&q=80&w=1600&auto=format&fit=crop', credit: 'Photo by rawkkim on Unsplash', creditHref: 'https://unsplash.com/@rawkkim', placeholder: 'Warm wood-toned interior' },
+    { id: 'hero-3', src: 'https://images.unsplash.com/photo-1741394546743-2d64519ba0d3?fm=jpg&q=80&w=1600&auto=format&fit=crop', credit: 'Photo by tommao wang on Unsplash', creditHref: 'https://unsplash.com/@tommaomaoer', placeholder: 'Minimalist white interior' },
+  ];
+
+  componentDidMount() {
+    this._heroTimer = setInterval(() => {
+      this.setState((s) => ({ activeHero: (s.activeHero + 1) % this.heroPhotos.length }));
+    }, 4500);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this._heroTimer);
+  }
+
+  rooms = [
+    { id: 'room-drawing', name: 'Drawing Room', kicker: 'Living & entertaining', desc: 'Seating, storage and lighting planned for how your family actually gathers.', placeholder: 'Drawing room', photoSrc: 'https://images.unsplash.com/photo-1759238136854-a43787126db7?fm=jpg&q=80&w=1200&auto=format&fit=crop', photoCredit: 'Photo by Franco Debartolo on Unsplash', photoCreditHref: 'https://unsplash.com/@francotheshooter' },
+    { id: 'room-dining', name: 'Dining', kicker: 'Everyday & festive', desc: 'Compact dining setups that expand comfortably for guests and celebrations.', placeholder: 'Dining room', photoSrc: 'https://images.unsplash.com/photo-1768609239321-1cfe14893e80?fm=jpg&q=80&w=1200&auto=format&fit=crop', photoCredit: 'Photo by rawkkim on Unsplash', photoCreditHref: 'https://unsplash.com/@rawkkim' },
+    { id: 'room-kitchen', name: 'Kitchen', kicker: 'Modular & durable', desc: 'Modular kitchens built for Indian cooking, with easy-to-clean, long-lasting finishes.', placeholder: 'Kitchen' },
+    { id: 'room-bedroom', name: 'Bedroom', kicker: 'Rest & storage', desc: 'Wardrobes and layouts that maximise storage without crowding the room.', placeholder: 'Bedroom', photoSrc: 'https://images.unsplash.com/photo-1741394546743-2d64519ba0d3?fm=jpg&q=80&w=1200&auto=format&fit=crop', photoCredit: 'Photo by tommao wang on Unsplash', photoCreditHref: 'https://unsplash.com/@tommaomaoer' },
+    { id: 'room-study', name: 'Study', kicker: 'Focus & work from home', desc: 'A dedicated work corner with proper lighting and cable-free desks.', placeholder: 'Study room' },
+    { id: 'room-kids', name: 'Kids\u2019 Room', kicker: 'Play & grow', desc: 'Durable, playful designs that adapt as your children grow older.', placeholder: 'Kids\u2019 room' },
+  ];
+
+  workflowSteps = [
+    { title: 'Design', desc: 'Talk to our designer, get an estimate, and approve your detailed drawings.', isDesign: true, isProduction: false, isExecution: false, hasLine: true },
+    { title: 'Production', desc: 'Your furniture and finishes are built to spec at our own factories.', isDesign: false, isProduction: true, isExecution: false, hasLine: true },
+    { title: 'Execution', desc: 'Material is delivered on-site, installed, and handed over on time.', isDesign: false, isProduction: false, isExecution: true, hasLine: false },
+  ];
+
+  projects = [
+    { id: 'work-patia', name: 'Patia Enclave', bhkVal: '2', bhk: '2 BHK', budget: '\u20b97.2L', placeholder: 'Patia Enclave 2 BHK' },
+    { id: 'work-chandrasekharpur', name: 'Chandrasekharpur Residency', bhkVal: '3', bhk: '3 BHK', budget: '\u20b910.5L', placeholder: 'Chandrasekharpur Residency 3 BHK' },
+    { id: 'work-nayapalli', name: 'Nayapalli Greens', bhkVal: '2', bhk: '2 BHK', budget: '\u20b98L', placeholder: 'Nayapalli Greens 2 BHK' },
+    { id: 'work-kalinga-vihar', name: 'Kalinga Vihar', bhkVal: '3', bhk: '3 BHK', budget: '\u20b911.8L', placeholder: 'Kalinga Vihar 3 BHK' },
+  ];
+
+  fmtLakh(n) {
+    return '\u20b9' + (n / 100000).toFixed(1).replace(/\.0$/, '') + 'L';
+  }
+
+  renderVals() {
+    var s = this.state;
+    var heroSlides = this.heroPhotos.map((p, i) => Object.assign({}, p, { opacity: i === s.activeHero ? 1 : 0 }));
+
+    var workFilters = [
+      { value: 'all', label: 'All' },
+      { value: '2', label: '2 BHK' },
+      { value: '3', label: '3 BHK' },
+    ].map((f) => Object.assign({}, f, {
+      checked: s.workFilter === f.value,
+      onChange: () => this.setState({ workFilter: f.value }),
+      segBg: s.workFilter === f.value ? 'var(--color-accent-300)' : 'transparent',
+      segColor: s.workFilter === f.value ? 'var(--color-accent-900)' : 'var(--color-text)',
+    }));
+
+    var visibleProjects = this.projects.filter((p) => s.workFilter === 'all' || p.bhkVal === s.workFilter);
+
+    return {
+      heroSlides: heroSlides,
+      rooms: this.rooms,
+      workflowSteps: this.workflowSteps,
+      workFilters: workFilters,
+      visibleProjects: visibleProjects,
+      toneDark: this.props.luxuryTone || '#1a1817',
+    };
+  }
+}
+</script>
+</body>
+</html>

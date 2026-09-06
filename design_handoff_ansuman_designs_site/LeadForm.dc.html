@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/modernist-2dd8c1d3-8f84-4c28-af2a-129625b7c657/styles.css">
+  <script src="_ds/modernist-2dd8c1d3-8f84-4c28-af2a-129625b7c657/_ds_bundle.js"></script>
+  <style>
+    .lf-card{width:100%;box-sizing:border-box;background:var(--color-surface);border:2px solid var(--color-divider);padding:var(--space-6)}
+    .lf-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);align-items:start}
+    .lf-grid > *{min-width:0}
+    .lf-card .field{display:flex;flex-direction:column;gap:6px;min-width:0}
+    .lf-card .input,.lf-card textarea.input{width:100%;box-sizing:border-box;display:block}
+    .lf-actions{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;margin-top:var(--space-1)}
+    @media (max-width:760px){
+      .lf-card{padding:var(--space-4)}
+      .lf-grid{grid-template-columns:1fr;gap:var(--space-3)}
+      .lf-actions{align-items:flex-start;flex-direction:column;gap:var(--space-2)}
+      .lf-actions .btn{width:100%}
+    }
+  </style>
+</helmet>
+
+<div class="lf-card">
+
+  <sc-if value="{{ notDone }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+      <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+        <span style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--color-accent)">{{ kicker }}</span>
+        <h3 style="margin:0;font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-0.01em">{{ heading }}</h3>
+        <p style="margin:0;opacity:0.75;font-size:14px">{{ subheading }}</p>
+      </div>
+
+      <sc-if value="{{ hasContext }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:var(--space-2);border-left:3px solid var(--color-accent);padding:var(--space-2) var(--space-3);background:var(--color-accent-100)">
+          <span style="font-size:13px;font-weight:600;color:var(--color-accent-900)">{{ context }}</span>
+        </div>
+      </sc-if>
+
+      <div class="lf-grid">
+        <div class="field">
+          <label>Your name</label>
+          <input class="input" type="text" placeholder="Full name" value="{{ name }}" onChange="{{ onName }}"></input>
+        </div>
+        <div class="field">
+          <label>Phone number</label>
+          <input class="input" type="tel" placeholder="+91 98765 43210" value="{{ phone }}" onChange="{{ onPhone }}"></input>
+        </div>
+      </div>
+
+      <sc-if value="{{ showReference }}" hint-placeholder-val="{{ false }}">
+        <div class="lf-grid">
+          <div class="field">
+            <label>Email <span style="opacity:0.5;font-weight:400">(optional)</span></label>
+            <input class="input" type="email" placeholder="you@example.com" value="{{ email }}" onChange="{{ onEmail }}"></input>
+          </div>
+          <div class="field">
+            <label>Reference link <span style="opacity:0.5;font-weight:400">(optional)</span></label>
+            <input class="input" type="url" placeholder="Pinterest board or design link" value="{{ reference }}" onChange="{{ onReference }}"></input>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ hideReference }}" hint-placeholder-val="{{ true }}">
+        <div class="field">
+          <label>Email <span style="opacity:0.5;font-weight:400">(optional)</span></label>
+          <input class="input" type="email" placeholder="you@example.com" value="{{ email }}" onChange="{{ onEmail }}"></input>
+        </div>
+      </sc-if>
+
+      <div class="field">
+        <label>Anything you'd like to tell us <span style="opacity:0.5;font-weight:400">(optional)</span></label>
+        <textarea class="input" rows="3" placeholder="Apartment name, possession date, rooms you want done first&hellip;" value="{{ message }}" onChange="{{ onMessage }}" style="resize:vertical;font-family:var(--font-body)"></textarea>
+      </div>
+
+      <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:0;font-size:13px;color:var(--color-accent-700);font-weight:600">{{ errorText }}</p>
+      </sc-if>
+
+      <div class="lf-actions">
+        <button class="btn btn-primary" onClick="{{ onSubmit }}" disabled="{{ submitDisabled }}" style="justify-content:flex-start">{{ submitLabel }}</button>
+        <span style="font-size:12px;opacity:0.6">Name and phone are all we need.</span>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:var(--space-3);align-items:flex-start">
+      <div style="width:44px;height:44px;background:var(--color-accent);display:flex;align-items:center;justify-content:center;color:#fff">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+      </div>
+      <h3 style="margin:0;font-size:clamp(20px,4vw,26px);font-weight:800">Thanks, {{ doneName }}.</h3>
+      <p style="margin:0;opacity:0.75;font-size:14px;max-width:48ch">We've got your details. One of our designers will call you within one working day.</p>
+      <sc-if value="{{ hasWhatsappFallback }}" hint-placeholder-val="{{ false }}">
+        <a href="{{ whatsappHref }}" target="_blank" rel="noopener" class="btn btn-primary" style="justify-content:flex-start">Continue on WhatsApp</a>
+      </sc-if>
+    </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:720,&quot;height&quot;:560},&quot;kicker&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Get in touch&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;heading&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Ask for your own price&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;subheading&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Tell us about your home and we'll come back with a costing built around it.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;submitLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Send my enquiry&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showReference&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;context&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;source&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;website&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;bhk&quot;:{&quot;editor&quot;:null,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;finish&quot;:{&quot;editor&quot;:null,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;priceRange&quot;:{&quot;editor&quot;:null,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = {
+    name: '', phone: '', email: '', reference: '', message: '',
+    whatsappOk: true, sending: false, done: false, error: '', whatsappHref: '',
+  };
+
+  componentDidMount() {
+    import('./leads.js').then((m) => { this._leads = m; }).catch(() => {});
+  }
+
+  async submit() {
+    const s = this.state;
+    if (!s.name.trim() || !s.phone.trim()) {
+      this.setState({ error: 'Please add your name and phone number.' });
+      return;
+    }
+    this.setState({ sending: true, error: '' });
+
+    const lead = {
+      name: s.name.trim(),
+      phone: s.phone.trim(),
+      email: s.email.trim(),
+      reference: s.reference.trim(),
+      message: s.message.trim(),
+      whatsappOk: s.whatsappOk,
+      bhk: this.props.bhk || '',
+      finish: this.props.finish || '',
+      priceRange: this.props.priceRange || '',
+      context: this.props.context || '',
+      source: this.props.source || 'website',
+    };
+
+    const mod = this._leads || (this._leads = await import('./leads.js'));
+    const res = await mod.submitLead(lead);
+    this.setState({ sending: false, done: true, whatsappHref: res.ok ? '' : (res.whatsapp || '') });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const set = (k) => (e) => this.setState({ [k]: e.target.value });
+    const showRef = this.props.showReference === true || this.props.showReference === 'true';
+
+    return {
+      kicker: this.props.kicker ?? 'Get in touch',
+      heading: this.props.heading ?? 'Ask for your own price',
+      subheading: this.props.subheading ?? 'Tell us about your home and we\u2019ll come back with a costing built around it.',
+      context: this.props.context ?? '',
+      hasContext: Boolean(this.props.context),
+      showReference: showRef,
+      hideReference: !showRef,
+
+      name: s.name, phone: s.phone, email: s.email, reference: s.reference, message: s.message,
+      whatsappOk: s.whatsappOk,
+      onName: set('name'), onPhone: set('phone'), onEmail: set('email'),
+      onReference: set('reference'), onMessage: set('message'),
+      onWhatsappOk: (e) => this.setState({ whatsappOk: e.target.checked }),
+
+      onSubmit: () => this.submit(),
+      submitDisabled: s.sending,
+      submitLabel: s.sending ? 'Sending\u2026' : (this.props.submitLabel ?? 'Send my enquiry'),
+      hasError: Boolean(s.error),
+      errorText: s.error,
+
+      done: s.done,
+      notDone: !s.done,
+      doneName: (s.name.trim().split(/\s+/)[0]) || 'there',
+      hasWhatsappFallback: Boolean(s.whatsappHref),
+      whatsappHref: s.whatsappHref,
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+.section {
+  padding: var(--space-8) var(--space-4);
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.kicker {
+  color: var(--color-accent-700);
+}
+
+.heading {
+  margin-bottom: var(--space-2);
+  font-size: clamp(30px, 6vw, 44px);
+}
+
+.intro {
+  opacity: 0.75;
+  max-width: 48ch;
+  margin-bottom: var(--space-6);
+}
+
+.stage {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.finishDesc {
+  margin: var(--space-2) 0 0;
+  font-size: 12px;
+}
+
+.priceCard {
+  align-items: flex-start;
+  padding: var(--space-6);
+  gap: var(--space-1);
+}
+
+.priceCardEmpty {
+  background: var(--color-surface);
+}
+
+.priceFigure {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(30px, 6vw, 44px);
+  color: var(--color-text);
+}
+
+.priceCaption {
+  opacity: 0.7;
+  margin: 0;
+}

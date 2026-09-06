@@ -1,0 +1,147 @@
+.card {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--color-surface);
+  border: 2px solid var(--color-divider);
+  padding: var(--space-6);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.kicker {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.subheading {
+  margin: 0;
+  opacity: 0.75;
+  font-size: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.grid > * {
+  min-width: 0;
+}
+
+.optional {
+  opacity: 0.5;
+  font-weight: 400;
+}
+
+.consentRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.consentRow input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-accent);
+  flex: none;
+}
+
+.error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-accent-700);
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  margin-top: var(--space-1);
+}
+
+.reassurance {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.badge {
+  width: 44px;
+  height: 44px;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.successHeading {
+  margin: 0;
+  font-size: clamp(20px, 4vw, 26px);
+  font-weight: 800;
+}
+
+.successBody {
+  margin: 0;
+  opacity: 0.75;
+  font-size: 14px;
+  max-width: 48ch;
+}
+
+@media (max-width: 760px) {
+  .card {
+    padding: var(--space-4);
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .actions .submitBtn {
+    width: 100%;
+  }
+}
