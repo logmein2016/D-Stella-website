@@ -223,14 +223,14 @@ Closing: an outlined "View full portfolio →" button, left-aligned.
 
 | Project | Size | Budget |
 | --- | --- | --- |
-| Patia Enclave | 2 BHK | ₹7.2L |
-| Chandrasekharpur Residency | 3 BHK | ₹10.5L |
-| Nayapalli Greens | 2 BHK | ₹8L |
-| Kalinga Vihar | 3 BHK | ₹11.8L |
-| Jaydev Vihar Residences | 3 BHK | ₹12.4L |
-| Sailashree Vihar | 2 BHK | ₹6.9L |
-| Niladri Vihar | 2 BHK | ₹8.3L |
-| Pahal Heights | 3 BHK | ₹11.1L |
+| Candeure Signature | 2 BHK | ₹11.2L |
+| Brigade Utopia | 3 BHK | ₹30.5L |
+| Spectra Raaya | 2 BHK | ₹12L |
+| Divyashree  | 3 BHK | ₹19.8L |
+| SBB Residences | 3 BHK | ₹14.4L |
+| Candure Landmark | 2 BHK | ₹11.9L |
+| Spectra palmwoods | 2 BHK | ₹15.3L |
+| Prestige Lakeside Habitat | 3 BHK | ₹31.1L |
 
 These are placeholder project records pending real client data. In production they should come from a CMS or a data file, not be hard-coded in the view.
 
