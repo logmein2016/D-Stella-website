@@ -11,7 +11,7 @@ export const SITE_NAME = "D'Stella Designs";
 export const SITE_TAGLINE = "Where a House becomes a Home — Bangalore";
 
 /** Placeholder — appears in every footer. Needs the client's real number. */
-export const PHONE_DISPLAY = "+91 90000 00000";
+export const PHONE_DISPLAY = `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`;
 
 export const SITE_URL = "https://ansumandesigns.com";
 
