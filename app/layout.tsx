@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
-import { Archivo } from "next/font/google";
+import { Bodoni_Moda, Manrope } from "next/font/google";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
-const archivo = Archivo({
+// Brand's own type pairing, per DStella/brand_guide/Brand_Style_Guide.pptx:
+// Bodoni Moda (editorial serif — logo, headings, hero text) + Manrope
+// (secondary — UI, body copy, documents).
+const bodoniModa = Bodoni_Moda({
   subsets: ["latin"],
-  weight: ["400", "600", "800"],
-  variable: "--font-archivo",
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-bodoni",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -17,7 +27,7 @@ export const metadata: Metadata = {
     template: `%s — ${SITE_NAME}`,
   },
   description:
-    "Premium 2 & 3 BHK interior design in Bangalore. Room-by-room design, in-house production and on-site execution — most homes ready in 45–60 days.",
+    "Premium 2 & 3 BHK interior design in Bangalore. Room-by-room design, in-house production and on-site execution — most homes ready in 45–90 days.",
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
@@ -50,7 +60,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={archivo.variable}>
+    <html lang="en" className={`${bodoniModa.variable} ${manrope.variable}`}>
       <head>
         <script
           type="application/ld+json"

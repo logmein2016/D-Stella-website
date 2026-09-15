@@ -77,7 +77,7 @@ export default function ContactForm() {
             We&rsquo;ve got your details. One of our designers will call you within one working day.
           </p>
           {state.whatsappHref ? (
-            
+            <a
               href={state.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"

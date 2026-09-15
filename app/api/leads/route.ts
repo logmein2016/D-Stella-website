@@ -24,6 +24,7 @@ type LeadPayload = {
   finish?: string;
   priceRange?: string;
   context?: string;
+  projectName?: string;
   source?: string;
   /** Honeypot: real visitors never populate this hidden field. */
   company?: string;
@@ -79,6 +80,7 @@ export async function POST(req: NextRequest) {
     finish: nullIfEmpty(body.finish),
     price_range: nullIfEmpty(body.priceRange),
     context: nullIfEmpty(body.context),
+    project_name: nullIfEmpty(body.projectName),
     source: nullIfEmpty(body.source) ?? "website",
   };
 

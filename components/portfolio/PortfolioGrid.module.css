@@ -11,9 +11,7 @@
 
 .heading {
   margin: 0 0 var(--space-3);
-  font-size: clamp(32px, 6vw, 56px);
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-size: clamp(26px, 4.5vw, 38px);
 }
 
 .rule {

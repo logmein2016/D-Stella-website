@@ -16,8 +16,8 @@ export default function PortfolioGrid() {
 
   return (
     <section className={styles.section}>
-      <h6 className={styles.kicker}>Portfolio</h6>
-      <h1 className={styles.heading}>Real homes we&rsquo;ve designed</h1>
+      <h6 className={styles.kicker}>Complete homes</h6>
+      <h2 className={styles.heading}>Full-home projects</h2>
       <div className={styles.rule} />
       <p className={styles.intro}>
         Every project below is a 2 or 3 BHK apartment executed in Bangalore, at mid-segment budgets.
