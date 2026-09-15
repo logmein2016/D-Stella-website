@@ -18,6 +18,7 @@ export default function ProjectCard({ project, variant }: ProjectCardProps) {
     <div className={`card ${styles.card} ${variant === "portfolio" ? styles.portfolioCard : ""}`}>
       <div className={variant === "home" ? `grayscale ${styles.imageWrap}` : styles.imageWrap}>
         <ImageSlot
+          src={project.photoSrc}
           alt={project.photoAlt}
           placeholder={`${project.name} — ${project.bhk} BHK`}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
