@@ -1,1 +1,72 @@
+.hero {
+  padding: var(--space-8) var(--space-4) var(--space-6);
+  max-width: 900px;
+  margin: 0 auto;
+}
 
+.kicker {
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.heading {
+  font-size: clamp(30px, 5vw, 44px);
+  max-width: 18ch;
+}
+
+.storySection {
+  padding: 0 var(--space-4) var(--space-8);
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (max-width: 860px) {
+  .storyGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.storyText p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.storyImage {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.promiseSection {
+  padding: var(--space-8) var(--space-4);
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.promiseHeading {
+  margin-bottom: var(--space-6);
+}
+
+.promiseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+}
+
+.promiseCard {
+  align-items: flex-start;
+}
