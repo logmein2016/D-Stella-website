@@ -29,7 +29,7 @@ export default function SiteNav({ page }: { page: NavPage }) {
               (Dstell_logos-15) is built for a navy panel and doesn't read on
               this light nav, so the icon carries the color and the wordmark
               is set in ink beside it. */}
-          <Image src="/brand/icon.png" alt="" width={56} height={56} priority className={styles.mark} />
+          <Image src="/brand/icon-mark.png" alt="" width={56} height={56} priority className={styles.mark} />
           <span className={styles.wordmark}>D&rsquo;Stella</span>
         </Link>
 

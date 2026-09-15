@@ -17,7 +17,7 @@ export default function SiteFooter() {
       <div className={styles.top}>
         <div className={styles.brandCol}>
           <span className={styles.brand}>
-            <Image src="/brand/icon.png" alt="" width={30} height={30} className={styles.mark} />
+            <Image src="/brand/icon-mark.png" alt="" width={30} height={30} className={styles.mark} />
             {SITE_NAME}
           </span>
           <p className={styles.tagline}>{SITE_TAGLINE}</p>
