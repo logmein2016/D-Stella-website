@@ -76,8 +76,15 @@
   border-bottom-color: var(--color-accent);
 }
 
+.estimateBtn {
+  font-size: 13px;
+  padding: 8px 16px;
+  min-height: 38px;
+  white-space: nowrap;
+}
+
 .estimateBadge {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex: none;
@@ -85,7 +92,7 @@
   height: 64px;
   margin-left: var(--space-2);
   border-radius: 50%;
-  background: var(--color-text);
+  background: var(--color-accent);
   color: var(--color-neutral-100);
   text-decoration: none;
   text-align: center;
@@ -93,10 +100,15 @@
   font-weight: 600;
   font-size: 10.5px;
   line-height: 1.25;
-  transition: transform 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.estimateBadge:active {
+  background: var(--color-accent-700);
 }
 
 .estimateBadge:hover {
+  background: var(--color-accent-600);
   transform: scale(1.06);
 }
 
@@ -142,7 +154,12 @@
     border-bottom-color: var(--color-divider);
   }
 
+  .estimateBtn {
+    display: none;
+  }
+
   .estimateBadge {
+    display: flex;
     width: 46px;
     height: 46px;
     margin-left: var(--space-1);
