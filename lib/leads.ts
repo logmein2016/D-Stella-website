@@ -16,6 +16,8 @@ export type LeadInput = {
   finish?: string;
   priceRange?: string;
   context?: string;
+  /** Contact page only — which apartment/project the enquiry is about. */
+  projectName?: string;
   source: string;
   /** Honeypot — real visitors never fill this in. */
   company?: string;
@@ -29,12 +31,13 @@ export type SubmitLeadResult = {
 
 export function whatsappLink(lead: LeadInput, whatsappNumber: string): string {
   const lines = [
-    "Hi Ansuman Designs, I would like an estimate.",
+    "Hi D'Stella Interiors, I would like an estimate.",
     "",
     `Name: ${lead.name || "-"}`,
     `Phone: ${lead.phone || "-"}`,
   ];
   if (lead.email) lines.push(`Email: ${lead.email}`);
+  if (lead.projectName) lines.push(`Project: ${lead.projectName}`);
   if (lead.context) lines.push(`Interested in: ${lead.context}`);
   else if (lead.bhk) lines.push(`Interested in: ${lead.bhk} BHK`);
   if (lead.reference) lines.push(`Reference: ${lead.reference}`);
