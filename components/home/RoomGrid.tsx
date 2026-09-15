@@ -10,7 +10,7 @@ export default function RoomGrid() {
       <div className={styles.grid}>
         {rooms.map((room) => (
           <div key={room.id} className={`card elev-sm ${styles.card}`}>
-            <div className={`grayscale ${styles.imageWrap}`}>
+            <div className={styles.imageWrap}>
               <ImageSlot
                 src={room.photoSrc}
                 alt={room.photoAlt ?? room.name}

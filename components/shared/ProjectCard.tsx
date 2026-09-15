@@ -4,10 +4,10 @@ import styles from "./ProjectCard.module.css";
 
 type ProjectCardProps = {
   project: Project;
-  /** Home's "Recent work" cards are grayscale with no border; the portfolio
-   * page intentionally departs from that — full-color imagery, a bordered
-   * card and a luxury-tone rule under the caption (see the handoff README,
-   * "This page intentionally departs from the rest of the site"). */
+  /** Home's "Recent work" cards have no border; the portfolio page adds a
+   * bordered card and a luxury-tone rule under the caption. Both are now
+   * full-color — real project photography reads better in color than the
+   * design system's original grayscale treatment. */
   variant: "home" | "portfolio";
 };
 
@@ -16,7 +16,7 @@ export default function ProjectCard({ project, variant }: ProjectCardProps) {
 
   return (
     <div className={`card ${styles.card} ${variant === "portfolio" ? styles.portfolioCard : ""}`}>
-      <div className={variant === "home" ? `grayscale ${styles.imageWrap}` : styles.imageWrap}>
+      <div className={styles.imageWrap}>
         <ImageSlot
           src={project.photoSrc}
           alt={project.photoAlt}

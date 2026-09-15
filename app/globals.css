@@ -1,32 +1,40 @@
-/* Modernist design-system tokens and primitives, ported from
-   design_handoff_ansuman_designs_site/_ds/modernist-.../styles.css — the
-   token source of truth for this site. Values are unchanged; only the
-   Archivo @import is dropped in favour of next/font/google in app/layout.tsx.
+/* "Alabaster Editorial" — the site's light, vibrant, ultra-premium design
+   system. Supersedes the earlier dark-leaning "Modernist" token set (still
+   visible in design_handoff_ansuman_designs_site/ as a historical record).
+   Palette and type pairing are the brand's own, measured/confirmed from
+   DStella/brand_guide/Brand_Style_Guide.pptx: Terracotta/Clay/Taupe/Sand/
+   Warm Beige/Ivory/Charcoal/Navy Charcoal, Bodoni Moda (display/heading) +
+   Manrope (body/UI) — plus a champagne-gold and a deep-emerald accent added
+   for a richer premium palette, used sparingly alongside the brand
+   terracotta rather than replacing it.
 
-   Non-negotiable rules the design follows (see the handoff README):
-   zero border radius anywhere, everything flush left, 2px rules (not
-   hairlines), accent used sparingly, Archivo throughout. */
+   Design rules: warm alabaster base (never harsh pure white), soft shadows
+   and subtle 1px borders instead of dark panels, gentle corner radii, and
+   no dark-mode surfaces anywhere — header, hero, cards, forms and footer
+   all read as one continuous light, airy system. */
 
 :root {
-  --color-bg: #f3f2f2;
-  --color-surface: #eae9e9;
-  --color-text: #201e1d;
+  --color-bg: #faf6ef;
+  --color-surface: #ffffff;
+  --color-surface-2: #f4ecdf;
+  --color-text: #23262b;
+  --color-divider: #e6dcc9;
+  --color-border: #e6dcc9;
+
   /* Brand terracotta/rust, measured from the D'Stella logo pack (business
-     card, letterhead and pitch deck all agree on ~#9c4d2d) — replaces the
-     earlier generic red-orange placeholder that didn't match the brand. */
+     card, letterhead and pitch deck all agree on ~#9c4d2d). Primary accent. */
   --color-accent: #9c4d2d;
   --color-accent-2: #c67a52;
-  --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
 
-  --color-neutral-100: #f8f4f4;
-  --color-neutral-200: #eae7e7;
-  --color-neutral-300: #d7d3d3;
-  --color-neutral-400: #bab6b6;
-  --color-neutral-500: #9b9797;
-  --color-neutral-600: #7d7979;
-  --color-neutral-700: #605d5d;
-  --color-neutral-800: #444141;
-  --color-neutral-900: #2d2b2b;
+  --color-neutral-100: #fffdf9;
+  --color-neutral-200: #f4ecdf;
+  --color-neutral-300: #e6dcc9;
+  --color-neutral-400: #cabfa9;
+  --color-neutral-500: #a89d88;
+  --color-neutral-600: #847a68;
+  --color-neutral-700: #5f584b;
+  --color-neutral-800: #3a3630;
+  --color-neutral-900: #23262b;
 
   --color-accent-100: #faf1ec;
   --color-accent-200: #f0dccf;
@@ -38,9 +46,22 @@
   --color-accent-800: #542716;
   --color-accent-900: #35190e;
 
-  --font-heading: var(--font-archivo), system-ui, sans-serif;
-  --font-heading-weight: 800;
-  --font-body: var(--font-archivo), system-ui, sans-serif;
+  /* Secondary premium accents — used sparingly (a badge, an icon, a rule),
+     never as a base color, so terracotta stays the brand's primary voice. */
+  --color-gold: #ad8a4d;
+  --color-gold-tint: #f3e9d3;
+  --color-gold-ink: #6b5327;
+  --color-emerald: #2f5d46;
+  --color-emerald-tint: #e3ede6;
+
+  /* Brand navy — kept for small dark accents (icons, one deliberate dark
+     card) but no longer a full-section background; see the "remove dark
+     mode" direction. */
+  --tone-dark: #20222c;
+
+  --font-heading: var(--font-bodoni), "Times New Roman", serif;
+  --font-heading-weight: 600;
+  --font-body: var(--font-manrope), system-ui, sans-serif;
 
   --space-1: 4px;
   --space-2: 8px;
@@ -49,19 +70,13 @@
   --space-6: 24px;
   --space-8: 32px;
 
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --radius-lg: 8px;
 
-  --shadow-sm: 0 1px 2px color-mix(in srgb, #2d2b2b 14%, transparent);
-  --shadow-md: 0 3px 10px color-mix(in srgb, #2d2b2b 16%, transparent);
-  --shadow-lg: 0 12px 32px color-mix(in srgb, #2d2b2b 22%, transparent);
-
-  /* Themeable dark nav/footer fill — see lib/constants.ts TONE_DARK and the
-     handoff's "Luxury tone" note. Set once here so it changes in one place.
-     Brand navy (from the logo mark and pitch deck), replacing the earlier
-     generic near-black. */
-  --tone-dark: #20222c;
+  --shadow-sm: 0 1px 3px color-mix(in srgb, #23262b 8%, transparent);
+  --shadow-md: 0 6px 20px color-mix(in srgb, #23262b 10%, transparent);
+  --shadow-lg: 0 18px 44px color-mix(in srgb, #23262b 14%, transparent);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -80,16 +95,23 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: var(--font-heading-weight);
-  line-height: 1.12;
-  letter-spacing: -0.015em;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-wrap: balance;
   margin: 0 0 var(--space-2);
 }
-h1 { font-size: 42px; }
-h2 { font-size: 32px; }
+h1 { font-size: 44px; }
+h2 { font-size: 33px; }
 h3 { font-size: 25px; }
 h4 { font-size: 20px; }
 h5 { font-size: 16px; }
-h6 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+h6 {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 
 p { margin: 0 0 var(--space-3); }
 a { color: var(--color-accent); text-underline-offset: 3px; }
@@ -101,11 +123,14 @@ img { display: block; max-width: 100%; }
 :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
 ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
 
-.grayscale { filter: grayscale(1) contrast(1.08); }
+/* Historical — the earlier dark-mode "Modernist" system printed hero/room
+   photography in black and white. No longer used (see the light-theme
+   direction), kept only so old references don't 500. */
+.grayscale { filter: none; }
 
 /* — rules — */
 .hr {
-  height: 2px;
+  height: 1px;
   border: 0;
   margin: var(--space-4) 0;
   background: var(--color-divider);
@@ -119,27 +144,29 @@ img { display: block; max-width: 100%; }
   gap: 6px;
   cursor: pointer;
   text-decoration: none;
-  font-family: var(--font-heading);
-  font-weight: var(--font-heading-weight);
+  font-family: var(--font-body);
+  font-weight: 700;
   font-size: 14px;
+  letter-spacing: 0.01em;
   line-height: 1.2;
   color: var(--color-text);
   background: transparent;
   border: 1px solid transparent;
   padding: var(--space-2) calc(var(--space-3) * 1.2);
   border-radius: var(--radius-md);
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   /* 44px minimum tap target (handoff "Known issues" #1 — the prototype's
      13px/8px-12px nav buttons fell short; fixed here for every .btn). */
   min-height: 44px;
 }
 .btn svg { display: block; }
 .btn:disabled { opacity: 0.45; cursor: not-allowed; }
-.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary { background: var(--color-accent); color: var(--color-neutral-100); }
 .btn-primary:hover { background: var(--color-accent-600); }
 .btn-primary:active { background: var(--color-accent-700); }
-.btn-secondary { border-color: var(--color-divider); }
-.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
-.btn-secondary:active { background: color-mix(in srgb, var(--color-text) 14%, transparent); }
+.btn-secondary { border-color: var(--color-border); background: var(--color-surface); }
+.btn-secondary:hover { background: var(--color-surface-2); }
+.btn-secondary:active { background: var(--color-neutral-300); }
 .btn-block { width: 100%; margin-top: var(--space-2); justify-content: flex-start; text-align: left; }
 
 /* — forms — */
@@ -158,20 +185,20 @@ img { display: block; max-width: 100%; }
   color: var(--color-text);
   caret-color: var(--color-accent);
   background: var(--color-surface);
-  border: 1px solid var(--color-divider);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
   box-sizing: border-box;
   display: block;
 }
-.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:hover { border-color: var(--color-neutral-400); }
 .input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
 textarea.input { min-height: 90px; resize: vertical; font-family: var(--font-body); }
 
 .seg {
   display: inline-flex;
   overflow: hidden;
-  border: 1px solid var(--color-divider);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
 }
 .seg-opt {
   display: inline-flex;
@@ -189,7 +216,7 @@ textarea.input { min-height: 90px; resize: vertical; font-family: var(--font-bod
   height: 0;
   pointer-events: none;
 }
-.seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
+.seg-opt + .seg-opt { border-left: 1px solid var(--color-border); }
 .seg-opt:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
 
 /* — cards — */
@@ -197,18 +224,19 @@ textarea.input { min-height: 90px; resize: vertical; font-family: var(--font-bod
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  padding: var(--space-3);
+  padding: var(--space-4);
   border-radius: var(--radius-md);
   background: var(--color-surface);
+  border: 1px solid var(--color-border);
 }
-.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); font-weight: 700; }
 .card-title {
   font-family: var(--font-heading);
   font-weight: var(--font-heading-weight);
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.2;
 }
-.card-body { margin: 0; font-size: 13px; opacity: 0.8; }
+.card-body { margin: 0; font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 78%, transparent); }
 .elev-sm { box-shadow: var(--shadow-sm); }
 .elev-md { box-shadow: var(--shadow-md); }
 
