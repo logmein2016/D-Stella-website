@@ -1,1 +1,124 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.chevron {
+  flex: 1 1 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  padding: 18px 20px 18px 28px;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  clip-path: polygon(0% 0%, calc(100% - 18px) 0%, 100% 50%, calc(100% - 18px) 100%, 0% 100%, 18px 50%);
+  margin-right: -16px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.chevron:first-child {
+  clip-path: polygon(0% 0%, calc(100% - 18px) 0%, 100% 50%, calc(100% - 18px) 100%, 0% 100%);
+  padding-left: 20px;
+}
+
+.chevron:hover {
+  background: var(--color-accent-100);
+}
+
+.chevronActive {
+  background: var(--color-accent);
+}
+
+.chevronActive:hover {
+  background: var(--color-accent);
+}
+
+.chevronNum {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  opacity: 0.7;
+}
+
+.chevronActive .chevronNum {
+  color: var(--color-neutral-100);
+  opacity: 0.85;
+}
+
+.chevronIcon {
+  color: var(--color-accent);
+}
+
+.chevronActive .chevronIcon {
+  color: var(--color-neutral-100);
+}
+
+.chevronLabel {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+.chevronActive .chevronLabel {
+  color: var(--color-neutral-100);
+}
+
+.panel {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-6);
+}
+
+.panelIcon {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-100);
+  color: var(--color-accent);
+  border-radius: var(--radius-md);
+}
+
+.panelTitle {
+  margin-bottom: 6px;
+}
+
+.panelDesc {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--color-text) 80%, transparent);
+  max-width: 60ch;
+}
+
+@media (max-width: 640px) {
+  .chevron {
+    clip-path: none !important;
+    margin-right: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+}
