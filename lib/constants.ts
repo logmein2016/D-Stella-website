@@ -1,22 +1,23 @@
-// Site-wide constants. Two of these are placeholders pending real client
-// data — see design_handoff_ansuman_designs_site/README.md "Fidelity".
+// Site-wide constants.
 
-/** Dark nav/footer fill. Themeable per the handoff: a single CSS custom
- * property set once on :root (see app/globals.css) so it can be changed in
- * one place. Alternates offered by the design: Espresso #241a14,
- * Deep Forest #1c2620, Plum #241522. */
-export const TONE_DARK = "#1a1817";
+/** Dark nav/footer fill — set to the brand's navy (from the logo mark and
+ * pitch deck), replacing the earlier generic near-black placeholder. A
+ * single CSS custom property set once on :root (see app/globals.css) so it
+ * can be changed in one place. Alternates offered by the design: Espresso
+ * #241a14, Deep Forest #1c2620, Plum #241522. */
+export const TONE_DARK = "#20222c";
 
 export const SITE_NAME = "D'Stella Designs";
 export const SITE_TAGLINE = "Where a House becomes a Home — Bangalore";
 
-/** Placeholder — appears in every footer. Needs the client's real number. */
-export const PHONE_DISPLAY = `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`;
+/** Appears in every footer. Falls back to the brand's published landline
+ * (from the letterhead) if the env var isn't set. */
+export const PHONE_DISPLAY = `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918088035075"}`;
 
-export const SITE_URL = "https://ansumandesigns.com";
+export const SITE_URL = "https://www.dstellainteriors.com";
 
 /** Digits only, with country code — used for the WhatsApp fallback link.
- * Placeholder until the client supplies their real number (matches
- * PHONE_DISPLAY above). Public: it only ever appears in a wa.me URL. */
+ * Falls back to the brand's published number (from the letterhead) if the
+ * env var isn't set. Public: it only ever appears in a wa.me URL. */
 export const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919000000000";
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918088035075";

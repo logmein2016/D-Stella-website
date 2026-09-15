@@ -11,8 +11,11 @@
   --color-bg: #f3f2f2;
   --color-surface: #eae9e9;
   --color-text: #201e1d;
-  --color-accent: #ec3013;
-  --color-accent-2: #e15b47;
+  /* Brand terracotta/rust, measured from the D'Stella logo pack (business
+     card, letterhead and pitch deck all agree on ~#9c4d2d) — replaces the
+     earlier generic red-orange placeholder that didn't match the brand. */
+  --color-accent: #9c4d2d;
+  --color-accent-2: #c67a52;
   --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
 
   --color-neutral-100: #f8f4f4;
@@ -25,15 +28,15 @@
   --color-neutral-800: #444141;
   --color-neutral-900: #2d2b2b;
 
-  --color-accent-100: #fff2ef;
-  --color-accent-200: #ffe0d9;
-  --color-accent-300: #ffc4b8;
-  --color-accent-400: #ff9783;
-  --color-accent-500: #ff563c;
-  --color-accent-600: #dd2b0f;
-  --color-accent-700: #ae1800;
-  --color-accent-800: #7c1405;
-  --color-accent-900: #4d170e;
+  --color-accent-100: #faf1ec;
+  --color-accent-200: #f0dccf;
+  --color-accent-300: #e0bb9c;
+  --color-accent-400: #c68f5f;
+  --color-accent-500: #b05a35;
+  --color-accent-600: #8a4326;
+  --color-accent-700: #6e341e;
+  --color-accent-800: #542716;
+  --color-accent-900: #35190e;
 
   --font-heading: var(--font-archivo), system-ui, sans-serif;
   --font-heading-weight: 800;
@@ -55,8 +58,10 @@
   --shadow-lg: 0 12px 32px color-mix(in srgb, #2d2b2b 22%, transparent);
 
   /* Themeable dark nav/footer fill — see lib/constants.ts TONE_DARK and the
-     handoff's "Luxury tone" note. Set once here so it changes in one place. */
-  --tone-dark: #1a1817;
+     handoff's "Luxury tone" note. Set once here so it changes in one place.
+     Brand navy (from the logo mark and pitch deck), replacing the earlier
+     generic near-black. */
+  --tone-dark: #20222c;
 }
 
 *, *::before, *::after { box-sizing: border-box; }

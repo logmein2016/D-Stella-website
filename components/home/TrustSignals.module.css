@@ -1,0 +1,48 @@
+.section {
+  padding: var(--space-8) var(--space-4);
+}
+
+.kicker {
+  color: var(--color-accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.heading {
+  margin-bottom: var(--space-6);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.card {
+  align-items: flex-start;
+}
+
+.callout {
+  background: var(--tone-dark);
+  color: var(--color-bg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: 68ch;
+}
+
+.quote {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: clamp(18px, 2.6vw, 24px);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.quoteAttr {
+  opacity: 0.65;
+  font-size: 13px;
+}

@@ -17,7 +17,7 @@ export default function PortfolioGrid() {
   return (
     <section className={styles.section}>
       <h6 className={styles.kicker}>Portfolio</h6>
-      <h1 className={styles.heading}>Real homes, real budgets</h1>
+      <h1 className={styles.heading}>Real homes we&rsquo;ve designed</h1>
       <div className={styles.rule} />
       <p className={styles.intro}>
         Every project below is a 2 or 3 BHK apartment executed in Bangalore, at mid-segment budgets.
@@ -38,6 +38,7 @@ export default function PortfolioGrid() {
           <ProjectCard key={project.id} project={project} variant="portfolio" />
         ))}
       </div>
+      <p className={styles.footnote}>*Indicative budget range for a comparable home — final costing depends on layout, carpentry choices and site conditions.</p>
     </section>
   );
 }

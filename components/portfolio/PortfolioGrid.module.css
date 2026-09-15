@@ -40,3 +40,9 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--space-4);
 }
+
+.footnote {
+  margin-top: var(--space-4);
+  font-size: 12px;
+  opacity: 0.6;
+}
