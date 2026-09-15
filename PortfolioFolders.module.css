@@ -1,0 +1,102 @@
+.section {
+  padding: var(--space-8) var(--space-4) var(--space-6);
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.kicker {
+  color: var(--color-accent);
+}
+
+.heading {
+  margin-bottom: var(--space-6);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.folder {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.folderImage {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.folder:hover .folderImage {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.folderCaption {
+  display: flex;
+  flex-direction: column;
+}
+
+.folderName {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.folderCount {
+  font-size: 12.5px;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+}
+
+.inspirations {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: var(--color-text);
+  background: var(--color-gold-tint);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5, var(--space-4));
+}
+
+.inspirations svg:first-child {
+  color: var(--color-gold-ink);
+  flex: none;
+}
+
+.inspirations svg:last-child {
+  flex: none;
+  margin-left: auto;
+  color: var(--color-gold-ink);
+}
+
+.inspirationsText {
+  display: flex;
+  flex-direction: column;
+}
+
+.inspirationsTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.inspirationsSub {
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-text) 68%, transparent);
+}

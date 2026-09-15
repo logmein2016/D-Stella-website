@@ -1,0 +1,94 @@
+.card {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-6);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.optional {
+  opacity: 0.5;
+  font-weight: 400;
+}
+
+.required {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-accent-700);
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  margin-top: var(--space-1);
+}
+
+.reassurance {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-emerald);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.successHeading {
+  margin: 0;
+  font-size: clamp(20px, 4vw, 26px);
+}
+
+.successBody {
+  margin: 0;
+  opacity: 0.75;
+  font-size: 14px;
+  max-width: 48ch;
+}
+
+@media (max-width: 760px) {
+  .card {
+    padding: var(--space-4);
+  }
+  .actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+}
