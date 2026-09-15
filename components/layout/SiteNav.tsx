@@ -33,16 +33,6 @@ export default function SiteNav({ page }: { page: NavPage }) {
           <span className={styles.wordmark}>D&rsquo;Stella</span>
         </Link>
 
-        <button
-          type="button"
-          className={styles.menuToggle}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
-        </button>
-
         <div className={`${styles.links} ${open ? styles.linksOpen : ""}`}>
           {LINKS.map((link) => (
             <Link
@@ -54,14 +44,25 @@ export default function SiteNav({ page }: { page: NavPage }) {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/estimator"
-            className={`btn btn-primary ${styles.estimateBtn}`}
-            onClick={() => setOpen(false)}
-          >
-            Get an estimate
-          </Link>
         </div>
+
+        <Link href="/estimator" className={styles.estimateBadge} aria-label="Get an estimate">
+          <span>
+            Get an
+            <br />
+            Estimate
+          </span>
+        </Link>
+
+        <button
+          type="button"
+          className={styles.menuToggle}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
+        </button>
       </div>
     </nav>
   );
