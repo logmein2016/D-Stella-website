@@ -92,14 +92,6 @@ body {
   overflow-x: hidden; /* guards against the full-bleed hero causing horizontal scroll */
 }
 
-@media (max-width: 760px) {
-  /* Reserves room for the fixed call/WhatsApp bar (ContactBar) so it
-     doesn't cover the bottom of the page content. */
-  body {
-    padding-bottom: calc(52px + env(safe-area-inset-bottom, 0px));
-  }
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: var(--font-heading-weight);
