@@ -10,14 +10,11 @@ export const TONE_DARK = "#20222c";
 export const SITE_NAME = "D'Stella Designs";
 export const SITE_TAGLINE = "Where a House becomes a Home — Bangalore";
 
-/** Appears in every footer. Falls back to the brand's published landline
- * (from the letterhead) if the env var isn't set. */
-export const PHONE_DISPLAY = `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918088035075"}`;
+/** Appears in every footer, the nav badge and the fixed contact bar. */
+export const PHONE_DISPLAY = "+918088035075";
 
 export const SITE_URL = "https://www.dstellainteriors.com";
 
-/** Digits only, with country code — used for the WhatsApp fallback link.
- * Falls back to the brand's published number (from the letterhead) if the
- * env var isn't set. Public: it only ever appears in a wa.me URL. */
-export const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918088035075";
+/** Digits only, with country code — used for the WhatsApp link. Public: it
+ * only ever appears in a wa.me URL. */
+export const WHATSAPP_NUMBER = "918088035075";
