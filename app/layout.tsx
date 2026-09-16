@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Manrope } from "next/font/google";
+import ContactBar from "@/components/layout/ContactBar";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
@@ -67,7 +68,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <ContactBar />
+      </body>
     </html>
   );
 }
