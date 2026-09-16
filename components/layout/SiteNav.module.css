@@ -2,7 +2,10 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--color-bg);
+  /* Matches the background baked into the logo PNG (Dstell_logos-14),
+     not the site's --color-bg, so the logo's canvas doesn't show as a
+     visible rectangle against the nav. */
+  background: #e8e8df;
   border-bottom: 1px solid var(--color-divider);
 }
 
