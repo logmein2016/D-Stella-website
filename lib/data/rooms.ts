@@ -32,8 +32,8 @@ export const rooms: Room[] = [
     name: "Kitchen",
     kicker: "Modular & durable",
     desc: "Modular kitchens built for Indian cooking, with easy-to-clean, long-lasting finishes.",
-    photoSrc: "/photos/rooms/kitchen.jpg",
-    photoAlt: "D'Stella modular kitchen with patterned tile backsplash",
+    photoSrc: "/photos/rooms/Kicthen_Final.png",
+    photoAlt: "D'Stella parallel modular kitchen with olive cabinetry and marble backsplash",
   },
   {
     id: "room-bedroom",
