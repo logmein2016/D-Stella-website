@@ -24,14 +24,8 @@ export default function SiteNav({ page }: { page: NavPage }) {
     <nav className={styles.nav}>
       <div className={styles.bar}>
         <Link href="/" className={styles.brand} aria-label={`${SITE_NAME} — home`}>
-          <Image
-            src="/images/logo/Dstell_logos-14-cropped.png"
-            alt="D'Stella Interiors"
-            width={635}
-            height={200}
-            priority
-            className={styles.logoImg}
-          />
+          <Image src="/brand/icon-mark.png" alt="" width={56} height={56} priority className={styles.mark} />
+          <span className={styles.wordmark}>D&rsquo;Stella</span>
         </Link>
 
         <div className={`${styles.links} ${open ? styles.linksOpen : ""}`}>

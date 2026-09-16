@@ -2,10 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  /* Matches the background baked into the logo PNG (Dstell_logos-14),
-     not the site's --color-bg, so the logo's canvas doesn't show as a
-     visible rectangle against the nav. */
-  background: #e8e8df;
+  background: #f3e9d3;
   border-bottom: 1px solid var(--color-divider);
 }
 
@@ -24,10 +21,19 @@
   text-decoration: none;
 }
 
-.logoImg {
-  height: clamp(40px, 6vw, 60px);
-  width: auto;
+.mark {
+  width: clamp(40px, 4vw, 56px);
+  height: clamp(40px, 4vw, 56px);
   object-fit: contain;
+  flex: none;
+}
+
+.wordmark {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(18px, 1.8vw, 22px);
+  color: var(--color-text);
+  white-space: nowrap;
 }
 
 .menuToggle {
@@ -112,8 +118,13 @@
     flex-wrap: nowrap;
   }
 
-  .logoImg {
+  .mark {
+    width: 36px;
     height: 36px;
+  }
+
+  .wordmark {
+    font-size: 17px;
   }
 
   .menuToggle {
