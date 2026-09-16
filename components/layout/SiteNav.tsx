@@ -24,13 +24,14 @@ export default function SiteNav({ page }: { page: NavPage }) {
     <nav className={styles.nav}>
       <div className={styles.bar}>
         <Link href="/" className={styles.brand} aria-label={`${SITE_NAME} — home`}>
-          {/* Brandmark/Icon per the brand style guide ("use the icon alone...
-              on light or busy backgrounds") — the full dark lockup
-              (Dstell_logos-15) is built for a navy panel and doesn't read on
-              this light nav, so the icon carries the color and the wordmark
-              is set in ink beside it. */}
-          <Image src="/brand/icon-mark.png" alt="" width={56} height={56} priority className={styles.mark} />
-          <span className={styles.wordmark}>D&rsquo;Stella</span>
+          <Image
+            src="/images/logo/Dstell_logos-14.png"
+            alt="D'Stella Interiors"
+            width={600}
+            height={200}
+            priority
+            className={styles.logoImg}
+          />
         </Link>
 
         <div className={`${styles.links} ${open ? styles.linksOpen : ""}`}>
