@@ -9,9 +9,7 @@ export type Room = {
   photoCreditHref?: string;
 };
 
-// Real D'Stella project photography. Study has no photograph yet — RoomCard
-// renders its empty state until a client home with a dedicated study is
-// photographed.
+// Real D'Stella project photography.
 export const rooms: Room[] = [
   {
     id: "room-drawing",
@@ -50,6 +48,8 @@ export const rooms: Room[] = [
     name: "Study",
     kicker: "Focus & work from home",
     desc: "A dedicated work corner with proper lighting and cable-free desks.",
+    photoSrc: "/photos/rooms/studyunit.png",
+    photoAlt: "D'Stella study with a built-in desk, backlit open shelving and a window seat",
   },
   {
     id: "room-kids",
