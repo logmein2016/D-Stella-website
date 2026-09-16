@@ -2,17 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./Hero.module.css";
 
-// Background: a real D'Stella project photo, not an AI-generated image — this
-// session has no image-generation tool available, and the brand's own real
-// photography (measured better against "no stock/fake imagery") reads as the
-// stronger choice anyway. Swap in a generated image here later if preferred.
 export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.bgWrap}>
         <Image
-          src="/photos/rooms/drawing-room.jpg"
-          alt="D'Stella living room with a sectional sofa, gold pendant chandelier and skyline view"
+          src="/photos/rooms/HomePage_Living_Final.png"
+          alt="D'Stella double-height living room with a sectional sofa, ring chandelier and floating staircase"
           fill
           sizes="100vw"
           priority
