@@ -1,98 +1,53 @@
 .footer {
-  padding: var(--space-8) var(--space-4) var(--space-6);
-  background: var(--color-surface-2);
   color: var(--color-text);
-  border-top: 1px solid var(--color-divider);
 }
 
-.top {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  gap: var(--space-6);
-  max-width: 1080px;
-  margin: 0 auto;
-  padding-bottom: var(--space-6);
-}
-
-@media (max-width: 720px) {
-  .top {
-    grid-template-columns: 1fr;
-  }
-}
-
-.brandCol {
+.cta {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-}
-
-.brand {
-  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 19px;
-}
-
-.mark {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
-
-.tagline {
-  margin: 0;
-  font-size: 13px;
-  color: color-mix(in srgb, var(--color-text) 70%, transparent);
-  max-width: 32ch;
-}
-
-.linkCol {
-  display: flex;
-  flex-direction: column;
   gap: var(--space-2);
+  padding: var(--space-8) var(--space-4);
+  /* Matches the nav header's background (SiteNav.module.css), which is
+     itself matched to the logo PNG's baked-in canvas color. */
+  background: #e8e8df;
+  text-align: center;
 }
 
-.link {
-  font-size: 13.5px;
-  color: var(--color-text);
-  text-decoration: none;
+.ctaHeading {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: clamp(24px, 4vw, 34px);
 }
 
-.link:hover {
-  color: var(--color-accent);
+.ctaBody {
+  margin: 0;
+  font-size: 15px;
+  color: color-mix(in srgb, var(--color-text) 75%, transparent);
 }
 
-.contactCol {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.contactLabel {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 700;
-}
-
-.contactValue {
-  font-size: 13.5px;
-  color: var(--color-text);
-  text-decoration: none;
-}
-
-.contactValue:hover {
-  color: var(--color-accent);
+.ctaBtn {
+  margin-top: var(--space-2);
+  font-size: 15px;
+  padding: 14px 28px;
 }
 
 .bottom {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--color-divider);
-  font-size: 12px;
-  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--tone-dark);
+  color: color-mix(in srgb, var(--color-neutral-100) 80%, transparent);
+  font-size: 12.5px;
+  text-align: center;
+}
+
+.legal {
+  display: inline-flex;
+  gap: var(--space-2);
+  color: color-mix(in srgb, var(--color-neutral-100) 65%, transparent);
 }
