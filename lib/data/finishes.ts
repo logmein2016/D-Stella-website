@@ -40,6 +40,6 @@ export function formatLakh(n: number): string {
 }
 
 export function formatPriceRange(bhk: Bhk, finish: Finish): string {
-  const [min, max] = priceTable[bhk][finish];
-  return `${formatLakh(min)} – ${formatLakh(max)}`;
+  const [min] = priceTable[bhk][finish];
+  return formatLakh(min);
 }
