@@ -19,6 +19,10 @@ const SLIDES = [
     alt: "Parallel modular kitchen with olive cabinetry and a marble backsplash",
   },
   {
+    src: "/photos/carousel/Kitchen_4_DStella.jpg",
+    alt: "Farmhouse-style kitchen with a large island and warm wood floors",
+  },
+  {
     src: "/photos/carousel/Wardrobe_Dstella.png",
     alt: "Sage green walk-in wardrobe with a mirrored door and open display shelving",
   },
@@ -36,7 +40,7 @@ export default function Hero() {
 
   useEffect(() => {
     if (paused) return;
-    const timer = setInterval(next, 5000);
+    const timer = setInterval(next, 6000);
     return () => clearInterval(timer);
   }, [paused, next]);
 
