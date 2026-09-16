@@ -3,7 +3,6 @@ import SiteFooter from "@/components/layout/SiteFooter";
 import Hero from "@/components/home/Hero";
 import RoomGrid from "@/components/home/RoomGrid";
 import HowItWorks from "@/components/home/HowItWorks";
-import TrustSignals from "@/components/home/TrustSignals";
 import RecentWork from "@/components/home/RecentWork";
 import LeadForm from "@/components/lead-form/LeadForm";
 
@@ -21,10 +20,6 @@ export default function HomePage() {
       <hr className="hr" style={{ margin: 0 }} />
 
       <HowItWorks />
-
-      <hr className="hr" style={{ margin: 0 }} />
-
-      <TrustSignals />
 
       <hr className="hr" style={{ margin: 0 }} />
 
