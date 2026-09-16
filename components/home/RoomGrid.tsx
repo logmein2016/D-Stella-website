@@ -1,30 +1,57 @@
-import { rooms } from "@/lib/data/rooms";
-import ImageSlot from "@/components/shared/ImageSlot";
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { galleryRooms } from "@/lib/data/gallery";
 import styles from "./RoomGrid.module.css";
 
+const TABS: { slug: string; label: string }[] = [
+  { slug: "drawing-room", label: "Living" },
+  { slug: "dining", label: "Dining" },
+  { slug: "bedroom", label: "Bedroom" },
+  { slug: "kitchen", label: "Kitchen" },
+  { slug: "study", label: "Study" },
+  { slug: "kids-room", label: "Kids Bedroom" },
+];
+
 export default function RoomGrid() {
+  const [active, setActive] = useState("drawing-room");
+  const room = galleryRooms.find((r) => r.slug === active);
+
   return (
     <section className={styles.section}>
-      <h6 className={styles.kicker}>Room by room</h6>
-      <h2 className={styles.heading}>Every room, planned around how you live</h2>
+      <div className={styles.headRow}>
+        <div>
+          <h6 className={styles.kicker}>Room by room</h6>
+          <h2 className={styles.heading}>Every room, planned around how you live</h2>
+        </div>
+
+        <div className={styles.tabs} role="tablist" aria-label="Browse by room">
+          {TABS.map((tab) => (
+            <button
+              key={tab.slug}
+              type="button"
+              role="tab"
+              aria-selected={active === tab.slug}
+              className={`${styles.tab} ${active === tab.slug ? styles.tabActive : ""}`}
+              onClick={() => setActive(tab.slug)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className={styles.grid}>
-        {rooms.map((room) => (
-          <div key={room.id} className={`card elev-sm ${styles.card}`}>
-            <div className={styles.imageWrap}>
-              <ImageSlot
-                src={room.photoSrc}
-                alt={room.photoAlt ?? room.name}
-                credit={room.photoCredit}
-                creditHref={room.photoCreditHref}
-                placeholder={room.name}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.caption}>
-              <span className="card-kicker">{room.kicker}</span>
-              <span className="card-title">{room.name}</span>
-              <p className="card-body">{room.desc}</p>
-            </div>
+        {room?.photos.map((photo) => (
+          <div key={photo.src} className={styles.photo}>
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              sizes="(max-width: 640px) 100vw, 50vw"
+              className={styles.image}
+            />
           </div>
         ))}
       </div>
