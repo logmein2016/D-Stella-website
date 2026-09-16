@@ -25,9 +25,9 @@ export default function SiteNav({ page }: { page: NavPage }) {
       <div className={styles.bar}>
         <Link href="/" className={styles.brand} aria-label={`${SITE_NAME} — home`}>
           <Image
-            src="/images/logo/Dstell_logos-14.png"
+            src="/images/logo/Dstell_logos-14-cropped.png"
             alt="D'Stella Interiors"
-            width={600}
+            width={635}
             height={200}
             priority
             className={styles.logoImg}
