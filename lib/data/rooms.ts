@@ -56,8 +56,8 @@ export const rooms: Room[] = [
     name: "Kids’ Room",
     kicker: "Play & grow",
     desc: "Durable, playful designs that adapt as your children grow older.",
-    photoSrc: "/photos/rooms/kids-room.jpg",
-    photoAlt: "D'Stella kids' bedroom with a soft-pink mirrored wardrobe",
+    photoSrc: "/photos/rooms/Kids bedroom with cricket walpaper.png",
+    photoAlt: "D'Stella kids' bedroom with a cricket-themed mural and study desk",
   },
 ];
 
