@@ -68,7 +68,7 @@ export default function EstimatorForm() {
 
         {hasSelection ? (
           <div className={`card elev-md ${styles.priceCard}`}>
-            <span className="card-kicker">Estimated range</span>
+            <span className="card-kicker">Starting from</span>
             <div className={styles.priceFigure}>{priceRangeText}</div>
             <p className={`card-body ${styles.priceCaption}`}>
               Final quote depends on layout, carpentry choices and site conditions.
@@ -76,7 +76,7 @@ export default function EstimatorForm() {
           </div>
         ) : (
           <div className={`card ${styles.priceCard} ${styles.priceCardEmpty}`}>
-            <span className="card-kicker">Estimated range</span>
+            <span className="card-kicker">Starting from</span>
             <p className={`card-body ${styles.priceCaption}`}>
               Pick your apartment size and finish level above to see your range.
             </p>
