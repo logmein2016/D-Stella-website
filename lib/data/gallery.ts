@@ -64,9 +64,27 @@ export const galleryRooms: GalleryRoom[] = [
     slug: "kitchen",
     name: "Kitchen",
     desc: "Modular kitchens built for Indian cooking, with easy-to-clean, long-lasting finishes.",
-    coverSrc: "/photos/rooms/kitchen.jpg",
+    coverSrc: "/photos/rooms/Kicthen_Final.png",
     photos: [
-      { src: "/photos/rooms/kitchen.jpg", alt: "Modular kitchen with a patterned tile backsplash and black granite counter" },
+      { src: "/photos/rooms/Kicthen_Final.png", alt: "Parallel modular kitchen with olive cabinetry and marble backsplash" },
+    ],
+  },
+  {
+    slug: "study",
+    name: "Study",
+    desc: "Dedicated work corners with proper lighting and cable-free desks.",
+    coverSrc: "/photos/rooms/studyunit.png",
+    photos: [
+      { src: "/photos/rooms/studyunit.png", alt: "Study with a built-in desk, backlit open shelving and a window seat" },
+    ],
+  },
+  {
+    slug: "kids-room",
+    name: "Kids' Room",
+    desc: "Durable, playful designs that adapt as children grow older.",
+    coverSrc: "/photos/rooms/Kids bedroom with cricket walpaper.png",
+    photos: [
+      { src: "/photos/rooms/Kids bedroom with cricket walpaper.png", alt: "Kids' bedroom with a cricket-themed mural and study desk" },
     ],
   },
 ];

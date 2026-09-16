@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
-import PortfolioFolders from "@/components/portfolio/PortfolioFolders";
+import PortfolioGallery from "@/components/portfolio/PortfolioGallery";
 import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
 import LeadForm from "@/components/lead-form/LeadForm";
 
@@ -16,7 +16,7 @@ export default function PortfolioPage() {
     <div style={{ background: "var(--color-bg)", color: "var(--color-text)", minHeight: "100vh" }}>
       <SiteNav page="portfolio" />
 
-      <PortfolioFolders />
+      <PortfolioGallery />
 
       <hr className="hr" style={{ margin: 0 }} />
 
