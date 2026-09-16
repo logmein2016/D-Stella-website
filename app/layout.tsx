@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, Manrope } from "next/font/google";
+import { Fraunces, Manrope } from "next/font/google";
 import ContactBar from "@/components/layout/ContactBar";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
-// Brand's own type pairing, per DStella/brand_guide/Brand_Style_Guide.pptx:
-// Bodoni Moda (editorial serif — logo, headings, hero text) + Manrope
-// (secondary — UI, body copy, documents).
-const bodoniModa = Bodoni_Moda({
+// "Warm Organic & Craft" pairing: Fraunces (headings — earthy, residential
+// luxury feel) + Manrope (body/UI).
+const fraunces = Fraunces({
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
-  variable: "--font-bodoni",
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -61,7 +60,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${bodoniModa.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${manrope.variable}`}>
       <head>
         <script
           type="application/ld+json"

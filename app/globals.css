@@ -3,8 +3,9 @@
    visible in design_handoff_ansuman_designs_site/ as a historical record).
    Palette and type pairing are the brand's own, measured/confirmed from
    DStella/brand_guide/Brand_Style_Guide.pptx: Terracotta/Clay/Taupe/Sand/
-   Warm Beige/Ivory/Charcoal/Navy Charcoal, Bodoni Moda (display/heading) +
-   Manrope (body/UI) — plus a champagne-gold and a deep-emerald accent added
+   Warm Beige/Ivory/Charcoal/Navy Charcoal. Type pairing is "Warm Organic &
+   Craft": Fraunces (display/heading) + Manrope (body/UI) — plus a
+   champagne-gold and a deep-emerald accent added
    for a richer premium palette, used sparingly alongside the brand
    terracotta rather than replacing it.
 
@@ -59,7 +60,7 @@
      mode" direction. */
   --tone-dark: #20222c;
 
-  --font-heading: var(--font-bodoni), "Times New Roman", serif;
+  --font-heading: var(--font-fraunces), "Times New Roman", serif;
   --font-heading-weight: 600;
   --font-body: var(--font-manrope), system-ui, sans-serif;
 
