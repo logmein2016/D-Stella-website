@@ -6,15 +6,11 @@
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: var(--space-4);
+  justify-content: flex-start;
+  gap: var(--space-6);
   margin-bottom: var(--space-6);
   border-bottom: 1px solid var(--color-divider);
   padding-bottom: var(--space-3);
-}
-
-.kicker {
-  color: var(--color-accent-700);
 }
 
 .heading {

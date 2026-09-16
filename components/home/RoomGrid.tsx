@@ -21,10 +21,7 @@ export default function RoomGrid() {
   return (
     <section className={styles.section}>
       <div className={styles.headRow}>
-        <div>
-          <h6 className={styles.kicker}>Room by room</h6>
-          <h2 className={styles.heading}>Every room, planned around how you live</h2>
-        </div>
+        <h2 className={styles.heading}>Portfolio</h2>
 
         <div className={styles.tabs} role="tablist" aria-label="Browse by room">
           {TABS.map((tab) => (
