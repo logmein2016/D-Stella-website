@@ -1,6 +1,7 @@
 import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
 import Hero from "@/components/home/Hero";
+import InteriorCarousel from "@/components/home/InteriorCarousel";
 import RoomGrid from "@/components/home/RoomGrid";
 import HowItWorks from "@/components/home/HowItWorks";
 import LeadForm from "@/components/lead-form/LeadForm";
@@ -11,6 +12,10 @@ export default function HomePage() {
       <SiteNav page="home" />
 
       <Hero />
+
+      <hr className="hr" style={{ margin: 0 }} />
+
+      <InteriorCarousel />
 
       <hr className="hr" style={{ margin: 0 }} />
 
