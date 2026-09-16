@@ -20,21 +20,26 @@ export const finishLabels: Record<Finish, string> = {
   luxury: "Luxury",
 };
 
-/** Rupees, [min, max]. */
+/** Rupees, [min, max]. Only the min ("Starting from") is currently displayed. */
 export const priceTable: Record<Bhk, Record<Finish, [number, number]>> = {
   "2": {
-    value: [500_000, 750_000],
-    premium: [700_000, 900_000],
-    luxury: [900_000, 1_100_000],
+    value: [400_000, 400_000],
+    premium: [600_000, 600_000],
+    luxury: [850_000, 850_000],
   },
   "3": {
-    value: [700_000, 950_000],
-    premium: [900_000, 1_150_000],
-    luxury: [1_100_000, 1_400_000],
+    value: [500_000, 500_000],
+    premium: [650_000, 650_000],
+    luxury: [950_000, 950_000],
+  },
+  "4": {
+    value: [700_000, 700_000],
+    premium: [950_000, 950_000],
+    luxury: [1_150_000, 1_150_000],
   },
 };
 
-/** [900000, 1100000] -> "₹9L – ₹11L"; [1150000, 1400000] -> "₹11.5L – ₹14L" */
+/** 400000 -> "₹4L"; 850000 -> "₹8.5L" */
 export function formatLakh(n: number): string {
   return "₹" + (n / 100_000).toFixed(1).replace(/\.0$/, "") + "L";
 }

@@ -5,7 +5,7 @@
 // Living here as a data module — not hard-coded in the views — so a future
 // CMS swap only touches this file.
 
-export type Bhk = "2" | "3";
+export type Bhk = "2" | "3" | "4";
 
 export type Project = {
   id: string;

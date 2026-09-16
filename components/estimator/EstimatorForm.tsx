@@ -16,6 +16,7 @@ import styles from "./EstimatorForm.module.css";
 const bhkOptions: { value: Bhk; label: string }[] = [
   { value: "2", label: "2 BHK" },
   { value: "3", label: "3 BHK" },
+  { value: "4", label: "4 BHK" },
 ];
 
 export default function EstimatorForm() {
@@ -71,7 +72,7 @@ export default function EstimatorForm() {
             <span className="card-kicker">Starting from</span>
             <div className={styles.priceFigure}>{priceRangeText}</div>
             <p className={`card-body ${styles.priceCaption}`}>
-              Final quote depends on layout, carpentry choices and site conditions.
+              Final quote depends on layout, material choices and site dimensions.
             </p>
           </div>
         ) : (
