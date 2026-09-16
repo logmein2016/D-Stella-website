@@ -23,14 +23,14 @@ export const finishLabels: Record<Finish, string> = {
 /** Rupees, [min, max]. */
 export const priceTable: Record<Bhk, Record<Finish, [number, number]>> = {
   "2": {
-    value: [650_000, 750_000],
-    premium: [750_000, 900_000],
+    value: [500_000, 750_000],
+    premium: [700_000, 900_000],
     luxury: [900_000, 1_100_000],
   },
   "3": {
-    value: [800_000, 950_000],
-    premium: [950_000, 1_150_000],
-    luxury: [1_150_000, 1_400_000],
+    value: [700_000, 950_000],
+    premium: [900_000, 1_150_000],
+    luxury: [1_100_000, 1_400_000],
   },
 };
 
