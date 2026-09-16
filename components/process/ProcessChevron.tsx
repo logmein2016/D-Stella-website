@@ -25,7 +25,6 @@ export default function ProcessChevron() {
               className={`${styles.chevron} ${isActive ? styles.chevronActive : ""}`}
               onClick={() => setActive(i)}
             >
-              <span className={styles.chevronNum}>0{i + 1}</span>
               <StepIcon size={20} strokeWidth={2} className={styles.chevronIcon} />
               <span className={styles.chevronLabel}>{s.title}</span>
             </button>
