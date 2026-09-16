@@ -22,11 +22,13 @@
 .scrim {
   position: absolute;
   inset: 0;
+  /* Deep navy (--tone-dark, #20222c), matching the brand's dark tone used
+     elsewhere (footer bottom bar, TrustSignals, PortfolioGrid). */
   background: linear-gradient(
     100deg,
-    rgba(32, 26, 20, 0.72) 0%,
-    rgba(32, 26, 20, 0.42) 42%,
-    rgba(32, 26, 20, 0.08) 68%
+    rgba(32, 34, 44, 0.72) 0%,
+    rgba(32, 34, 44, 0.42) 42%,
+    rgba(32, 34, 44, 0.08) 68%
   );
   pointer-events: none;
   z-index: 1;
