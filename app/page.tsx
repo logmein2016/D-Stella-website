@@ -3,7 +3,6 @@ import SiteFooter from "@/components/layout/SiteFooter";
 import Hero from "@/components/home/Hero";
 import RoomGrid from "@/components/home/RoomGrid";
 import HowItWorks from "@/components/home/HowItWorks";
-import RecentWork from "@/components/home/RecentWork";
 import LeadForm from "@/components/lead-form/LeadForm";
 
 export default function HomePage() {
@@ -35,10 +34,6 @@ export default function HomePage() {
           />
         </div>
       </section>
-
-      <hr className="hr" style={{ margin: 0 }} />
-
-      <RecentWork />
 
       <hr className="hr" style={{ margin: 0 }} />
 
