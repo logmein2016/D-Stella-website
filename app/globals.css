@@ -87,8 +87,8 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.65;
   font-weight: 400;
   overflow-x: hidden; /* guards against the full-bleed hero causing horizontal scroll */
 }
@@ -97,13 +97,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: var(--font-heading-weight);
   line-height: 1.15;
-  letter-spacing: 0;
+  letter-spacing: -0.015em;
   text-wrap: balance;
   margin: 0 0 var(--space-2);
 }
-h1 { font-size: 44px; }
-h2 { font-size: 33px; }
-h3 { font-size: 25px; }
+h1 { font-size: 48px; }
+h2 { font-size: 36px; }
+h3 { font-size: 27px; }
 h4 { font-size: 20px; }
 h5 { font-size: 16px; }
 h6 {

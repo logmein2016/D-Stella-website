@@ -10,7 +10,8 @@
 
 .heading {
   margin-bottom: var(--space-2);
-  font-size: clamp(30px, 6vw, 44px);
+  font-size: clamp(30px, 6vw, 46px);
+  letter-spacing: -0.02em;
 }
 
 .intro {
