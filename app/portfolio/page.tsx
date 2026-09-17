@@ -3,6 +3,7 @@ import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
 import PortfolioGallery from "@/components/portfolio/PortfolioGallery";
 import LeadForm from "@/components/lead-form/LeadForm";
+import { getGalleryRooms } from "@/lib/supabase/gallery";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -10,12 +11,14 @@ export const metadata: Metadata = {
     "Real 2 & 3 BHK apartment interiors completed in Bangalore, browsable by room.",
 };
 
-export default function PortfolioPage() {
+export default async function PortfolioPage() {
+  const galleryRooms = await getGalleryRooms();
+
   return (
     <div style={{ background: "var(--color-bg)", color: "var(--color-text)", minHeight: "100vh" }}>
       <SiteNav page="portfolio" />
 
-      <PortfolioGallery />
+      <PortfolioGallery rooms={galleryRooms} />
 
       <hr className="hr" style={{ margin: 0 }} />
 

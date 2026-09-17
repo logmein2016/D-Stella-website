@@ -6,7 +6,8 @@ import { ArrowLeft } from "lucide-react";
 import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
 import LeadForm from "@/components/lead-form/LeadForm";
-import { galleryRooms, findGalleryRoom } from "@/lib/data/gallery";
+import { galleryRooms } from "@/lib/data/gallery";
+import { getGalleryRooms } from "@/lib/supabase/gallery";
 import styles from "./page.module.css";
 
 export function generateStaticParams() {
@@ -19,7 +20,8 @@ export async function generateMetadata({
   params: Promise<{ room: string }>;
 }): Promise<Metadata> {
   const { room: slug } = await params;
-  const room = findGalleryRoom(slug);
+  const rooms = await getGalleryRooms();
+  const room = rooms.find((r) => r.slug === slug);
   if (!room) return {};
   return {
     title: `${room.name} — Portfolio`,
@@ -33,7 +35,8 @@ export default async function GalleryRoomPage({
   params: Promise<{ room: string }>;
 }) {
   const { room: slug } = await params;
-  const room = findGalleryRoom(slug);
+  const rooms = await getGalleryRooms();
+  const room = rooms.find((r) => r.slug === slug);
   if (!room) notFound();
 
   return (

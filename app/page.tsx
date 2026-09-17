@@ -5,8 +5,11 @@ import ContactPopup from "@/components/home/ContactPopup";
 import RoomGrid from "@/components/home/RoomGrid";
 import HowItWorks from "@/components/home/HowItWorks";
 import LeadForm from "@/components/lead-form/LeadForm";
+import { getGalleryRooms } from "@/lib/supabase/gallery";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const galleryRooms = await getGalleryRooms();
+
   return (
     <div style={{ background: "var(--color-bg)", color: "var(--color-text)", minHeight: "100vh" }}>
       <SiteNav page="home" />
@@ -17,7 +20,7 @@ export default function HomePage() {
 
       <hr className="hr" style={{ margin: 0 }} />
 
-      <RoomGrid />
+      <RoomGrid rooms={galleryRooms} />
 
       <hr className="hr" style={{ margin: 0 }} />
 

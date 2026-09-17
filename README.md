@@ -102,3 +102,42 @@ git push -u origin main
   and [`lib/data/projects.ts`](lib/data/projects.ts) — no component code changes needed.
 - **Portfolio project records**: currently in `lib/data/projects.ts`, ready
   to swap for a CMS or database later.
+
+## Admin panel (`/admin`)
+
+A password-protected area for managing leads and portfolio photos, built on
+Supabase Auth + Storage (same Supabase project as the leads table).
+
+**One-time setup:**
+
+1. Run [`supabase/admin-setup.sql`](supabase/admin-setup.sql) in the Supabase
+   SQL Editor (Project → SQL Editor → New query). It's safe to re-run.
+2. Create the photo storage bucket by hand first (SQL can't do this):
+   Project → Storage → New bucket → name it `gallery` → **Public bucket: ON**.
+   Then the bucket-access policies at the bottom of the SQL file will apply.
+3. Create the admin login: Project → Authentication → Users → Add user →
+   fill in email + password → tick **Auto Confirm User**. This is the only
+   account the panel supports right now — there's no self-signup or
+   password-reset flow.
+4. Add two more environment variables (same project, just exposed to the
+   browser this time — the admin area runs client-side and relies on
+   Postgres RLS, not a hidden key, for access control):
+   - `.env.local` for local dev: `NEXT_PUBLIC_SUPABASE_URL`,
+     `NEXT_PUBLIC_SUPABASE_ANON_KEY` (same values as `SUPABASE_URL` /
+     `SUPABASE_ANON_KEY` above)
+   - Vercel → Project → Settings → Environment Variables, same two, for
+     Production and Preview
+
+**What it does:**
+
+- **Leads dashboard** (`/admin`) — every lead from every form on the site,
+  searchable/filterable, with a status field (New/Contacted/Quoted/Won/Lost),
+  delete, and CSV export (opens fine in Excel).
+- **Photos** (`/admin/photos`) — upload, delete and reorder photos per room
+  tab (Living, Dining, Bedroom, Kitchen, Study, Kids' Room, Pooja). Uploads
+  go to Supabase Storage and immediately replace that room's built-in photo
+  set on the live site; a room with nothing uploaded yet keeps showing its
+  original photos ([`lib/supabase/gallery.ts`](lib/supabase/gallery.ts)
+  handles the fallback).
+- **Email notifications / export-by-email**: not built yet — needs a
+  transactional email provider (e.g. Resend) added first.

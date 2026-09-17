@@ -1,0 +1,76 @@
+.loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+.shell {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  background: var(--tone-dark);
+  color: var(--color-neutral-100);
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 17px;
+  margin-right: auto;
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.navLink,
+.navLinkActive {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  color: color-mix(in srgb, var(--color-neutral-100) 75%, transparent);
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.navLinkActive {
+  color: var(--color-neutral-100);
+  border-bottom-color: var(--color-accent);
+}
+
+.navLink:hover {
+  color: var(--color-neutral-100);
+}
+
+.logout {
+  border: 1px solid color-mix(in srgb, var(--color-neutral-100) 30%, transparent);
+  background: none;
+  color: var(--color-neutral-100);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.logout:hover {
+  background: color-mix(in srgb, var(--color-neutral-100) 10%, transparent);
+}
+
+.main {
+  padding: var(--space-6) var(--space-4);
+  max-width: 1200px;
+  margin: 0 auto;
+}

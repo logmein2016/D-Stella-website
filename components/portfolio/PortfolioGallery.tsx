@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { galleryRooms } from "@/lib/data/gallery";
+import type { GalleryRoom } from "@/lib/data/gallery";
 import styles from "./PortfolioGallery.module.css";
 
 const TABS: { slug: string; label: string }[] = [
@@ -14,9 +14,9 @@ const TABS: { slug: string; label: string }[] = [
   { slug: "kids-room", label: "Kids Bedroom" },
 ];
 
-export default function PortfolioGallery() {
+export default function PortfolioGallery({ rooms }: { rooms: GalleryRoom[] }) {
   const [active, setActive] = useState<string>("drawing-room");
-  const room = galleryRooms.find((r) => r.slug === active);
+  const room = rooms.find((r) => r.slug === active);
 
   return (
     <section className={styles.section}>

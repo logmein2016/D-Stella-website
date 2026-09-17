@@ -1,0 +1,38 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tone-dark);
+  padding: var(--space-4);
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.heading {
+  margin: 0;
+  font-size: 26px;
+}
+
+.subheading {
+  margin: calc(var(--space-2) * -1) 0 0;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+  font-size: 14px;
+}
+
+.error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-accent-700);
+  font-weight: 600;
+}

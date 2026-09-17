@@ -1,0 +1,111 @@
+.heading {
+  margin: 0 0 var(--space-2);
+  font-size: 28px;
+}
+
+.note {
+  margin: 0 0 var(--space-4);
+  font-size: 13.5px;
+  opacity: 0.7;
+  max-width: 60ch;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.tab {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.tabActive {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-neutral-100);
+}
+
+.uploadRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5, var(--space-4));
+}
+
+.uploadBtn {
+  cursor: pointer;
+}
+
+.error {
+  color: var(--color-accent-700);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.empty {
+  opacity: 0.6;
+  padding: var(--space-6) 0;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-4);
+}
+
+.photoCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.photoWrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.photoActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-2);
+}
+
+.photoActions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.photoActions button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.deleteBtn {
+  margin-left: auto;
+  color: var(--color-accent-700) !important;
+}

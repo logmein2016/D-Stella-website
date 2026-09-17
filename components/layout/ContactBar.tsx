@@ -1,8 +1,14 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { Phone } from "lucide-react";
 import { PHONE_DISPLAY, WHATSAPP_NUMBER } from "@/lib/constants";
 import styles from "./ContactBar.module.css";
 
 export default function ContactBar() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/admin")) return null;
+
   return (
     <div className={styles.bar}>
       <a href={`tel:${PHONE_DISPLAY}`} className={`${styles.action} ${styles.call}`} aria-label="Call us">
