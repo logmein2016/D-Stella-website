@@ -6,12 +6,21 @@
 
 .kicker {
   color: var(--color-accent);
-  display: block;
-  margin-bottom: var(--space-2);
+}
+
+.rule {
+  width: 56px;
+  height: 3px;
+  margin: var(--space-3) 0 var(--space-4);
+  background: var(--color-accent);
 }
 
 .heading {
-  font-size: clamp(30px, 5vw, 44px);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
   max-width: 18ch;
 }
 
@@ -58,6 +67,8 @@
 }
 
 .promiseHeading {
+  font-size: clamp(26px, 4vw, 36px);
+  letter-spacing: -0.01em;
   margin-bottom: var(--space-6);
 }
 

@@ -24,7 +24,8 @@ export default function AboutPage() {
       <SiteNav page="about" />
 
       <section className={styles.hero}>
-        <span className={styles.kicker}>About D&rsquo;Stella</span>
+        <h6 className={styles.kicker}>About D&rsquo;Stella</h6>
+        <div className={styles.rule} />
         <h1 className={styles.heading}>We built the interior design experience we wished we&rsquo;d had.</h1>
       </section>
 
@@ -67,6 +68,7 @@ export default function AboutPage() {
 
       <section className={styles.promiseSection}>
         <h6 className={styles.kicker}>What that means for you</h6>
+        <div className={styles.rule} />
         <h2 className={styles.promiseHeading}>Reliability and predictability, in practice</h2>
         <div className={styles.promiseGrid}>
           {promises.map((text) => (
