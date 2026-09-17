@@ -21,7 +21,11 @@ export default function ContactPage() {
           <h1 className={styles.heading}>Let&rsquo;s talk about your home</h1>
           <p className={styles.body}>
             Share a few details and one of our designers will call you within one working day.
-            Prefer to chat directly? Reach us on WhatsApp at {PHONE_DISPLAY}.
+            Prefer to chat directly? Reach us on WhatsApp at{" "}
+            <a href={`https://wa.me/${PHONE_DISPLAY.replace(/\D/g, "")}`} className={styles.phoneHighlight}>
+              {PHONE_DISPLAY}
+            </a>
+            .
           </p>
         </div>
 

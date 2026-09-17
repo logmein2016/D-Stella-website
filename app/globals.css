@@ -91,6 +91,11 @@ body {
   line-height: 1.55;
   font-weight: 400;
   overflow-x: hidden; /* guards against the full-bleed hero causing horizontal scroll */
+  /* Applies to every descendant unless overridden. Manrope ignores these
+     axis tags harmlessly; Fraunces (--font-heading) needs them everywhere
+     it's used, not just on h1-h6 — see the h1-h6 rule below for why. */
+  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 30;
+  font-optical-sizing: none;
 }
 
 h1, h2, h3, h4, h5, h6 {

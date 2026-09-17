@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
 import ProcessChevron from "@/components/process/ProcessChevron";
@@ -28,12 +27,6 @@ export default function ProcessPage() {
 
       <section className={styles.chevronSection}>
         <ProcessChevron />
-
-        <div className={styles.ctaRow}>
-          <Link href="/contact" className="btn btn-primary">
-            Book free consultation
-          </Link>
-        </div>
       </section>
 
       <hr className="hr" style={{ margin: 0 }} />

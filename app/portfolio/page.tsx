@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
 import PortfolioGallery from "@/components/portfolio/PortfolioGallery";
-import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
 import LeadForm from "@/components/lead-form/LeadForm";
 
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Real 2 & 3 BHK apartment interiors completed in Bangalore, browsable by room — plus full-home projects with indicative budgets.",
+    "Real 2 & 3 BHK apartment interiors completed in Bangalore, browsable by room.",
 };
 
 export default function PortfolioPage() {
@@ -17,10 +16,6 @@ export default function PortfolioPage() {
       <SiteNav page="portfolio" />
 
       <PortfolioGallery />
-
-      <hr className="hr" style={{ margin: 0 }} />
-
-      <PortfolioGrid />
 
       <hr className="hr" style={{ margin: 0 }} />
 

@@ -219,20 +219,6 @@ export default function LeadForm({
           </div>
         )}
 
-        <div className="field">
-          <label htmlFor={`${source}-message`}>
-            Anything you&rsquo;d like to tell us <span className={styles.optional}>(optional)</span>
-          </label>
-          <textarea
-            id={`${source}-message`}
-            className="input"
-            rows={3}
-            placeholder="Apartment name, possession date, rooms you want done first…"
-            value={state.message}
-            onChange={(e) => set("message", e.target.value)}
-          />
-        </div>
-
         {/* Honeypot — hidden from real visitors via CSS, not `type=hidden`,
             so a naive bot that only skips hidden inputs still fills it in. */}
         <div className={styles.honeypot} aria-hidden="true">

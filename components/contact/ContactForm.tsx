@@ -8,7 +8,6 @@ import styles from "./ContactForm.module.css";
 
 type FormState = {
   name: string;
-  email: string;
   phone: string;
   projectName: string;
   company: string; // honeypot
@@ -20,7 +19,6 @@ type FormState = {
 
 const initialState: FormState = {
   name: "",
-  email: "",
   phone: "",
   projectName: "",
   company: "",
@@ -46,7 +44,7 @@ export default function ContactForm() {
     const lead: LeadInput = {
       name: state.name.trim(),
       phone: state.phone.trim(),
-      email: state.email.trim(),
+      email: "",
       reference: "",
       message: "",
       whatsappOk: true,
@@ -95,45 +93,33 @@ export default function ContactForm() {
   return (
     <div className={styles.card}>
       <form className={styles.stack} onSubmit={handleSubmit} noValidate>
-        <div className="field">
-          <label htmlFor="contact-name">Your name</label>
-          <input
-            id="contact-name"
-            className="input"
-            type="text"
-            placeholder="Full name"
-            value={state.name}
-            onChange={(e) => set("name", e.target.value)}
-          />
-        </div>
+        <div className={styles.grid}>
+          <div className="field">
+            <label htmlFor="contact-name">Your name</label>
+            <input
+              id="contact-name"
+              className="input"
+              type="text"
+              placeholder="Full name"
+              value={state.name}
+              onChange={(e) => set("name", e.target.value)}
+            />
+          </div>
 
-        <div className="field">
-          <label htmlFor="contact-email">
-            Email ID <span className={styles.optional}>(optional)</span>
-          </label>
-          <input
-            id="contact-email"
-            className="input"
-            type="email"
-            placeholder="you@example.com"
-            value={state.email}
-            onChange={(e) => set("email", e.target.value)}
-          />
-        </div>
-
-        <div className="field">
-          <label htmlFor="contact-phone">
-            Phone number <span className={styles.required}>*</span>
-          </label>
-          <input
-            id="contact-phone"
-            className="input"
-            type="tel"
-            required
-            placeholder="+91 98765 43210"
-            value={state.phone}
-            onChange={(e) => set("phone", e.target.value)}
-          />
+          <div className="field">
+            <label htmlFor="contact-phone">
+              Phone number <span className={styles.required}>*</span>
+            </label>
+            <input
+              id="contact-phone"
+              className="input"
+              type="tel"
+              required
+              placeholder="+91 98765 43210"
+              value={state.phone}
+              onChange={(e) => set("phone", e.target.value)}
+            />
+          </div>
         </div>
 
         <div className="field">

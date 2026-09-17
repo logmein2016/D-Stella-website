@@ -29,7 +29,7 @@ export default function HowItWorks() {
             the hour.
           </p>
           <div className={styles.contactActions}>
-            <a href={`tel:${PHONE_DISPLAY}`} className={`btn btn-secondary ${styles.contactBtn}`}>
+            <a href={`tel:${PHONE_DISPLAY}`} className={`btn btn-primary ${styles.contactBtn}`}>
               <Phone size={17} strokeWidth={2} />
               Call {PHONE_DISPLAY}
             </a>

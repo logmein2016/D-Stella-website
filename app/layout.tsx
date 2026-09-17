@@ -5,10 +5,13 @@ import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
 // "Warm Organic & Craft" pairing: Fraunces (headings — earthy, residential
-// luxury feel) + Manrope (body/UI).
+// luxury feel) + Manrope (body/UI). Loaded as the full variable font (no
+// fixed `weight` list) so globals.css can pin the SOFT/WONK/opsz axes —
+// Fraunces' default "display" instance has quite pronounced ball-terminal
+// curls on f/j that read as "twisted" at heading sizes; a lower opsz plus
+// WONK/SOFT at 0 gives calmer, more conventional letterforms.
 const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
   variable: "--font-fraunces",
   display: "swap",
 });
