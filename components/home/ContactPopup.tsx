@@ -6,7 +6,7 @@ import LeadForm from "@/components/lead-form/LeadForm";
 import styles from "./ContactPopup.module.css";
 
 const STORAGE_KEY = "dstella-popup-shown";
-const DELAY_MS = 15000;
+const DELAY_MS = 6000;
 
 export default function ContactPopup() {
   const [open, setOpen] = useState(false);
