@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Playfair_Display, Manrope } from "next/font/google";
 import ContactBar from "@/components/layout/ContactBar";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
-// "Warm Organic & Craft" pairing: Fraunces (headings — earthy, residential
-// luxury feel) + Manrope (body/UI). Loaded as the full variable font (no
-// fixed `weight` list) so globals.css can pin the SOFT/WONK/opsz axes —
-// Fraunces' default "display" instance has quite pronounced ball-terminal
-// curls on f/j that read as "twisted" at heading sizes; a lower opsz plus
-// WONK/SOFT at 0 gives calmer, more conventional letterforms.
-const fraunces = Fraunces({
+// Playfair Display (headings — editorial, high-end) + Manrope (body/UI).
+// Was Fraunces, but its f/j have a pronounced ball-terminal descender hook
+// baked into the base glyph outline at every weight/optical-size/wonk
+// setting (confirmed by testing axes directly) — not fixable via
+// font-variation-settings, so switched fonts instead.
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -63,7 +63,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${playfairDisplay.variable} ${manrope.variable}`}>
       <head>
         <script
           type="application/ld+json"

@@ -3,8 +3,8 @@
    visible in design_handoff_ansuman_designs_site/ as a historical record).
    Palette and type pairing are the brand's own, measured/confirmed from
    DStella/brand_guide/Brand_Style_Guide.pptx: Terracotta/Clay/Taupe/Sand/
-   Warm Beige/Ivory/Charcoal/Navy Charcoal. Type pairing is "Warm Organic &
-   Craft": Fraunces (display/heading) + Manrope (body/UI) — plus a
+   Warm Beige/Ivory/Charcoal/Navy Charcoal. Type pairing: Playfair Display
+   (display/heading) + Manrope (body/UI) — plus a
    champagne-gold and a deep-emerald accent added
    for a richer premium palette, used sparingly alongside the brand
    terracotta rather than replacing it.
@@ -60,7 +60,7 @@
      mode" direction. */
   --tone-dark: #20222c;
 
-  --font-heading: var(--font-fraunces), "Times New Roman", serif;
+  --font-heading: var(--font-playfair), "Times New Roman", serif;
   --font-heading-weight: 600;
   --font-body: var(--font-manrope), system-ui, sans-serif;
 
@@ -91,11 +91,6 @@ body {
   line-height: 1.55;
   font-weight: 400;
   overflow-x: hidden; /* guards against the full-bleed hero causing horizontal scroll */
-  /* Applies to every descendant unless overridden. Manrope ignores these
-     axis tags harmlessly; Fraunces (--font-heading) needs them everywhere
-     it's used, not just on h1-h6 — see the h1-h6 rule below for why. */
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 30;
-  font-optical-sizing: none;
 }
 
 h1, h2, h3, h4, h5, h6 {

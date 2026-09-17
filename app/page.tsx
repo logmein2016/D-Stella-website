@@ -1,6 +1,7 @@
 import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
 import Hero from "@/components/home/Hero";
+import ContactPopup from "@/components/home/ContactPopup";
 import RoomGrid from "@/components/home/RoomGrid";
 import HowItWorks from "@/components/home/HowItWorks";
 import LeadForm from "@/components/lead-form/LeadForm";
@@ -9,6 +10,8 @@ export default function HomePage() {
   return (
     <div style={{ background: "var(--color-bg)", color: "var(--color-text)", minHeight: "100vh" }}>
       <SiteNav page="home" />
+
+      <ContactPopup />
 
       <Hero />
 
