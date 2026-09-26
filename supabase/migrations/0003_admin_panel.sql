@@ -1,15 +1,5 @@
--- D'Stella admin area setup. Run this once in the Supabase SQL Editor
--- (Project -> SQL Editor -> New query), then run it. Safe to re-run —
--- every statement is idempotent (IF NOT EXISTS / OR REPLACE / drop-first).
-
--- ============================================================
--- 0. Bug fix, unrelated to the admin area: the contact page's "project
---    name" field was added to the code (app/api/leads/route.ts,
---    lib/leads.ts) without ever adding the matching column here, so
---    EVERY lead submission on the site has been failing to save and
---    silently falling back to the WhatsApp link. Fixes that.
--- ============================================================
-alter table public.leads add column if not exists project_name text;
+-- Admin area setup: lead status/RLS for authenticated admins, the gallery
+-- photos table, and storage bucket policies. Safe to re-run.
 
 -- ============================================================
 -- 1. Leads table: add a status column, and let signed-in admins

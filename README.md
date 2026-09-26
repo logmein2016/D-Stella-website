@@ -25,45 +25,35 @@ npm run dev
 
 ## Supabase setup
 
-Run once in the Supabase SQL editor (also documented in the handoff README):
+Schema and RLS policies are tracked as numbered SQL files in
+[`supabase/migrations/`](supabase/migrations/) — run them in order, once
+each, in the Supabase SQL editor (Project → SQL Editor → New query). Every
+file is idempotent (`if not exists` / `drop policy if exists` / etc.), so
+re-running one is harmless.
 
-```sql
-create table public.leads (
-  id           bigint generated always as identity primary key,
-  created_at   timestamptz not null default now(),
-  name         text not null,
-  email        text,
-  phone        text not null,
-  whatsapp_ok  boolean not null default true,
-  message      text,
-  reference    text,
-  bhk          text,
-  finish       text,
-  price_range  text,
-  context      text,
-  project_name text,
-  source       text
-);
+- [`0001_initial_leads_table.sql`](supabase/migrations/0001_initial_leads_table.sql) —
+  creates the `leads` table, enables RLS, and lets anonymous visitors insert
+  (but not read) rows via the lead-capture forms.
+- [`0002_add_project_name_column.sql`](supabase/migrations/0002_add_project_name_column.sql) —
+  adds the `project_name` column the contact form's "project name" field
+  writes to. **Required** — without it every lead submission fails silently
+  and falls back to the WhatsApp link, since the insert can't find the
+  column.
+- [`0003_admin_panel.sql`](supabase/migrations/0003_admin_panel.sql) — the
+  admin panel's schema: leads `status` column + admin read/update/delete
+  policies, the `gallery_photos` table, and storage bucket policies. See
+  [Admin panel](#admin-panel-admin) below before running this one — it
+  depends on the `gallery` storage bucket existing first.
 
-alter table public.leads enable row level security;
+When adding new schema changes, add a new `NNNN_description.sql` file rather
+than editing an existing one, so the folder stays an ordered history of what
+ran and when.
 
-create policy "anon can insert leads"
-  on public.leads for insert to anon with check (true);
-
-grant usage on schema public to anon;
-grant insert on public.leads to anon;
-```
-
-Both grants are required — the RLS policy alone will not let inserts through.
-
-**If your `leads` table already exists** from before `project_name` was added
-to the schema (contact page's "project name" field), run this once too —
-otherwise every lead submission on the site fails silently and falls back
-to the WhatsApp link, since the insert can't find the column:
-
-```sql
-alter table public.leads add column if not exists project_name text;
-```
+`npm run test:leads` sends a real insert straight to Supabase's REST API with
+every column the app writes — run it after any schema change to catch a
+missing/renamed column immediately instead of finding out from a silent
+WhatsApp-fallback in production (needs `SUPABASE_URL`/`SUPABASE_ANON_KEY` set,
+see below).
 
 Then, in Project Settings → API, copy the Project URL and the `anon` public
 key into:
@@ -120,11 +110,12 @@ Supabase Auth + Storage (same Supabase project as the leads table).
 
 **One-time setup:**
 
-1. Run [`supabase/admin-setup.sql`](supabase/admin-setup.sql) in the Supabase
-   SQL Editor (Project → SQL Editor → New query). It's safe to re-run.
-2. Create the photo storage bucket by hand first (SQL can't do this):
+1. Create the photo storage bucket by hand first (SQL can't do this):
    Project → Storage → New bucket → name it `gallery` → **Public bucket: ON**.
-   Then the bucket-access policies at the bottom of the SQL file will apply.
+2. Run [`supabase/migrations/0003_admin_panel.sql`](supabase/migrations/0003_admin_panel.sql)
+   in the Supabase SQL Editor (Project → SQL Editor → New query). It's safe
+   to re-run. This adds the bucket-access policies referencing `gallery`
+   from step 1, so create the bucket first.
 3. Create the admin login: Project → Authentication → Users → Add user →
    fill in email + password → tick **Auto Confirm User**. This is the only
    account the panel supports right now — there's no self-signup or
