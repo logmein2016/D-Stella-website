@@ -29,19 +29,20 @@ Run once in the Supabase SQL editor (also documented in the handoff README):
 
 ```sql
 create table public.leads (
-  id          bigint generated always as identity primary key,
-  created_at  timestamptz not null default now(),
-  name        text not null,
-  email       text,
-  phone       text not null,
-  whatsapp_ok boolean not null default true,
-  message     text,
-  reference   text,
-  bhk         text,
-  finish      text,
-  price_range text,
-  context     text,
-  source      text
+  id           bigint generated always as identity primary key,
+  created_at   timestamptz not null default now(),
+  name         text not null,
+  email        text,
+  phone        text not null,
+  whatsapp_ok  boolean not null default true,
+  message      text,
+  reference    text,
+  bhk          text,
+  finish       text,
+  price_range  text,
+  context      text,
+  project_name text,
+  source       text
 );
 
 alter table public.leads enable row level security;
@@ -54,6 +55,15 @@ grant insert on public.leads to anon;
 ```
 
 Both grants are required — the RLS policy alone will not let inserts through.
+
+**If your `leads` table already exists** from before `project_name` was added
+to the schema (contact page's "project name" field), run this once too —
+otherwise every lead submission on the site fails silently and falls back
+to the WhatsApp link, since the insert can't find the column:
+
+```sql
+alter table public.leads add column if not exists project_name text;
+```
 
 Then, in Project Settings → API, copy the Project URL and the `anon` public
 key into:
