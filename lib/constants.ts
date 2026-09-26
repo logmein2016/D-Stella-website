@@ -7,7 +7,7 @@
  * #241a14, Deep Forest #1c2620, Plum #241522. */
 export const TONE_DARK = "#20222c";
 
-export const SITE_NAME = "D'Stella Designs";
+export const SITE_NAME = "D'Stella Interiors";
 export const SITE_TAGLINE = "Where a House becomes a Home — Bangalore";
 
 /** Appears in every footer, the nav badge and the fixed contact bar. */
