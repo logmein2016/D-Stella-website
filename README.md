@@ -142,3 +142,13 @@ Supabase Auth + Storage (same Supabase project as the leads table).
   handles the fallback).
 - **Email notifications / export-by-email**: not built yet — needs a
   transactional email provider (e.g. Resend) added first.
+
+## Keeping Supabase awake (`vercel.json` cron)
+
+Supabase's free tier pauses a project after 7 days with no API activity —
+that would silently break lead capture (masked by the WhatsApp fallback).
+[`vercel.json`](vercel.json) schedules a weekly hit to
+[`/api/cron/keepalive`](app/api/cron/keepalive/route.ts), which does a
+harmless read against `gallery_photos`. Optionally set `CRON_SECRET` (see
+`.env.local.example`) in Vercel so only Vercel's own scheduler can trigger
+it. Cron jobs only run once deployed to Vercel, not in local dev.

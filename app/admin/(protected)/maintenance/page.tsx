@@ -46,6 +46,13 @@ const CHECKLIST: { period: string; items: string[] }[] = [
       "Retire portfolio projects/photos that no longer represent current work.",
     ],
   },
+  {
+    period: "11 months (1 month before the yearly renewal)",
+    items: [
+      "Renew the website domain (dstellainteriors.com) — check the registrar for the exact expiry date and turn on auto-renew if possible.",
+      "Check the Supabase project's plan/billing status (Project → Settings → Billing) so the database doesn't get suspended.",
+    ],
+  },
 ];
 
 function ResultIcon({ status }: { status: CheckStatus }) {
@@ -142,6 +149,20 @@ export default function MaintenancePage() {
         {storageCheck.message ? (
           <p className={storageCheck.status === "fail" ? styles.fail : styles.pass}>{storageCheck.message}</p>
         ) : null}
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.sectionHeading}>Automated</h2>
+        <div className={styles.checkRow}>
+          <div className={styles.checkInfo}>
+            <span className={styles.checkTitle}>Supabase keep-alive</span>
+            <span className={styles.checkDesc}>
+              A scheduled job (Vercel Cron, see vercel.json) pings the database every Monday so
+              the free-tier project never sits idle long enough to auto-pause. Nothing to run
+              here — it only shows up in Vercel&rsquo;s dashboard under Project → Cron Jobs.
+            </span>
+          </div>
+        </div>
       </section>
 
       <section className={styles.section}>
