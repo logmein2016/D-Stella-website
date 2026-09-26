@@ -91,9 +91,6 @@ git push -u origin main
 
 ## Known placeholders (see the handoff README's "Fidelity" section)
 
-- **Phone/WhatsApp number**: `+91 90000 00000` / `919000000000` throughout
-  ([`lib/constants.ts`](lib/constants.ts)) — swap for the client's real
-  number via `NEXT_PUBLIC_WHATSAPP_NUMBER` and `PHONE_DISPLAY`.
 - **Photography**: the hero and three room cards use Unsplash stock; the
   Kitchen/Study/Kids' Room cards and all eight portfolio tiles are empty.
   Every image goes through [`components/shared/ImageSlot.tsx`](components/shared/ImageSlot.tsx),
@@ -102,6 +99,10 @@ git push -u origin main
   and [`lib/data/projects.ts`](lib/data/projects.ts) — no component code changes needed.
 - **Portfolio project records**: currently in `lib/data/projects.ts`, ready
   to swap for a CMS or database later.
+- **Social share image**: `app/layout.tsx`'s Open Graph/Twitter image is
+  currently the square brand icon (`public/brand/icon.png`, 512×512). Swap
+  in a real 1200×630 photo once one exists — link previews will look better
+  with a landscape image than a centered square logo.
 
 ## Admin panel (`/admin`)
 

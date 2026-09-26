@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Manrope } from "next/font/google";
 import ContactBar from "@/components/layout/ContactBar";
-import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
+import { PHONE_DISPLAY, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
 // Playfair Display (headings — editorial, high-end) + Manrope (body/UI).
@@ -36,7 +36,15 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME} — Interior Design in Bangalore`,
     description: SITE_TAGLINE,
+    url: SITE_URL,
     locale: "en_IN",
+    images: [{ url: "/brand/icon.png", width: 512, height: 512, alt: `${SITE_NAME} logo` }],
+  },
+  twitter: {
+    card: "summary",
+    title: `${SITE_NAME} — Interior Design in Bangalore`,
+    description: SITE_TAGLINE,
+    images: ["/brand/icon.png"],
   },
 };
 
@@ -52,10 +60,11 @@ const localBusinessJsonLd = {
   },
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Whitefield",
-    addressRegion: "Banglore",
+    addressLocality: "Whitefield, Bangalore",
+    addressRegion: "Karnataka",
     addressCountry: "IN",
   },
+  telephone: PHONE_DISPLAY,
   url: SITE_URL,
 };
 
