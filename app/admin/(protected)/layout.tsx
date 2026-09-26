@@ -48,6 +48,12 @@ export default function AdminProtectedLayout({ children }: { children: React.Rea
           >
             Photos
           </Link>
+          <Link
+            href="/admin/maintenance"
+            className={pathname === "/admin/maintenance" ? styles.navLinkActive : styles.navLink}
+          >
+            Maintenance
+          </Link>
         </nav>
         <button type="button" className={styles.logout} onClick={handleLogout}>
           Log out
