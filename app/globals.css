@@ -1,13 +1,15 @@
 /* "Alabaster Editorial" — the site's light, vibrant, ultra-premium design
    system. Supersedes the earlier dark-leaning "Modernist" token set (still
    visible in design_handoff_ansuman_designs_site/ as a historical record).
-   Palette and type pairing are the brand's own, measured/confirmed from
-   DStella/brand_guide/Brand_Style_Guide.pptx: Terracotta/Clay/Taupe/Sand/
-   Warm Beige/Ivory/Charcoal/Navy Charcoal. Type pairing: Playfair Display
-   (display/heading) + Manrope (body/UI) — plus a
-   champagne-gold and a deep-emerald accent added
-   for a richer premium palette, used sparingly alongside the brand
+   Palette is the brand's own, measured/confirmed from DStella/brand_guide/
+   Brand_Style_Guide.pptx: Terracotta/Clay/Taupe/Sand/Warm Beige/Ivory/
+   Charcoal/Navy Charcoal — plus a champagne-gold and a deep-emerald accent
+   added for a richer premium palette, used sparingly alongside the brand
    terracotta rather than replacing it.
+
+   Type pairing: Cormorant italic (display/heading) + Jost (body/UI) — a
+   deliberate departure from the brand guide's Playfair Display + Manrope,
+   chosen after reviewing rendered alternatives side by side.
 
    Design rules: warm alabaster base (never harsh pure white), soft shadows
    and subtle 1px borders instead of dark panels, gentle corner radii, and
@@ -60,9 +62,9 @@
      mode" direction. */
   --tone-dark: #20222c;
 
-  --font-heading: var(--font-playfair), "Times New Roman", serif;
+  --font-heading: var(--font-cormorant), "Times New Roman", serif;
   --font-heading-weight: 600;
-  --font-body: var(--font-manrope), system-ui, sans-serif;
+  --font-body: var(--font-jost), system-ui, sans-serif;
 
   --space-1: 4px;
   --space-2: 8px;
@@ -96,6 +98,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: var(--font-heading-weight);
+  font-style: italic;
   line-height: 1.15;
   letter-spacing: -0.015em;
   text-wrap: balance;
@@ -108,6 +111,7 @@ h4 { font-size: 20px; }
 h5 { font-size: 16px; }
 h6 {
   font-family: var(--font-body);
+  font-style: normal;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -234,6 +238,7 @@ textarea.input { min-height: 90px; resize: vertical; font-family: var(--font-bod
 .card-title {
   font-family: var(--font-heading);
   font-weight: var(--font-heading-weight);
+  font-style: italic;
   font-size: 19px;
   line-height: 1.2;
 }

@@ -1,25 +1,27 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Manrope } from "next/font/google";
+import { Cormorant, Jost } from "next/font/google";
 import ContactBar from "@/components/layout/ContactBar";
 import { PHONE_DISPLAY, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
-// Playfair Display (headings — editorial, high-end) + Manrope (body/UI).
-// Was Fraunces, but its f/j have a pronounced ball-terminal descender hook
-// baked into the base glyph outline at every weight/optical-size/wonk
-// setting (confirmed by testing axes directly) — not fixable via
-// font-variation-settings, so switched fonts instead.
-const playfairDisplay = Playfair_Display({
+// Cormorant italic (headings — soft, romantic, editorial) + Jost (body/UI).
+// Was Playfair Display + Manrope before this; before that, Fraunces, whose
+// f/j have a pronounced ball-terminal descender hook baked into the base
+// glyph outline at every weight/optical-size/wonk setting (confirmed by
+// testing axes directly) — not fixable via font-variation-settings, so
+// switched fonts instead.
+const cormorant = Cormorant({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-playfair",
+  weight: ["500", "600", "700"],
+  style: ["italic"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
-const manrope = Manrope({
+const jost = Jost({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-manrope",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jost",
   display: "swap",
 });
 
@@ -76,7 +78,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${playfairDisplay.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
       <head>
         <script
           type="application/ld+json"
