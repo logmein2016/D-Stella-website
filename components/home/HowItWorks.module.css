@@ -99,38 +99,39 @@
 .contactActions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-3);
   margin-top: var(--space-2);
 }
 
-.contactBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-.whatsappBtn {
-  display: inline-flex;
+.iconAction {
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  min-height: 44px;
-  padding: var(--space-2) calc(var(--space-3) * 1.2);
-  border: 1px solid transparent;
-  border-radius: var(--radius-md);
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-  background: #25d366;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
   color: var(--color-neutral-100);
-  white-space: nowrap;
-  transition: background-color 0.15s ease;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.whatsappBtn:hover {
-  background: #1ebc59;
+.iconAction:hover {
+  transform: scale(1.06);
+  box-shadow: var(--shadow-md);
+}
+
+.call {
+  background: var(--color-accent);
+}
+
+.whatsapp {
+  background: #25d366;
+}
+
+.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
 }
 
 .contactFormWrap {
