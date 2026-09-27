@@ -27,35 +27,39 @@
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-5, var(--space-4));
+  gap: var(--space-2);
 }
 
 .tab {
-  border: none;
+  border: 1px solid transparent;
   background: none;
-  padding: 6px 0;
+  padding: 8px 16px;
+  border-radius: 999px;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 14.5px;
-  color: color-mix(in srgb, var(--color-text) 55%, transparent);
-  border-bottom: 2px solid transparent;
+  font-size: 14px;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
   cursor: pointer;
   white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .tab:hover {
   color: var(--color-text);
+  border-color: var(--color-border);
 }
 
 .tabActive {
-  color: var(--color-text);
-  border-bottom-color: var(--color-text);
+  color: var(--color-neutral-100);
+  background: var(--color-accent-700);
+  border-color: var(--color-accent-700);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-3);
+  animation: fadeIn 0.3s ease both;
 }
 
 .photo {
@@ -65,14 +69,133 @@
   overflow: hidden;
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.photo:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .image {
   object-fit: cover;
 }
 
+.empty {
+  padding: var(--space-8) 0;
+  text-align: center;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+  font-size: 14.5px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 640px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: color-mix(in srgb, black 90%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  animation: fadeIn 0.15s ease both;
+}
+
+.lightboxImageWrap {
+  position: relative;
+  width: min(90vw, 1400px);
+  height: min(85vh, 900px);
+}
+
+.lightboxImage {
+  object-fit: contain;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  border: none;
+  background: color-mix(in srgb, white 12%, transparent);
+  color: var(--color-neutral-100);
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightboxClose:hover {
+  background: color-mix(in srgb, white 22%, transparent);
+}
+
+.lightboxNav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: color-mix(in srgb, white 12%, transparent);
+  color: var(--color-neutral-100);
+  border-radius: 999px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightboxNav:hover {
+  background: color-mix(in srgb, white 22%, transparent);
+}
+
+.lightboxPrev {
+  left: var(--space-4);
+}
+
+.lightboxNext {
+  right: var(--space-4);
+}
+
+.lightboxCount {
+  position: absolute;
+  bottom: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-neutral-100);
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+@media (max-width: 640px) {
+  .lightbox {
+    padding: var(--space-3);
+  }
+
+  .lightboxNav {
+    width: 40px;
+    height: 40px;
   }
 }
