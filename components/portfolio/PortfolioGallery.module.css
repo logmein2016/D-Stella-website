@@ -64,8 +64,8 @@
 
 .photo {
   position: relative;
-  flex: 1 1 220px;
-  max-width: 320px;
+  flex: 1 1 150px;
+  max-width: 210px;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -84,6 +84,28 @@
 
 .image {
   object-fit: cover;
+}
+
+.watermark {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  opacity: 0.65;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+}
+
+.watermarkLarge {
+  position: absolute;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  width: 40px;
+  height: 40px;
+  opacity: 0.7;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
 }
 
 .empty {
@@ -108,6 +130,11 @@
   .photo {
     flex-basis: 42%;
     max-width: none;
+  }
+
+  .watermark {
+    width: 18px;
+    height: 18px;
   }
 }
 

@@ -74,8 +74,15 @@ export default function PortfolioGallery({ rooms }: { rooms: GalleryRoom[] }) {
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 18vw"
                 className={styles.image}
+              />
+              <Image
+                src="/brand/icon-mark-white.png"
+                alt=""
+                width={64}
+                height={64}
+                className={styles.watermark}
               />
             </button>
           ))}
@@ -114,6 +121,13 @@ export default function PortfolioGallery({ rooms }: { rooms: GalleryRoom[] }) {
               priority
             />
           </div>
+          <Image
+            src="/brand/icon-mark-white.png"
+            alt=""
+            width={40}
+            height={40}
+            className={styles.watermarkLarge}
+          />
 
           {photos.length > 1 ? (
             <button
