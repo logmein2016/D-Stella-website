@@ -46,13 +46,16 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-4);
+  margin-bottom: var(--space-6);
 }
 
 .photo {
   position: relative;
+  flex: 1 1 220px;
+  max-width: 280px;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -64,8 +67,13 @@
   object-fit: cover;
 }
 
+.viewAllBtn {
+  width: fit-content;
+}
+
 @media (max-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr;
+  .photo {
+    flex-basis: 42%;
+    max-width: none;
   }
 }

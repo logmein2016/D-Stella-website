@@ -2,8 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import type { GalleryRoom } from "@/lib/data/gallery";
 import styles from "./RoomGrid.module.css";
+
+const PREVIEW_COUNT = 4;
 
 const TABS: { slug: string; label: string }[] = [
   { slug: "drawing-room", label: "Living" },
@@ -40,18 +44,23 @@ export default function RoomGrid({ rooms }: { rooms: GalleryRoom[] }) {
       </div>
 
       <div className={styles.grid}>
-        {room?.photos.map((photo) => (
+        {room?.photos.slice(0, PREVIEW_COUNT).map((photo) => (
           <div key={photo.src} className={styles.photo}>
             <Image
               src={photo.src}
               alt={photo.alt}
               fill
-              sizes="(max-width: 640px) 100vw, 50vw"
+              sizes="(max-width: 640px) 50vw, 25vw"
               className={styles.image}
             />
           </div>
         ))}
       </div>
+
+      <Link href="/portfolio" className={`btn btn-primary ${styles.viewAllBtn}`}>
+        View full portfolio
+        <ArrowRight size={16} strokeWidth={2} />
+      </Link>
     </section>
   );
 }
