@@ -78,6 +78,7 @@ export default function EstimatorForm() {
         ) : (
           <div className={`card ${styles.priceCard} ${styles.priceCardEmpty}`}>
             <span className="card-kicker">Starting from</span>
+            <div className={styles.priceFigurePlaceholder}>₹ — L</div>
             <p className={`card-body ${styles.priceCaption}`}>
               Pick your apartment size and finish level above to see your range.
             </p>

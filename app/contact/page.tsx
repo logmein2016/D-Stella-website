@@ -36,7 +36,7 @@ export default function ContactPage() {
 
       <hr className="hr" style={{ margin: 0 }} />
 
-      <SiteFooter />
+      <SiteFooter showCta={false} />
     </div>
   );
 }

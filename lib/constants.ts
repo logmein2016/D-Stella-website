@@ -18,3 +18,5 @@ export const SITE_URL = "https://www.dstellainteriors.com";
 /** Digits only, with country code — used for the WhatsApp link. Public: it
  * only ever appears in a wa.me URL. */
 export const WHATSAPP_NUMBER = "918088035075";
+
+export const INSTAGRAM_URL = "https://www.instagram.com/dstellainteriors/";

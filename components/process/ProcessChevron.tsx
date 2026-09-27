@@ -39,6 +39,9 @@ export default function ProcessChevron() {
         <div>
           <h3 className={styles.panelTitle}>{step.title}</h3>
           <p className={styles.panelDesc}>{step.desc}</p>
+          <p className={styles.panelYourPart}>
+            <strong>Your part:</strong> {step.yourPart}
+          </p>
         </div>
       </div>
     </div>
