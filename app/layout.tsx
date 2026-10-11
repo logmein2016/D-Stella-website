@@ -4,16 +4,16 @@ import ContactBar from "@/components/layout/ContactBar";
 import { PHONE_DISPLAY, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
-// Cormorant italic (headings — soft, romantic, editorial) + Jost (body/UI).
-// Was Playfair Display + Manrope before this; before that, Fraunces, whose
-// f/j have a pronounced ball-terminal descender hook baked into the base
-// glyph outline at every weight/optical-size/wonk setting (confirmed by
-// testing axes directly) — not fixable via font-variation-settings, so
-// switched fonts instead.
+// Cormorant (headings — soft, editorial) + Jost (body/UI), both upright —
+// no italic anywhere on the site. Was Playfair Display + Manrope before
+// this; before that, Fraunces, whose f/j have a pronounced ball-terminal
+// descender hook baked into the base glyph outline at every weight/optical-
+// size/wonk setting (confirmed by testing axes directly) — not fixable via
+// font-variation-settings, so switched fonts instead.
 const cormorant = Cormorant({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
-  style: ["italic"],
+  style: ["normal"],
   variable: "--font-cormorant",
   display: "swap",
 });
