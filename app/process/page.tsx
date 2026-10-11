@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
 import ProcessChevron from "@/components/process/ProcessChevron";
+import ProcessFaq from "@/components/process/ProcessFaq";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -27,6 +28,20 @@ export default function ProcessPage() {
 
       <section className={styles.chevronSection}>
         <ProcessChevron />
+      </section>
+
+      <div className={styles.timelineWrap}>
+        <div className={styles.timelinePill}>
+          <span className={styles.timelineKicker}>Typical project timeline</span>
+          <span className={styles.timelineFigure}>40 days</span>
+          <span className={styles.timelineLabel}>from design lock to handover*</span>
+        </div>
+      </div>
+      <p className={styles.footnote}>*Timeline depends on design complexity and material sourcing.</p>
+
+      <section className={styles.faqSection}>
+        <h2 className={styles.faqHeading}>Questions people ask before they start</h2>
+        <ProcessFaq />
       </section>
 
       <hr className="hr" style={{ margin: 0 }} />
