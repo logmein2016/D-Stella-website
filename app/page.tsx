@@ -4,6 +4,7 @@ import Hero from "@/components/home/Hero";
 import ContactPopup from "@/components/home/ContactPopup";
 import RoomGrid from "@/components/home/RoomGrid";
 import HowItWorks from "@/components/home/HowItWorks";
+import Services from "@/components/home/Services";
 import LeadForm from "@/components/lead-form/LeadForm";
 import { getGalleryRooms } from "@/lib/supabase/gallery";
 
@@ -40,6 +41,10 @@ export default async function HomePage() {
           />
         </div>
       </section>
+
+      <hr className="hr" style={{ margin: 0 }} />
+
+      <Services />
 
       <hr className="hr" style={{ margin: 0 }} />
 

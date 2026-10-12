@@ -1,0 +1,89 @@
+.section {
+  background: var(--color-surface);
+  padding: var(--space-8) var(--space-4);
+}
+
+.inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.kicker {
+  color: var(--color-accent-700);
+  margin-bottom: var(--space-2);
+}
+
+.heading {
+  margin-bottom: var(--space-2);
+  max-width: 24ch;
+}
+
+.intro {
+  color: color-mix(in srgb, var(--color-text) 75%, transparent);
+  font-size: 15px;
+  max-width: 56ch;
+  margin: 0 0 var(--space-6);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-6) var(--space-4);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+}
+
+.iconWrap {
+  width: 68px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item:hover .iconWrap {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.toneAccent {
+  background: var(--color-accent-100);
+  color: var(--color-accent-700);
+}
+
+.toneGold {
+  background: var(--color-gold-tint);
+  color: var(--color-gold-ink);
+}
+
+.toneEmerald {
+  background: var(--color-emerald-tint);
+  color: var(--color-emerald);
+}
+
+.label {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
