@@ -7,11 +7,11 @@
    added for a richer premium palette, used sparingly alongside the brand
    terracotta rather than replacing it.
 
-   Type pairing: Cormorant, upright only (display/heading) + Jost (body/UI)
-   — a deliberate departure from the brand guide's Playfair Display +
-   Manrope, chosen after reviewing rendered alternatives side by side. An
-   italic variant was tried sitewide and then dropped in favor of upright
-   throughout.
+   Type pairing: Cormorant Garamond (display/heading) + Manrope (body/UI),
+   per an explicit size spec: hero headline 56-72px, section headings
+   36-48px, project/card titles 26-32px, nav/buttons 13-15px, body
+   16-18px, eyebrow labels 11-13px with letter-spacing. (Earlier pairings
+   tried: Marcellus + Karla, Cormorant + Jost, Playfair Display + Manrope.)
 
    Design rules: warm alabaster base (never harsh pure white), soft shadows
    and subtle 1px borders instead of dark panels, gentle corner radii, and
@@ -64,9 +64,9 @@
      mode" direction. */
   --tone-dark: #20222c;
 
-  --font-heading: var(--font-cormorant), "Times New Roman", serif;
+  --font-heading: var(--font-cormorant-garamond), "Times New Roman", serif;
   --font-heading-weight: 600;
-  --font-body: var(--font-jost), system-ui, sans-serif;
+  --font-body: var(--font-manrope), system-ui, sans-serif;
 
   --space-1: 4px;
   --space-2: 8px;
@@ -106,8 +106,8 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
   margin: 0 0 var(--space-2);
 }
-h1 { font-size: 48px; }
-h2 { font-size: 36px; }
+h1 { font-size: clamp(34px, 5vw, 72px); }
+h2 { font-size: clamp(28px, 4vw, 48px); }
 h3 { font-size: 27px; }
 h4 { font-size: 20px; }
 h5 { font-size: 16px; }
@@ -240,7 +240,7 @@ textarea.input { min-height: 90px; resize: vertical; font-family: var(--font-bod
 .card-title {
   font-family: var(--font-heading);
   font-weight: var(--font-heading-weight);
-  font-size: 19px;
+  font-size: clamp(26px, 2.5vw, 32px);
   line-height: 1.2;
 }
 .card-body { margin: 0; font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 78%, transparent); }

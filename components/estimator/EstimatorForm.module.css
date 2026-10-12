@@ -42,14 +42,14 @@
 
 .priceFigure {
   font-family: var(--font-heading);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(30px, 6vw, 44px);
   color: var(--color-text);
 }
 
 .priceFigurePlaceholder {
   font-family: var(--font-heading);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(30px, 6vw, 44px);
   color: color-mix(in srgb, var(--color-text) 25%, transparent);
 }

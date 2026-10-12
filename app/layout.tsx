@@ -1,27 +1,29 @@
 import type { Metadata } from "next";
-import { Cormorant, Jost } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import ContactBar from "@/components/layout/ContactBar";
 import { PHONE_DISPLAY, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
-// Cormorant (headings — soft, editorial) + Jost (body/UI), both upright —
-// no italic anywhere on the site. Was Playfair Display + Manrope before
-// this; before that, Fraunces, whose f/j have a pronounced ball-terminal
-// descender hook baked into the base glyph outline at every weight/optical-
-// size/wonk setting (confirmed by testing axes directly) — not fixable via
-// font-variation-settings, so switched fonts instead.
-const cormorant = Cormorant({
+// Cormorant Garamond (headings — a specific, explicitly requested spec:
+// 56-72px hero, 36-48px section headings, 26-32px project/card titles) +
+// Manrope (nav/buttons 13-15px, body 16-18px, eyebrow labels 11-13px).
+// Was Marcellus + Karla before this; before that, Cormorant + Jost; before
+// that, Playfair Display + Manrope; before that, Fraunces, whose f/j have a
+// pronounced ball-terminal descender hook baked into the base glyph outline
+// at every weight/optical-size/wonk setting (confirmed by testing axes
+// directly) — not fixable via font-variation-settings, so switched fonts
+// instead.
+const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  style: ["normal"],
-  variable: "--font-cormorant",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant-garamond",
   display: "swap",
 });
 
-const jost = Jost({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-jost",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -78,7 +80,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
+    <html lang="en" className={`${cormorantGaramond.variable} ${manrope.variable}`}>
       <head>
         <script
           type="application/ld+json"
