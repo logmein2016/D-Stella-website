@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { SITE_NAME } from "@/lib/constants";
 import styles from "./SiteNav.module.css";
@@ -24,12 +23,17 @@ export default function SiteNav({ page }: { page: NavPage }) {
     <nav className={styles.nav}>
       <div className={styles.bar}>
         <Link href="/" className={styles.brand} aria-label={`${SITE_NAME} — home`}>
-          <Image
-            src="/images/logo/Dstell_logos-14-cropped.png"
+          {/* Pre-sized, sharpened PNGs served as-is: next/image's lossy
+              re-encode of the 4856px master blurred the thin serif strokes. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/logo/dstella-logo-400.png"
+            srcSet="/images/logo/dstella-logo-200.png 200w, /images/logo/dstella-logo-400.png 400w, /images/logo/dstella-logo-600.png 600w, /images/logo/dstella-logo-800.png 800w"
+            sizes="(max-width: 760px) 115px, clamp(127px, 19vw, 191px)"
             alt="D'Stella Interiors"
-            width={635}
-            height={200}
-            priority
+            width={400}
+            height={126}
+            fetchPriority="high"
             className={styles.logoImg}
           />
         </Link>
