@@ -34,7 +34,9 @@ export default function ProcessPage() {
       <div className={styles.timelineWrap}>
         <div className={styles.timelinePill}>
           <span className={styles.timelineKicker}>Typical project timeline</span>
-          <span className={styles.timelineFigure}>40 days</span>
+          <span className={styles.timelineFigure}>
+            40 <span className={styles.timelineUnit}>days</span>
+          </span>
           <span className={styles.timelineLabel}>from design lock to handover*</span>
         </div>
       </div>
