@@ -50,57 +50,94 @@
   left: var(--space-4);
   right: var(--space-4);
   height: 1px;
-  background: color-mix(in srgb, var(--color-text) 22%, transparent);
+  background: var(--color-accent-300);
   z-index: 0;
 }
 
-/* Framed stat panel: square corners, a fine ink border and a faint second
-   frame offset outside it, sitting on the hairline that runs behind it. */
+/* Slim terracotta band, clipped to an elongated hexagon (pointed ends). The
+   three parts sit on one row, split by faint vertical rules, and stack on
+   narrow screens. */
 .timelinePill {
+  --slant: 30px;
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  background: var(--color-bg);
-  color: var(--color-text);
-  border: 1px solid var(--color-text);
-  outline: 1px solid color-mix(in srgb, var(--color-text) 18%, transparent);
-  outline-offset: 6px;
-  padding: 22px clamp(28px, 5vw, 48px) 20px;
+  justify-content: center;
+  width: min(100%, 840px);
+  min-height: 64px;
+  background: var(--color-accent);
+  color: var(--color-neutral-100);
+  padding: 12px calc(var(--slant) + 20px);
+  clip-path: polygon(var(--slant) 0, calc(100% - var(--slant)) 0, 100% 50%, calc(100% - var(--slant)) 100%, var(--slant) 100%, 0 50%);
   text-align: center;
 }
 
-.timelineKicker {
+.timelinePill > * {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 clamp(16px, 2.4vw, 28px);
+}
+
+/* Fixed-height dividers so both match regardless of the text beside them. */
+.timelinePill > * + *::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 28px;
+  transform: translateY(-50%);
+  background: color-mix(in srgb, var(--color-neutral-100) 45%, transparent);
+}
+
+.timelineKicker,
+.timelineLabel,
+.timelineUnit {
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
+  line-height: 1;
   text-transform: uppercase;
-  color: var(--color-accent);
+}
+
+.timelineKicker,
+.timelineLabel {
+  opacity: 0.92;
 }
 
 .timelineFigure {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
+  gap: 8px;
   font-family: var(--font-heading);
-  font-size: clamp(48px, 6vw, 64px);
+  font-size: clamp(30px, 3.4vw, 36px);
   font-weight: 600;
   line-height: 1;
+  /* Full-height numerals: the heading face's default old-style 4 dips
+     below the line and its 0 sits short, which made "40" look uneven. */
+  font-variant-numeric: lining-nums;
+  white-space: nowrap;
 }
 
 .timelineUnit {
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-size: 12px;
+  opacity: 1;
 }
 
-.timelineLabel {
-  font-size: 13px;
-  color: color-mix(in srgb, var(--color-text) 65%, transparent);
+@media (max-width: 640px) {
+  .timelinePill {
+    --slant: 18px;
+    flex-direction: column;
+    gap: 8px;
+    width: min(100%, 360px);
+    padding: 16px calc(var(--slant) + 12px);
+  }
+
+  .timelinePill > * + *::before {
+    display: none;
+  }
 }
 
 .footnote {
