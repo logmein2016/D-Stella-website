@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
 import Hero from "@/components/home/Hero";
@@ -7,6 +8,10 @@ import HowItWorks from "@/components/home/HowItWorks";
 import Services from "@/components/home/Services";
 import LeadForm from "@/components/lead-form/LeadForm";
 import { getGalleryRooms } from "@/lib/supabase/gallery";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function HomePage() {
   const galleryRooms = await getGalleryRooms();

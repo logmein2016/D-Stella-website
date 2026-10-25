@@ -7,7 +7,9 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with D'Stella Interiors for a free consultation on your 2 or 3 BHK home.",
+  description:
+    "Book a free interior design consultation in Bangalore. Call, WhatsApp or share a few details and a D'Stella designer will call you within one working day.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

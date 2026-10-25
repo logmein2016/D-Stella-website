@@ -6,6 +6,7 @@ import styles from "../legal.module.css";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
+  alternates: { canonical: "/privacy-policy" },
   description: `How ${SITE_NAME} collects, uses and stores the information you share with us.`,
 };
 

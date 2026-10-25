@@ -24,8 +24,9 @@ export async function generateMetadata({
   const room = rooms.find((r) => r.slug === slug);
   if (!room) return {};
   return {
-    title: `${room.name} — Portfolio`,
-    description: `Real D'Stella ${room.name.toLowerCase()} photography from completed 2 & 3 BHK homes in Bangalore.`,
+    title: `${room.name} Interior Designs`,
+    description: `Real D'Stella ${room.name.toLowerCase()} interiors from completed 2 & 3 BHK homes in Bangalore — designed, built and installed by our in-house team.`,
+    alternates: { canonical: `/portfolio/${slug}` },
   };
 }
 

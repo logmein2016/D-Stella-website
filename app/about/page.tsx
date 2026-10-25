@@ -8,6 +8,7 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "About Us",
+  alternates: { canonical: "/about" },
   description:
     "Why D'Stella Interiors exists — a former techie turned designer, building the interior design experience they wished they'd had.",
 };

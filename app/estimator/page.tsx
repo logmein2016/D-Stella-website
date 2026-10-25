@@ -4,7 +4,8 @@ import SiteFooter from "@/components/layout/SiteFooter";
 import EstimatorForm from "@/components/estimator/EstimatorForm";
 
 export const metadata: Metadata = {
-  title: "Cost Estimator",
+  title: "Interior Design Cost Estimator",
+  alternates: { canonical: "/estimator" },
   description:
     "Two quick selections and no forms — see your 2 or 3 BHK interior design price range for Bangalore instantly.",
 };

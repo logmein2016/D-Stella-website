@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import ContactBar from "@/components/layout/ContactBar";
-import { PHONE_DISPLAY, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
+import { INSTAGRAM_URL, PHONE_DISPLAY, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
 // Cormorant Garamond (headings — a specific, explicitly requested spec:
@@ -30,36 +30,49 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Interior Design in Bangalore`,
+    default: `${SITE_NAME} — Interior Designers in Bangalore`,
     template: `%s — ${SITE_NAME}`,
   },
   description:
-    "Premium 2 & 3 BHK interior design in Bangalore. Room-by-room design, in-house production and on-site execution — most homes ready in 45–90 days.",
+    "Interior designers in Bangalore for 2 & 3 BHK apartments and villas. Room-by-room design, in-house production and on-site execution — most homes ready in 45–90 days.",
+  applicationName: SITE_NAME,
+  category: "Interior design",
   icons: {
     icon: "/favicon.png",
     apple: "/apple-touch-icon.png",
   },
+  // No og:url here: it would point every page's share link at the homepage.
+  // Each page sets its own canonical via `alternates`.
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Interior Design in Bangalore`,
+    title: `${SITE_NAME} — Interior Designers in Bangalore`,
     description: SITE_TAGLINE,
-    url: SITE_URL,
     locale: "en_IN",
-    images: [{ url: "/brand/icon.png", width: 512, height: 512, alt: `${SITE_NAME} logo` }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `${SITE_NAME} — a completed living room in Bangalore` }],
   },
   twitter: {
-    card: "summary",
-    title: `${SITE_NAME} — Interior Design in Bangalore`,
+    card: "summary_large_image",
+    title: `${SITE_NAME} — Interior Designers in Bangalore`,
     description: SITE_TAGLINE,
-    images: ["/brand/icon.png"],
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
 };
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
+  "@id": `${SITE_URL}/#business`,
   name: SITE_NAME,
+  logo: `${SITE_URL}/brand/icon.png`,
+  image: `${SITE_URL}/og-image.jpg`,
+  sameAs: [INSTAGRAM_URL],
+  knowsAbout: ["Interior design", "Modular kitchens", "Wardrobes", "Home renovation"],
   description:
     "Interior design firm serving 2 & 3 BHK apartment owners in Bangalore, with room-by-room design and end-to-end delivery.",
   areaServed: {
@@ -76,15 +89,25 @@ const localBusinessJsonLd = {
   url: SITE_URL,
 };
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  name: SITE_NAME,
+  url: SITE_URL,
+  inLanguage: "en-IN",
+  publisher: { "@id": `${SITE_URL}/#business` },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorantGaramond.variable} ${manrope.variable}`}>
+    <html lang="en-IN" className={`${cormorantGaramond.variable} ${manrope.variable}`}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([localBusinessJsonLd, websiteJsonLd]) }}
         />
       </head>
       <body>

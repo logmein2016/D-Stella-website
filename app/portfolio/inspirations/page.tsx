@@ -8,6 +8,8 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Design Inspirations",
   description: "Concept boards and design inspiration D'Stella is curating for upcoming styles.",
+  alternates: { canonical: "/portfolio/inspirations" },
+  robots: { index: false, follow: true },
 };
 
 export default function InspirationsPage() {

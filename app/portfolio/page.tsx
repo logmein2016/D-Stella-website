@@ -6,9 +6,10 @@ import LeadForm from "@/components/lead-form/LeadForm";
 import { getGalleryRooms } from "@/lib/supabase/gallery";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Interior Design Portfolio",
   description:
-    "Real 2 & 3 BHK apartment interiors completed in Bangalore, browsable by room.",
+    "Real 2 & 3 BHK apartment interiors completed by D'Stella in Bangalore — living rooms, kitchens, bedrooms, wardrobes and more, browsable by room.",
+  alternates: { canonical: "/portfolio" },
 };
 
 export default async function PortfolioPage() {

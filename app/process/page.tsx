@@ -6,7 +6,8 @@ import ProcessFaq from "@/components/process/ProcessFaq";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Our Process",
+  title: "Our Interior Design Process",
+  alternates: { canonical: "/process" },
   description:
     "How a D'Stella project runs, from first consultation to handover — consultation, design, design lock, execution and handover.",
 };

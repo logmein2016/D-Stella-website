@@ -6,6 +6,7 @@ import styles from "../legal.module.css";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
+  alternates: { canonical: "/terms-of-use" },
   description: `The terms that apply to using the ${SITE_NAME} website.`,
 };
 
