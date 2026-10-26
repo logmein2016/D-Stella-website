@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -17,6 +16,18 @@ const promises = [
   "We tell you the real cost up front — no vague ballpark that grows once work starts.",
   "One team, start to finish — design, production and site execution, so nothing falls through the cracks between contractors.",
   "You see the design and the costing before anything is cut or built — no surprises halfway through.",
+];
+
+// "60+ projects" was confirmed by D'Stella (Oct 2026); the rest are already
+// stated elsewhere on the site (Process page timeline and stages, contact
+// forms' call-back promise, free consultation). Add new figures only once
+// they're confirmed. The first entry is shown larger, across the full width.
+const numbers: { figure: string; unit?: string; label: string }[] = [
+  { figure: "60+", unit: "projects", label: "Homes designed and executed in Bangalore" },
+  { figure: "40", unit: "days", label: "Typical time from design lock to handover" },
+  { figure: "5", unit: "stages", label: "Handled by one accountable team" },
+  { figure: "1", unit: "working day", label: "To hear back from a designer" },
+  { figure: "₹0", label: "For your first consultation" },
 ];
 
 export default function AboutPage() {
@@ -53,15 +64,20 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className={styles.storyImage}>
-            <Image
-              src="/photos/gallery/drawing-room/living-tv-wall.jpg"
-              alt="A D'Stella-designed living room with a wood-slat TV wall"
-              fill
-              sizes="(max-width: 900px) 100vw, 40vw"
-              className={styles.image}
-            />
-          </div>
+          <aside className={styles.numbers} aria-labelledby="about-numbers">
+            <h2 id="about-numbers" className={styles.numbersKicker}>D&rsquo;Stella in numbers</h2>
+            <dl className={styles.numbersGrid}>
+              {numbers.map((n) => (
+                <div key={n.label} className={styles.stat}>
+                  <dt className={styles.statLabel}>{n.label}</dt>
+                  <dd className={styles.statFigure}>
+                    {n.figure}
+                    {n.unit ? <span className={styles.statUnit}>{n.unit}</span> : null}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </aside>
         </div>
       </section>
 
