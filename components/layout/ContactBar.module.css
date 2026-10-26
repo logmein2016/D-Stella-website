@@ -1,38 +1,19 @@
+/* Floating, site-wide copy of the contact circles (see
+   components/shared/ContactIcons). */
 .bar {
   position: fixed;
-  right: var(--space-4);
+  right: calc(var(--space-4) + env(safe-area-inset-right, 0px));
   bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
   z-index: 150;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
 }
 
-.action {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  color: var(--color-neutral-100);
-  text-decoration: none;
-  box-shadow: var(--shadow-md);
-  transition: transform 0.15s ease;
-}
+@media (max-width: 640px) {
+  .icons {
+    gap: var(--space-2);
+  }
 
-.action:hover {
-  transform: scale(1.06);
-}
-
-.call {
-  background: var(--color-accent);
-}
-
-.whatsapp {
-  background: #25d366;
-}
-
-.instagram {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  .icons a {
+    width: 46px;
+    height: 46px;
+  }
 }

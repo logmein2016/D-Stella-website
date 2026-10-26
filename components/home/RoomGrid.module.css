@@ -34,15 +34,17 @@
   border-bottom: 2px solid transparent;
   cursor: pointer;
   white-space: nowrap;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
+/* Matches the nav links: terracotta on hover, terracotta + underline when selected. */
 .tab:hover {
-  color: var(--color-text);
+  color: var(--color-accent);
 }
 
 .tabActive {
-  color: var(--color-text);
-  border-bottom-color: var(--color-text);
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 
 .grid {

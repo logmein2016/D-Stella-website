@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { processSteps } from "@/lib/data/process-steps";
 import styles from "./ProcessChevron.module.css";
 
@@ -33,15 +34,28 @@ export default function ProcessChevron() {
       </div>
 
       <div className={styles.panel} role="tabpanel">
-        <div className={styles.panelIcon}>
-          <Icon size={26} strokeWidth={2} />
+        <div className={styles.panelBody}>
+          <div className={styles.panelIcon}>
+            <Icon size={26} strokeWidth={2} />
+          </div>
+          <div>
+            <h3 className={styles.panelTitle}>{step.title}</h3>
+            <p className={styles.panelDesc}>{step.desc}</p>
+            <p className={styles.panelYourPart}>
+              <strong>Your part:</strong> {step.yourPart}
+            </p>
+          </div>
         </div>
-        <div>
-          <h3 className={styles.panelTitle}>{step.title}</h3>
-          <p className={styles.panelDesc}>{step.desc}</p>
-          <p className={styles.panelYourPart}>
-            <strong>Your part:</strong> {step.yourPart}
-          </p>
+        <div className={styles.panelPhoto}>
+          <Image
+            key={step.photo.src}
+            src={step.photo.src}
+            alt={step.photo.alt}
+            fill
+            sizes="(max-width: 760px) 100vw, 520px"
+            className={styles.panelImage}
+            style={step.photo.position ? { objectPosition: step.photo.position } : undefined}
+          />
         </div>
       </div>
     </div>

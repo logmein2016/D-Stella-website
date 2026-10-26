@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Instagram } from "lucide-react";
+import { InstagramGlyph } from "@/components/shared/ContactIcons";
 import { INSTAGRAM_URL, SITE_NAME } from "@/lib/constants";
 import styles from "./SiteFooter.module.css";
 
@@ -32,7 +32,7 @@ export default function SiteFooter({ showCta = true }: { showCta?: boolean }) {
           aria-label={`${SITE_NAME} on Instagram`}
           className={styles.social}
         >
-          <Instagram size={18} strokeWidth={2} />
+          <InstagramGlyph size={18} />
         </a>
       </div>
     </footer>

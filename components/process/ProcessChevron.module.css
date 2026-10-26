@@ -29,6 +29,12 @@
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
+/* The overlap margin is only needed between tabs; on the last one it
+   pushed the row past the panel's right edge. */
+.chevron:last-child {
+  margin-right: 0;
+}
+
 .chevron:first-child {
   clip-path: polygon(0% 0%, calc(100% - 26px) 0%, 100% 50%, calc(100% - 26px) 100%, 0% 100%);
   padding-left: 20px;
@@ -65,15 +71,54 @@
   color: var(--color-neutral-100);
 }
 
+/* Details on the left, a full-height project photo on the right. */
 .panel {
-  display: flex;
-  gap: var(--space-4);
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
-  padding: var(--space-6);
+  overflow: hidden;
+}
+
+.panelBody {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  padding: clamp(24px, 3vw, 40px);
+}
+
+/* 3:2 matches the stage images, so they show uncropped beside the text. */
+.panelPhoto {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  max-width: 100%;
+}
+
+.panelImage {
+  object-fit: cover;
+  animation: panelFade 0.4s ease;
+}
+
+@keyframes panelFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panelImage { animation: none; }
+}
+
+@media (max-width: 760px) {
+  .panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .panelBody {
+    padding: var(--space-6) var(--space-4);
+  }
+
 }
 
 .panelIcon {

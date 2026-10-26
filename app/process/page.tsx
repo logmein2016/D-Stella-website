@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
 import ProcessChevron from "@/components/process/ProcessChevron";
 import ProcessFaq from "@/components/process/ProcessFaq";
+import ContactIcons from "@/components/shared/ContactIcons";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -18,13 +20,25 @@ export default function ProcessPage() {
       <SiteNav page="process" />
 
       <section className={styles.hero}>
-        <span className={styles.kicker}>How we work</span>
-        <h1 className={styles.heading}>Five stages, one accountable team</h1>
-        <p className={styles.intro}>
-          Tap a stage to see what actually happens in it. No handoffs between separate
-          contractors &mdash; the same team carries your project from the first call to the day
-          you move in.
-        </p>
+        <div className={styles.heroText}>
+          <span className={styles.kicker}>How we work</span>
+          <h1 className={styles.heading}>Five stages, one accountable team</h1>
+          <p className={styles.intro}>
+            Tap a stage to see what actually happens in it. No handoffs between separate
+            contractors &mdash; the same team carries your project from the first call to the day
+            you move in.
+          </p>
+        </div>
+        <div className={styles.heroPhoto}>
+          <Image
+            src="/photos/process/team.jpg"
+            alt="The D'Stella Interiors team of designers and craftsmen"
+            fill
+            priority
+            sizes="(max-width: 860px) 100vw, 520px"
+            className={styles.heroImage}
+          />
+        </div>
       </section>
 
       <section className={styles.chevronSection}>
@@ -43,7 +57,15 @@ export default function ProcessPage() {
       <p className={styles.footnote}>*Timeline depends on design complexity and material sourcing.</p>
 
       <section className={styles.faqSection}>
-        <h2 className={styles.faqHeading}>Questions people ask before they start</h2>
+        <div className={styles.faqAside}>
+          <span className={styles.kicker}>FAQ</span>
+          <h2 className={styles.faqHeading}>Questions people ask before they start</h2>
+          <p className={styles.faqNote}>
+            Still unsure about something? Talk to a designer directly &mdash; the first
+            consultation is free.
+          </p>
+          <ContactIcons />
+        </div>
         <ProcessFaq />
       </section>
 

@@ -27,32 +27,31 @@
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: var(--space-4);
 }
 
+/* Matches the nav links: terracotta on hover, terracotta + underline when selected. */
 .tab {
-  border: 1px solid transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
   background: none;
-  padding: 8px 16px;
-  border-radius: 999px;
+  padding: 6px 0;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 14px;
-  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  font-size: 14.5px;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .tab:hover {
-  color: var(--color-text);
-  border-color: var(--color-border);
+  color: var(--color-accent);
 }
 
 .tabActive {
-  color: var(--color-neutral-100);
-  background: var(--color-accent-700);
-  border-color: var(--color-accent-700);
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 
 .grid {

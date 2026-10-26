@@ -1,7 +1,39 @@
+/* Every section shares one width so their left and right edges line up. */
+.hero,
+.chevronSection,
+.timelineWrap,
+.faqSection {
+  --page-max: 1120px;
+}
+
+/* Intro text on the left, a project photo on the right. */
 .hero {
-  padding: var(--space-8) var(--space-4) var(--space-6);
-  max-width: 760px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  padding: clamp(40px, 6vw, 72px) var(--space-4) clamp(40px, 5vw, 64px);
+  max-width: var(--page-max);
   margin: 0 auto;
+}
+
+.heroPhoto {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
 }
 
 .kicker {
@@ -16,21 +48,21 @@
 }
 
 .heading {
-  font-size: clamp(30px, 5vw, 44px);
+  font-size: clamp(32px, 5vw, 52px);
   letter-spacing: -0.02em;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 .intro {
   color: color-mix(in srgb, var(--color-text) 78%, transparent);
-  font-size: 16px;
-  max-width: 56ch;
+  font-size: 17px;
+  max-width: 48ch;
   margin: 0;
 }
 
 .chevronSection {
   padding: 0 var(--space-4) var(--space-8);
-  max-width: 1080px;
+  max-width: var(--page-max);
   margin: 0 auto;
 }
 
@@ -38,7 +70,7 @@
   position: relative;
   margin: 0 auto var(--space-8);
   padding: 0 var(--space-4);
-  max-width: 1080px;
+  max-width: var(--page-max);
   display: flex;
   justify-content: center;
 }
@@ -147,14 +179,42 @@
   font-size: 12.5px;
 }
 
+/* Heading and a contact prompt on the left (sticky on desktop), the
+   questions on the right. */
 .faqSection {
-  padding: 0 var(--space-4) var(--space-8);
-  max-width: 760px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+  padding: var(--space-6) var(--space-4) clamp(48px, 7vw, 88px);
+  max-width: var(--page-max);
   margin: 0 auto;
 }
 
+.faqAside {
+  position: sticky;
+  top: 120px;
+}
+
 .faqHeading {
-  margin-bottom: var(--space-3);
+  font-size: clamp(28px, 3.4vw, 40px);
+  margin-bottom: var(--space-4);
+}
+
+.faqNote {
+  max-width: 36ch;
+  margin: 0 0 var(--space-6);
+  color: color-mix(in srgb, var(--color-text) 75%, transparent);
+}
+
+@media (max-width: 860px) {
+  .faqSection {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .faqAside {
+    position: static;
+  }
 }
 
 .ctaRow {
