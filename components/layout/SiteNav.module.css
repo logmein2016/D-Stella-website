@@ -74,24 +74,26 @@
   white-space: nowrap;
 }
 
+/* Compact rectangular button shown in place of the full nav on phones. */
 .estimateBadge {
   display: none;
   align-items: center;
   justify-content: center;
   flex: none;
-  width: 64px;
-  height: 64px;
+  height: 40px;
+  padding: 0 14px;
   margin-left: var(--space-2);
-  border-radius: 50%;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
   background: var(--color-accent);
   color: var(--color-neutral-100);
   text-decoration: none;
   text-align: center;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 10.5px;
-  line-height: 1.25;
-  transition: background 0.2s ease, transform 0.2s ease;
+  font-size: 13px;
+  line-height: 1;
+  transition: background 0.2s ease;
 }
 
 .estimateBadge:active {
@@ -100,7 +102,6 @@
 
 .estimateBadge:hover {
   background: var(--color-accent-600);
-  transform: scale(1.06);
 }
 
 @media (max-width: 760px) {
@@ -151,9 +152,5 @@
 
   .estimateBadge {
     display: flex;
-    width: 46px;
-    height: 46px;
-    margin-left: var(--space-1);
-    font-size: 7.5px;
   }
 }

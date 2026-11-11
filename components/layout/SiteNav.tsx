@@ -54,16 +54,12 @@ export default function SiteNav({ page }: { page: NavPage }) {
             className={`btn btn-primary ${styles.estimateBtn}`}
             onClick={() => setOpen(false)}
           >
-            Get an estimate
+            Get a price estimate
           </Link>
         </div>
 
-        <Link href="/estimator" className={styles.estimateBadge} aria-label="Get an estimate">
-          <span>
-            Get an
-            <br />
-            Estimate
-          </span>
+        <Link href="/estimator" className={styles.estimateBadge} aria-label="Get a price estimate">
+          Price estimate
         </Link>
 
         <button

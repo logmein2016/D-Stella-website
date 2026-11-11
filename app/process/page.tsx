@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function ProcessPage() {
   return (
-    <div style={{ background: "var(--color-bg)", color: "var(--color-text)", minHeight: "100vh" }}>
+    <div className="page-shell">
       <SiteNav page="process" />
 
       <section className={styles.hero}>

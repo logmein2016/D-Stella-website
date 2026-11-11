@@ -74,7 +74,7 @@ export default function PortfolioGallery({ rooms }: { rooms: GalleryRoom[] }) {
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 18vw"
+                sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 380px"
                 className={styles.image}
               />
               <Image

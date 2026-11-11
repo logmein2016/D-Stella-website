@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: `%s — ${SITE_NAME}`,
   },
   description:
-    "Interior designers in Bangalore for 2 & 3 BHK apartments and villas. Room-by-room design, in-house production and on-site execution — most homes ready in 45–90 days.",
+    "Interior designers in Bangalore for 2, 3 & 4 BHK apartments and villas. Room-by-room design, in-house production and on-site execution — most homes ready in 45–90 days.",
   applicationName: SITE_NAME,
   category: "Interior design",
   icons: {
@@ -74,7 +74,7 @@ const localBusinessJsonLd = {
   sameAs: [INSTAGRAM_URL],
   knowsAbout: ["Interior design", "Modular kitchens", "Wardrobes", "Home renovation"],
   description:
-    "Interior design firm serving 2 & 3 BHK apartment owners in Bangalore, with room-by-room design and end-to-end delivery.",
+    "Interior design firm serving 2, 3 & 4 BHK home owners in Bangalore, with room-by-room design and end-to-end delivery.",
   areaServed: {
     "@type": "City",
     name: "Bangalore",

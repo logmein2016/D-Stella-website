@@ -10,8 +10,14 @@ export const TONE_DARK = "#20222c";
 export const SITE_NAME = "D'Stella Interiors";
 export const SITE_TAGLINE = "Where a House becomes a Home — Bangalore";
 
-/** Appears in every footer, the nav badge and the fixed contact bar. */
+/** Dialable form for tel: links and schema data. */
 export const PHONE_DISPLAY = "+918088035075";
+
+/** Readable form for showing the number on the page. */
+export const PHONE_PRETTY = "+91 80880 35075";
+
+/** Where D'Stella is based, as shown in the footer and contact page. */
+export const SERVICE_AREA = "Whitefield, Bangalore";
 
 export const SITE_URL = "https://www.dstellainteriors.com";
 

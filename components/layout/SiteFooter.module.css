@@ -1,5 +1,8 @@
 .footer {
   color: var(--color-text);
+  /* Pushes the footer to the bottom of short pages (their wrapper is a
+     full-height flex column — see .page-shell in globals.css). */
+  margin-top: auto;
 }
 
 .cta {
@@ -33,23 +36,116 @@
   padding: 14px 28px;
 }
 
+/* — main footer: brand, page links, contact details — */
+.main {
+  background: var(--tone-dark);
+  color: color-mix(in srgb, var(--color-neutral-100) 82%, transparent);
+  padding: clamp(40px, 6vw, 64px) 0;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+@media (max-width: 760px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .brandCol {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 420px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.brandName {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 28px;
+  line-height: 1.15;
+  color: var(--color-neutral-100);
+}
+
+.tagline {
+  margin: 0 0 var(--space-6);
+  max-width: 32ch;
+  font-size: 15px;
+}
+
+.icons a {
+  width: 44px;
+  height: 44px;
+}
+
+.colTitle {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-300);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+  font-size: 15px;
+}
+
+.list a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.list a:hover {
+  color: var(--color-neutral-100);
+  text-decoration: underline;
+}
+
+.label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-neutral-100) 55%, transparent);
+  margin-bottom: 2px;
+}
+
+/* — bottom bar — */
 .bottom {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: var(--space-2) var(--space-4);
-  padding: var(--space-3) var(--space-4);
-  background: var(--tone-dark);
-  color: color-mix(in srgb, var(--color-neutral-100) 80%, transparent);
-  font-size: 12.5px;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--tone-dark) 85%, black);
+  border-top: 1px solid color-mix(in srgb, var(--color-neutral-100) 10%, transparent);
+  color: color-mix(in srgb, var(--color-neutral-100) 70%, transparent);
+  font-size: 13px;
   text-align: center;
 }
 
 .legal {
   display: inline-flex;
   gap: var(--space-2);
-  color: color-mix(in srgb, var(--color-neutral-100) 65%, transparent);
 }
 
 .legal a {
@@ -59,16 +155,4 @@
 
 .legal a:hover {
   text-decoration: underline;
-}
-
-.social {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: color-mix(in srgb, var(--color-neutral-100) 80%, transparent);
-  transition: color 0.15s ease;
-}
-
-.social:hover {
-  color: var(--color-neutral-100);
 }

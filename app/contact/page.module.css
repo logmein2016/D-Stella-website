@@ -1,14 +1,18 @@
+/* Contact details on the left, form on the right; stacks on narrow screens. */
 .section {
-  padding: var(--space-8) var(--space-4) var(--space-8);
-  max-width: 640px;
+  padding: clamp(40px, 6vw, 72px) var(--space-4);
+  max-width: var(--page-width);
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
 }
 
-.intro {
-  text-align: center;
+@media (max-width: 860px) {
+  .section {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .kicker {
@@ -23,29 +27,52 @@
 }
 
 .heading {
-  font-size: clamp(30px, 5vw, 42px);
+  font-size: clamp(32px, 5vw, 48px);
   letter-spacing: -0.02em;
   margin-bottom: var(--space-3);
 }
 
 .body {
-  color: color-mix(in srgb, var(--color-text) 78%, transparent);
-  font-size: 15.5px;
-  margin: 0 auto;
-  max-width: 48ch;
+  color: color-mix(in srgb, var(--color-text) 80%, transparent);
+  font-size: 16.5px;
+  margin: 0 0 var(--space-6);
+  max-width: 44ch;
+}
+
+.details {
+  list-style: none;
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+  font-size: 16px;
+}
+
+.details li {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.details a {
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.details a:hover {
+  color: var(--color-accent);
+}
+
+.label {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
 
 .formWrap {
-  width: 100%;
-}
-
-.phoneHighlight {
-  color: var(--color-accent-700);
-  font-weight: 700;
-  text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-accent-700) 40%, transparent);
-}
-
-.phoneHighlight:hover {
-  border-bottom-color: var(--color-accent-700);
+  min-width: 0;
 }

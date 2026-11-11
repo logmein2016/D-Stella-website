@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
-import { PHONE_DISPLAY, SITE_NAME } from "@/lib/constants";
+import { PHONE_DISPLAY, PHONE_PRETTY, SITE_NAME } from "@/lib/constants";
 import styles from "../legal.module.css";
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function TermsOfUsePage() {
   return (
-    <div style={{ background: "var(--color-bg)", color: "var(--color-text)", minHeight: "100vh" }}>
+    <div className="page-shell">
       <SiteNav page="home" />
 
       <section className={styles.section}>
@@ -78,7 +78,7 @@ export default function TermsOfUsePage() {
         <h2>Contact us</h2>
         <p>
           Questions about these terms? Reach us at{" "}
-          <a href={`tel:${PHONE_DISPLAY}`}>{PHONE_DISPLAY}</a> or via the{" "}
+          <a href={`tel:${PHONE_DISPLAY}`}>{PHONE_PRETTY}</a> or via the{" "}
           <a href="/contact">contact page</a>.
         </p>
       </section>

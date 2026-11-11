@@ -41,7 +41,7 @@ export default async function GalleryRoomPage({
   if (!room) notFound();
 
   return (
-    <div style={{ background: "var(--color-bg)", color: "var(--color-text)", minHeight: "100vh" }}>
+    <div className="page-shell">
       <SiteNav page="portfolio" />
 
       <section className={styles.section}>
@@ -83,7 +83,8 @@ export default async function GalleryRoomPage({
 
       <hr className="hr" style={{ margin: 0 }} />
 
-      <SiteFooter />
+      {/* Page ends with an enquiry form, so skip the footer CTA banner. */}
+      <SiteFooter showCta={false} />
     </div>
   );
 }

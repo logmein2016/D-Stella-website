@@ -1,5 +1,5 @@
 import { Phone } from "lucide-react";
-import { INSTAGRAM_URL, PHONE_DISPLAY, WHATSAPP_NUMBER } from "@/lib/constants";
+import { INSTAGRAM_URL, PHONE_DISPLAY, PHONE_PRETTY, WHATSAPP_NUMBER } from "@/lib/constants";
 import styles from "./ContactIcons.module.css";
 
 /** WhatsApp's current mark (speech bubble with handset), drawn in currentColor. */
@@ -37,7 +37,7 @@ export default function ContactIcons({
 }) {
   return (
     <div className={`${styles.icons} ${direction === "column" ? styles.column : ""} ${className}`}>
-      <a href={`tel:${PHONE_DISPLAY}`} className={`${styles.action} ${styles.call}`} aria-label={`Call ${PHONE_DISPLAY}`}>
+      <a href={`tel:${PHONE_DISPLAY}`} className={`${styles.action} ${styles.call}`} aria-label={`Call ${PHONE_PRETTY}`}>
         <Phone size={22} strokeWidth={2} />
       </a>
       <a

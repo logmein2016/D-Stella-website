@@ -3,7 +3,7 @@
 .chevronSection,
 .timelineWrap,
 .faqSection {
-  --page-max: 1120px;
+  --page-max: var(--page-width);
 }
 
 /* Intro text on the left, a project photo on the right. */
@@ -175,8 +175,8 @@
 .footnote {
   margin: var(--space-6) 0 var(--space-8);
   text-align: center;
-  opacity: 0.5;
-  font-size: 12.5px;
+  opacity: 0.7;
+  font-size: 13.5px;
 }
 
 /* Heading and a contact prompt on the left (sticky on desktop), the

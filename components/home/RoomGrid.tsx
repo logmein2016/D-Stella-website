@@ -50,7 +50,7 @@ export default function RoomGrid({ rooms }: { rooms: GalleryRoom[] }) {
               src={photo.src}
               alt={photo.alt}
               fill
-              sizes="(max-width: 640px) 50vw, 25vw"
+              sizes="(max-width: 760px) 50vw, 280px"
               className={styles.image}
             />
           </div>

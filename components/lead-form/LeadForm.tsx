@@ -57,7 +57,7 @@ export default function LeadForm({
   kicker,
   heading,
   subheading,
-  submitLabel = "Send my enquiry",
+  submitLabel = "Book a free consultation",
   showReference = false,
   context = "",
   bhk = "",

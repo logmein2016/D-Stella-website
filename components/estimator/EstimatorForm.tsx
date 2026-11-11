@@ -20,8 +20,10 @@ const bhkOptions: { value: Bhk; label: string }[] = [
 ];
 
 export default function EstimatorForm() {
-  const [bhk, setBhk] = useState<Bhk | null>(null);
-  const [finish, setFinish] = useState<Finish | null>(null);
+  // Opens on the most common choice so visitors see a real price straight
+  // away instead of an empty "₹ — L" box.
+  const [bhk, setBhk] = useState<Bhk | null>("3");
+  const [finish, setFinish] = useState<Finish | null>("premium");
   const [showStage2, setShowStage2] = useState(false);
 
   // hasSelection is computed here as an explicit boolean, not templated as a
@@ -39,7 +41,10 @@ export default function EstimatorForm() {
     <section className={styles.section}>
       <h6 className={styles.kicker}>Cost estimator</h6>
       <h1 className={styles.heading}>What will your home cost?</h1>
-      <p className={styles.intro}>Two quick selections. No forms, no email required.</p>
+      <p className={styles.intro}>
+        Pick your apartment size and finish level &mdash; the price updates instantly. No forms,
+        no email required.
+      </p>
 
       <div className={styles.stage}>
         <div className="field">
@@ -90,7 +95,7 @@ export default function EstimatorForm() {
             kicker="Get a precise quote"
             heading="We'll size this to your exact home."
             subheading="Share your details and a designer will call you with a costing for your apartment."
-            submitLabel="Send me my precise quote"
+            submitLabel="Book a free consultation"
             context={estimateContext}
             bhk={bhk ?? ""}
             finish={finish ?? ""}
@@ -103,7 +108,7 @@ export default function EstimatorForm() {
             className="btn btn-secondary btn-block"
             onClick={() => setShowStage2(true)}
           >
-            Get a more precise number &rarr;
+            Book a free consultation for an exact quote &rarr;
           </button>
         )}
       </div>

@@ -16,7 +16,7 @@ export default async function PortfolioPage() {
   const galleryRooms = await getGalleryRooms();
 
   return (
-    <div style={{ background: "var(--color-bg)", color: "var(--color-text)", minHeight: "100vh" }}>
+    <div className="page-shell">
       <SiteNav page="portfolio" />
 
       <PortfolioGallery rooms={galleryRooms} />
@@ -24,7 +24,7 @@ export default async function PortfolioPage() {
       <hr className="hr" style={{ margin: 0 }} />
 
       <section style={{ padding: "var(--space-8) var(--space-4)" }}>
-        <div style={{ maxWidth: 760 }}>
+        <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <LeadForm
             kicker="Enquire"
             heading="Like what you see? Ask for your own price."
@@ -36,7 +36,8 @@ export default async function PortfolioPage() {
 
       <hr className="hr" style={{ margin: 0 }} />
 
-      <SiteFooter />
+      {/* Page ends with an enquiry form, so skip the footer CTA banner. */}
+      <SiteFooter showCta={false} />
     </div>
   );
 }

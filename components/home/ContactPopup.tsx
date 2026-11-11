@@ -58,7 +58,7 @@ export default function ContactPopup() {
           kicker="Let's get started"
           heading="Have a project in mind?"
           subheading="Share a few details and a designer will call you within one working day."
-          submitLabel="Get in touch"
+          submitLabel="Book a free consultation"
           source="home-popup"
         />
       </div>

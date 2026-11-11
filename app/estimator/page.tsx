@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: "Interior Design Cost Estimator",
   alternates: { canonical: "/estimator" },
   description:
-    "Two quick selections and no forms — see your 2 or 3 BHK interior design price range for Bangalore instantly.",
+    "Two quick selections and no forms — see your 2, 3 or 4 BHK interior design price range for Bangalore instantly.",
 };
 
 export default function EstimatorPage() {
   return (
-    <div style={{ background: "var(--color-bg)", color: "var(--color-text)", minHeight: "100vh" }}>
+    <div className="page-shell">
       <SiteNav page="estimator" />
 
       <EstimatorForm />

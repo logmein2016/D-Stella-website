@@ -6,7 +6,6 @@ import ContactPopup from "@/components/home/ContactPopup";
 import RoomGrid from "@/components/home/RoomGrid";
 import HowItWorks from "@/components/home/HowItWorks";
 import Services from "@/components/home/Services";
-import LeadForm from "@/components/lead-form/LeadForm";
 import { getGalleryRooms } from "@/lib/supabase/gallery";
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ export default async function HomePage() {
   const galleryRooms = await getGalleryRooms();
 
   return (
-    <div style={{ background: "var(--color-bg)", color: "var(--color-text)", minHeight: "100vh" }}>
+    <div className="page-shell">
       <SiteNav page="home" />
 
       <ContactPopup />
@@ -30,30 +29,14 @@ export default async function HomePage() {
 
       <hr className="hr" style={{ margin: 0 }} />
 
-      <HowItWorks />
-
-      <hr className="hr" style={{ margin: 0 }} />
-
-      <section style={{ padding: "var(--space-8) var(--space-4)" }}>
-        <div style={{ maxWidth: 760 }}>
-          <LeadForm
-            kicker="Already have a look in mind?"
-            heading="Share your Pinterest link or reference photos."
-            subheading="We'll take it from there — manufacturing, fabrication and on-site construction, managed end to end."
-            submitLabel="Send it over"
-            showReference
-            source="home-pinterest-reference"
-          />
-        </div>
-      </section>
-
-      <hr className="hr" style={{ margin: 0 }} />
-
       <Services />
 
       <hr className="hr" style={{ margin: 0 }} />
 
-      <SiteFooter />
+      {/* Ends with the consultation form (inside HowItWorks), so the footer's
+          CTA banner would only repeat it. */}
+      <HowItWorks />
+      <SiteFooter showCta={false} />
     </div>
   );
 }

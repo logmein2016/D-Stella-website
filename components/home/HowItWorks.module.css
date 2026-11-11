@@ -1,5 +1,7 @@
 .section {
   padding: var(--space-8) var(--space-4);
+  max-width: var(--page-width);
+  margin: 0 auto;
 }
 
 .kicker {
@@ -117,8 +119,8 @@
 .footnote {
   margin-top: var(--space-6);
   text-align: center;
-  opacity: 0.5;
-  font-size: 12px;
+  opacity: 0.7;
+  font-size: 13.5px;
 }
 
 .contact {

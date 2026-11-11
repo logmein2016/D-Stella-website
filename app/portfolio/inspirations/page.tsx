@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function InspirationsPage() {
   return (
-    <div style={{ background: "var(--color-bg)", color: "var(--color-text)", minHeight: "100vh" }}>
+    <div className="page-shell">
       <SiteNav page="portfolio" />
 
       <section className={styles.section}>

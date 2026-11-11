@@ -159,7 +159,7 @@ export default function ContactForm() {
             style={{ justifyContent: "flex-start" }}
             disabled={state.sending}
           >
-            {state.sending ? "Sending…" : "Submit"}
+            {state.sending ? "Sending…" : "Book a free consultation"}
           </button>
           <span className={styles.reassurance}>Only phone number is required.</span>
         </div>

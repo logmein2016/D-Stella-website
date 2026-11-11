@@ -73,9 +73,13 @@ export default function Hero() {
           <br />
           Timeless Living.
         </h1>
+        <p className={styles.body}>
+          Complete interiors for Bangalore homes &mdash; designed by our team, built in our own
+          factory and installed by our crew, typically 40 days from design lock to handover.
+        </p>
         <div className={styles.ctaWrap}>
-          <Link href="/estimator" className={`btn btn-primary ${styles.cta}`}>
-            See your estimated price
+          <Link href="/contact" className={`btn btn-primary ${styles.cta}`}>
+            Book a free consultation
           </Link>
           <Link href="/portfolio" className={`btn btn-secondary ${styles.ctaSecondary}`}>
             View our work

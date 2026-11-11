@@ -51,7 +51,9 @@
   z-index: 3;
   display: flex;
   flex-direction: column;
-  padding: var(--space-6) var(--space-4) var(--space-8);
+  /* Anchored to the photo's left edge (not the centred page width). */
+  width: 100%;
+  padding: var(--space-6) clamp(16px, 4vw, 56px) clamp(48px, 7vw, 72px);
   gap: var(--space-3);
 }
 

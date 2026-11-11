@@ -1,6 +1,6 @@
 .section {
   padding: var(--space-8) var(--space-4) var(--space-6);
-  max-width: 1080px;
+  max-width: var(--page-width);
   margin: 0 auto;
 }
 
@@ -24,6 +24,7 @@
   color: var(--color-accent-700);
 }
 
+/* On phones the tabs scroll sideways in one line instead of wrapping. */
 .tabs {
   display: flex;
   flex-wrap: wrap;
@@ -54,17 +55,28 @@
   border-bottom-color: var(--color-accent);
 }
 
+/* Large photos: 3 per row on desktop, 2 on tablets, 1 on phones. */
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
   animation: fadeIn 0.3s ease both;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .photo {
   position: relative;
-  flex: 1 1 150px;
-  max-width: 210px;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -87,10 +99,10 @@
 
 .watermark {
   position: absolute;
-  bottom: 6px;
-  right: 6px;
-  width: 22px;
-  height: 22px;
+  bottom: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
   opacity: 0.65;
   pointer-events: none;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
@@ -226,5 +238,20 @@
   .lightboxNav {
     width: 40px;
     height: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    align-self: stretch;
+    margin: 0 calc(var(--space-4) * -1);
+    padding: 0 var(--space-4);
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
   }
 }

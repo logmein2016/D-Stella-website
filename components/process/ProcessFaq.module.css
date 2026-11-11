@@ -19,9 +19,9 @@
   cursor: pointer;
   text-align: left;
   padding: var(--space-4) 0;
-  font-family: var(--font-heading);
-  font-weight: var(--font-heading-weight);
-  font-size: 19px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 17px;
   color: var(--color-text);
 }
 

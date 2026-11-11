@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SiteNav from "@/components/layout/SiteNav";
 import SiteFooter from "@/components/layout/SiteFooter";
-import { PHONE_DISPLAY, SITE_NAME } from "@/lib/constants";
+import { PHONE_DISPLAY, PHONE_PRETTY, SITE_NAME } from "@/lib/constants";
 import styles from "../legal.module.css";
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div style={{ background: "var(--color-bg)", color: "var(--color-text)", minHeight: "100vh" }}>
+    <div className="page-shell">
       <SiteNav page="home" />
 
       <section className={styles.section}>
@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
         <p>
           You can ask us what information we hold about you, or ask us to correct or delete it, at
           any time by reaching out on WhatsApp/phone at{" "}
-          <a href={`tel:${PHONE_DISPLAY}`}>{PHONE_DISPLAY}</a> or through the{" "}
+          <a href={`tel:${PHONE_DISPLAY}`}>{PHONE_PRETTY}</a> or through the{" "}
           <a href="/contact">contact form</a>.
         </p>
 
@@ -80,7 +80,7 @@ export default function PrivacyPolicyPage() {
         <h2>Contact us</h2>
         <p>
           Questions about this policy? Reach us at{" "}
-          <a href={`tel:${PHONE_DISPLAY}`}>{PHONE_DISPLAY}</a> or via the{" "}
+          <a href={`tel:${PHONE_DISPLAY}`}>{PHONE_PRETTY}</a> or via the{" "}
           <a href="/contact">contact page</a>.
         </p>
       </section>

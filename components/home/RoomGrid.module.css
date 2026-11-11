@@ -1,5 +1,7 @@
 .section {
   padding: var(--space-8) var(--space-4);
+  max-width: var(--page-width);
+  margin: 0 auto;
 }
 
 .headRow {
@@ -17,6 +19,7 @@
   color: var(--color-accent-700);
 }
 
+/* On phones the tabs scroll sideways in one line instead of wrapping. */
 .tabs {
   display: flex;
   flex-wrap: wrap;
@@ -47,17 +50,16 @@
   border-bottom-color: var(--color-accent);
 }
 
+/* Four previews filling the full width (2x2 on phones). */
 .grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-4);
   margin-bottom: var(--space-6);
 }
 
 .photo {
   position: relative;
-  flex: 1 1 220px;
-  max-width: 280px;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -73,9 +75,24 @@
   width: fit-content;
 }
 
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+  }
+}
+
 @media (max-width: 640px) {
-  .photo {
-    flex-basis: 42%;
-    max-width: none;
+  .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    align-self: stretch;
+    margin: 0 calc(var(--space-4) * -1);
+    padding: 0 var(--space-4);
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
   }
 }
